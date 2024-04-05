@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="34.0" layoutY="21.0" text="DPI" />
+      <TextField layoutX="59.0" layoutY="17.0" prefHeight="26.0" prefWidth="185.0" />
+      <Label layoutX="252.0" layoutY="21.0" text="Fecha de Nacimiento:" />
+      <Label id="Lfecha" layoutX="380.0" layoutY="21.0" text="Fecha de Nacimiento" />
+      <Label layoutX="32.0" layoutY="56.0" text="Nombre completo:" />
+      <Label id="Lfecha" layoutX="160.0" layoutY="56.0" prefHeight="18.0" prefWidth="430.0" text="nombre" />
+      <Label layoutX="34.0" layoutY="74.0" text="Estado Civil:" />
+      <Label id="Lfecha" layoutX="115.0" layoutY="73.0" prefHeight="18.0" prefWidth="430.0" text="Estado Civil" />
+      <Label layoutX="441.0" layoutY="107.0" text="Detalles" />
+      <TextArea layoutX="339.0" layoutY="137.0" prefHeight="248.0" prefWidth="246.0" />
+      <Label layoutX="23.0" layoutY="128.0" text="tipo" />
+      <ComboBox layoutX="66.0" layoutY="124.0" prefWidth="150.0" />
+      <Label layoutX="18.0" layoutY="160.0" text="Costo" />
+      <ComboBox layoutX="66.0" layoutY="156.0" prefWidth="150.0" />
+      <TextField layoutX="67.0" layoutY="187.0" />
+      <Label layoutX="10.0" layoutY="191.0" text="Adelanto" />
+      <Label layoutX="10.0" layoutY="227.0" text="Saldo Pendiente" />
+      <TextField layoutX="115.0" layoutY="223.0" />
+      <Label layoutX="15.0" layoutY="274.0" text="Estado del proceso" />
+      <ComboBox layoutX="132.0" layoutY="270.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
