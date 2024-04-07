@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
    <children>
-      <Button id="BiniciarSecion" layoutX="87.0" layoutY="263.0" mnemonicParsing="false" text="Iniciar secion" />
+      <Button layoutX="87.0" layoutY="263.0" mnemonicParsing="false" onAction="#iniciarSecion" text="Iniciar secion" />
       <Label layoutX="108.0" layoutY="124.0" text="Usuario" />
       <Label layoutX="101.0" layoutY="191.0" text="contraseña" />
-      <PasswordField id="TFpasword" layoutX="56.0" layoutY="221.0" />
-      <TextField id="TFuser" layoutX="54.0" layoutY="153.0" />
+      <PasswordField fx:id="TFpasword" layoutX="56.0" layoutY="221.0" />
+      <TextField fx:id="TFuser" layoutX="54.0" layoutY="153.0" />
       <Label id="TFpicturLogin" layoutX="285.0" prefHeight="400.0" prefWidth="314.0" text="Iniciar secion" />
       <Label layoutX="94.0" layoutY="28.0" text="Iniciar secion" />
    </children>
