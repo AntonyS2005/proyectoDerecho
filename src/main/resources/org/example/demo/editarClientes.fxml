@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+      <Button layoutX="583.0" layoutY="164.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+      <Button id="Bregestrar" layoutX="509.0" layoutY="164.0" mnemonicParsing="false" text="Eliminar" />
+      <Button id="Bregestrar" layoutX="432.0" layoutY="164.0" mnemonicParsing="false" text="Guardad" />
+      <DatePicker id="TFfecha" layoutX="463.0" layoutY="89.0" prefHeight="26.0" prefWidth="194.0" />
+      <Label layoutX="341.0" layoutY="94.0" text="Fecha de Nacimiento" />
+      <TextField id="TFnumero" layoutX="413.0" layoutY="124.0" prefHeight="26.0" prefWidth="235.0" />
+      <Label layoutX="353.0" layoutY="129.0" text="Numero" />
+      <Label layoutX="27.0" layoutY="165.0" text="Estado Civil" />
+      <ChoiceBox id="TestadoCivil" layoutX="109.0" layoutY="163.0" prefHeight="26.0" prefWidth="226.0" />
+      <TextField id="TFapellido" layoutX="99.0" layoutY="89.0" prefHeight="26.0" prefWidth="235.0" />
+      <TextField id="TFnombres" layoutX="99.0" layoutY="125.0" prefHeight="26.0" prefWidth="235.0" />
+      <Label layoutX="27.0" layoutY="91.0" text="Nombres" />
+      <Label layoutX="27.0" layoutY="127.0" text="Apellidos" />
+      <Label layoutX="64.0" layoutY="22.0" prefHeight="39.0" prefWidth="188.0" text="Buscar por DPI">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField layoutX="264.0" layoutY="14.0" prefHeight="39.0" prefWidth="443.0" promptText="Buscar por DPI">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </TextField>
+      <TableView layoutX="14.0" layoutY="247.0" prefHeight="308.0" prefWidth="752.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <columns>
+          <TableColumn prefWidth="195.19997787475586" text="Nombres" />
+          <TableColumn minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
+            <TableColumn prefWidth="113.5999755859375" text="Estado civil" />
+            <TableColumn prefWidth="114.4000244140625" text="Numero" />
+            <TableColumn prefWidth="136.7999267578125" text="Fecha de nacimiento" />
+        </columns>
+      </TableView>
+      <Label layoutX="327.0" layoutY="199.0" prefHeight="39.0" prefWidth="96.0" text="Clientes">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

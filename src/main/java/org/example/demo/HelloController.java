@@ -76,7 +76,7 @@ public class HelloController {
   }
 
   public void openEdPr(ActionEvent event) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editarProcesos.fxml"));
+    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("editarCasos.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
     stage.setTitle("Editar Casos");

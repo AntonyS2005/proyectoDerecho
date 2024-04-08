@@ -13,7 +13,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="394.0">
          <children>
-            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="477.0" prefWidth="354.0">
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="477.0" prefWidth="354.0">
                <children>
                   <TextField id="TFdpi" layoutX="66.0" layoutY="93.0" prefHeight="26.0" prefWidth="235.0" />
                   <TextField id="TFnombres" layoutX="66.0" layoutY="137.0" prefHeight="26.0" prefWidth="235.0" />
