@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="394.0">
          <children>
@@ -29,6 +29,7 @@
                   <ChoiceBox id="TestadoCivil" layoutX="62.0" layoutY="239.0" prefHeight="26.0" prefWidth="243.0" />
                   <Label layoutX="162.0" layoutY="265.0" text="Numero" />
                   <TextField id="TFnumero" layoutX="66.0" layoutY="283.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Button layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
                </children></AnchorPane>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

@@ -8,11 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <AnchorPane prefHeight="398.0" prefWidth="296.0" />
+            <AnchorPane prefHeight="398.0" prefWidth="296.0">
+               <children>
+                  <Button layoutX="124.0" layoutY="334.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+               </children></AnchorPane>
             <Button layoutX="100.0" layoutY="303.0" mnemonicParsing="false" text="registrar usuario" />
             <TextField layoutX="77.0" layoutY="184.0" />
             <PasswordField layoutX="77.0" layoutY="257.0" />

@@ -19,9 +19,9 @@ public class Conexion
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       conectar = DriverManager.getConnection(cadena,user,password);
-    JOptionPane.showMessageDialog(null,"conectada");
+    //JOptionPane.showMessageDialog(null,"conectada");
     }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al conectarse a la base de datos,erro:"+e);
+      JOptionPane.showMessageDialog(null,"error al conectarse a la base de datos,erro:");
     }
     return  conectar;
   }
