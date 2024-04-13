@@ -21,7 +21,7 @@ public class HelloController {
   public void iniciarSecion(ActionEvent event) {
     String user = TFuser.getText();
     String password = TFpasword.getText();
-    String sql = "SELECT * FROM `usuarios` WHERE usuario='" + user + "'";
+    String sql = "SELECT * FROM `registro_de_casos` WHERE estado='pendiente'";
     try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();

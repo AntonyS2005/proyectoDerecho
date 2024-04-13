@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -18,14 +20,16 @@
             <Font size="46.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="203.0" layoutY="1.0" prefHeight="400.0" prefWidth="394.0">
+      <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
          <children>
-            <Label layoutX="-2.0" layoutY="147.0" prefHeight="70.0" prefWidth="394.0" text="notificaciones">
-               <font>
-                  <Font size="63.0" />
-               </font>
-            </Label>
+            <TableView layoutY="7.0" prefHeight="327.0" prefWidth="258.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="cliente" />
+                <TableColumn prefWidth="75.0" text="detalle" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
+      <Button layoutX="43.0" layoutY="344.0" mnemonicParsing="false" text="pendientes" />
    </children>
 </AnchorPane>
