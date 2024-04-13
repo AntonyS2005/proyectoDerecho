@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2024 a las 07:33:24
+-- Tiempo de generación: 13-04-2024 a las 18:30:27
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectoderecho`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `audiencias`
+--
+
+CREATE TABLE `audiencias` (
+  `id_audiencia` int(11) NOT NULL,
+  `dpi` int(11) NOT NULL,
+  `ubicacion_de_la_audiencia` varchar(220) DEFAULT NULL,
+  `fecha_de_audiencia` varchar(20) DEFAULT NULL,
+  `hora_de_la_audiencia` varchar(30) DEFAULT NULL,
+  `detalles` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -90,6 +105,13 @@ INSERT INTO `usuarios` (`id_user`, `usuario`, `contrasena`) VALUES
 --
 
 --
+-- Indices de la tabla `audiencias`
+--
+ALTER TABLE `audiencias`
+  ADD PRIMARY KEY (`id_audiencia`),
+  ADD KEY `dpi` (`dpi`);
+
+--
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -99,7 +121,8 @@ ALTER TABLE `clientes`
 -- Indices de la tabla `registro_de_casos`
 --
 ALTER TABLE `registro_de_casos`
-  ADD PRIMARY KEY (`id_caso`);
+  ADD PRIMARY KEY (`id_caso`),
+  ADD KEY `id_cliente` (`id_cliente`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -112,6 +135,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `audiencias`
+--
+ALTER TABLE `audiencias`
+  MODIFY `id_audiencia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `registro_de_casos`
 --
 ALTER TABLE `registro_de_casos`
@@ -122,6 +151,22 @@ ALTER TABLE `registro_de_casos`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `audiencias`
+--
+ALTER TABLE `audiencias`
+  ADD CONSTRAINT `audiencias_ibfk_1` FOREIGN KEY (`dpi`) REFERENCES `clientes` (`dpi`);
+
+--
+-- Filtros para la tabla `registro_de_casos`
+--
+ALTER TABLE `registro_de_casos`
+  ADD CONSTRAINT `registro_de_casos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`dpi`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
