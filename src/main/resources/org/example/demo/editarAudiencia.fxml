@@ -9,11 +9,10 @@
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
    <children>
       <Button layoutX="106.0" layoutY="274.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="92.0" text="Editar" />
-      <Button layoutX="311.0" layoutY="275.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="41.0" prefWidth="92.0" text="Menu" />
+      <Button layoutX="452.0" layoutY="275.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="41.0" prefWidth="92.0" text="Menu" />
       <DatePicker layoutX="204.0" layoutY="185.0" />
       <Label layoutX="50.0" layoutY="198.0" text="Fecha de la audiencia" />
       <TextField layoutX="204.0" layoutY="145.0" />
