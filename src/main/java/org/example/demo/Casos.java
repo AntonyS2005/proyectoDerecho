@@ -16,7 +16,15 @@ public class Casos {
     this.costo = costo;
     this.saldoPendiente = saldoPendiente;
     this.estadoDelProceso = estadoDelProceso;
-    Detalles = detalles;
+    this.Detalles = detalles;
+  }
+  public Casos(String tipo, String costo, String saldoPendiente, String estadoDelProceso, String detalles) {
+    this.tipo = tipo;
+    this.cliente = cliente;
+    this.costo = costo;
+    this.saldoPendiente = saldoPendiente;
+    this.estadoDelProceso = estadoDelProceso;
+    this.Detalles = detalles;
   }
 
   public String getCliente() {
