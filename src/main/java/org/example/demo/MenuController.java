@@ -21,7 +21,7 @@ public class MenuController {
   public void iniciarSecion(ActionEvent event) {
     String user = TFuser.getText();
     String password = TFpasword.getText();
-    String sql = "SELECT * FROM `usuarios`";
+    String sql = "SELECT * FROM `usuarios` WHERE usuario='"+user+"'";
     try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();

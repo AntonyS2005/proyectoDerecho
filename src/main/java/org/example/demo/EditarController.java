@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -20,7 +21,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class CasosController implements Initializable {
+public class EditarController implements Initializable {
+  @FXML private TextField TFdpi;
   @FXML
   private TableView<Casos> Tcasos;
   @FXML
@@ -46,32 +48,69 @@ public class CasosController implements Initializable {
     stage.show();
   }
 
-  @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
-    String sql = "SELECT * FROM `registro_de_casos`";
+  public  void busPorDPIcasos(){
+    items.clear();
+    String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
+            " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"+TFdpi.getText()+"';";
     try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
       String cliente,tipo,costo,saldoPendiente,estado,detalles;
       while(rs.next()) {
-        tipo=rs.getString(1).trim();
-        costo=rs.getString(2).trim();
-        saldoPendiente=rs.getString(4).trim();
-        detalles=rs.getString(3).trim();
-        estado=rs.getString(5).trim();
+        tipo=rs.getString(2).trim();
+        costo=rs.getString(3).trim();
+        saldoPendiente=rs.getString(5).trim();
+        detalles=rs.getString(4).trim();
+        estado=rs.getString(6).trim();
+        cliente=rs.getString(8).trim();
         this.Ccliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
         this.Ctipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         this.Ccosto.setCellValueFactory(new PropertyValueFactory<>("costo"));
         this.Cdetalles.setCellValueFactory(new PropertyValueFactory<>("Detalles"));
         this.CsaldoPendiente.setCellValueFactory(new PropertyValueFactory<>("saldoPendiente"));
         this.Cestado.setCellValueFactory(new PropertyValueFactory<>("estadoDelProceso"));
-        items.add(new Casos(tipo,"antony",costo,saldoPendiente,estado,detalles));
+        items.add(new Casos(cliente,tipo,costo,saldoPendiente,estado,detalles));
+        this.Tcasos.setItems(items);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null,e);
+    }
+  }
+
+  public void tablaCasos(){
+    String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
+            " clientes ON registro_de_casos.id_cliente = clientes.dpi;";
+    try {
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String cliente,tipo,costo,saldoPendiente,estado,detalles;
+      while(rs.next()) {
+        tipo=rs.getString(2).trim();
+        costo=rs.getString(3).trim();
+        saldoPendiente=rs.getString(5).trim();
+        detalles=rs.getString(4).trim();
+        estado=rs.getString(6).trim();
+        cliente=rs.getString(8).trim();
+        this.Ccliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        this.Ctipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        this.Ccosto.setCellValueFactory(new PropertyValueFactory<>("costo"));
+        this.Cdetalles.setCellValueFactory(new PropertyValueFactory<>("Detalles"));
+        this.CsaldoPendiente.setCellValueFactory(new PropertyValueFactory<>("saldoPendiente"));
+        this.Cestado.setCellValueFactory(new PropertyValueFactory<>("estadoDelProceso"));
+        items.add(new Casos(cliente,tipo,costo,saldoPendiente,estado,detalles));
         this.Tcasos.setItems(items);
       }
       st.close();
       rs.close();}catch(Exception e) {
       JOptionPane.showMessageDialog(null, "error al conectar");
     }
+  }
+
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    if(Tcasos != null){tablaCasos();}
   }
 }
