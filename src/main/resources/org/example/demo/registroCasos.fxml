@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
    <children>
       <Label layoutX="44.0" layoutY="31.0" text="DPI" />
-      <TextField layoutX="69.0" layoutY="27.0" prefHeight="26.0" prefWidth="185.0" />
+      <TextField fx:id="TFdpi" layoutX="69.0" layoutY="27.0" onKeyReleased="#regCaBusDpi" prefHeight="26.0" prefWidth="185.0" />
       <Label layoutX="262.0" layoutY="31.0" text="Fecha de Nacimiento:" />
-      <Label id="Lfecha" layoutX="390.0" layoutY="31.0" text="Fecha de Nacimiento" />
+      <Label id="Lfecha" fx:id="LfechaNacimiento" layoutX="390.0" layoutY="31.0" text="Fecha de Nacimiento" />
       <Label layoutX="42.0" layoutY="66.0" text="Nombre completo:" />
-      <Label id="Lfecha" layoutX="170.0" layoutY="66.0" prefHeight="18.0" prefWidth="430.0" text="nombre" />
+      <Label id="Lfecha" fx:id="Lname" layoutX="170.0" layoutY="66.0" prefHeight="18.0" prefWidth="430.0" text="nombre" />
       <Label layoutX="44.0" layoutY="84.0" text="Estado Civil:" />
-      <Label id="Lfecha" layoutX="125.0" layoutY="83.0" prefHeight="18.0" prefWidth="430.0" text="Estado Civil" />
-      <Label layoutX="451.0" layoutY="117.0" text="Detalles" />
-      <TextArea layoutX="349.0" layoutY="147.0" prefHeight="248.0" prefWidth="246.0" />
+      <Label id="Lfecha" fx:id="LestadoCivil" layoutX="125.0" layoutY="83.0" prefHeight="18.0" prefWidth="430.0" text="Estado Civil" />
+      <Label layoutX="412.0" layoutY="93.0" text="Detalles" />
+      <TextArea fx:id="TAdetalles" layoutX="323.0" layoutY="109.0" prefHeight="248.0" prefWidth="246.0" />
       <Label layoutX="33.0" layoutY="138.0" text="tipo" />
-      <ComboBox layoutX="76.0" layoutY="134.0" prefWidth="150.0" />
       <Label layoutX="28.0" layoutY="170.0" text="Costo" />
-      <ComboBox layoutX="76.0" layoutY="166.0" prefWidth="150.0" />
-      <TextField layoutX="77.0" layoutY="197.0" />
+      <TextField fx:id="TFadelanto" layoutX="86.0" layoutY="197.0" onKeyReleased="#calcularSaldoPendiente" onMouseExited="#calcularSaldoPendiente" />
       <Label layoutX="20.0" layoutY="201.0" text="Adelanto" />
       <Label layoutX="20.0" layoutY="237.0" text="Saldo Pendiente" />
-      <TextField layoutX="125.0" layoutY="233.0" />
       <Label layoutX="25.0" layoutY="284.0" text="Estado del proceso" />
-      <ComboBox layoutX="142.0" layoutY="280.0" prefWidth="150.0" />
-      <Button layoutX="31.0" layoutY="370.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+      <Button layoutX="54.0" layoutY="342.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+      <TextField fx:id="TFcosto" layoutX="86.0" layoutY="166.0" onKeyReleased="#calcularSaldoPendiente" />
+      <ChoiceBox fx:id="CBestadoProceso" layoutX="151.0" layoutY="281.0" prefWidth="150.0" />
+      <Button layoutX="144.0" layoutY="345.0" mnemonicParsing="false" onAction="#guardarCaso" text="guardar" />
+      <Label id="Lfecha" fx:id="LsaldoPendiente" layoutX="125.0" layoutY="237.0" prefHeight="18.0" prefWidth="175.0" />
+      <TextField fx:id="TFtipo" layoutX="86.0" layoutY="134.0" onKeyReleased="#calcularSaldoPendiente" />
    </children>
 </AnchorPane>

@@ -9,26 +9,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.HelloController">
+<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="394.0">
          <children>
-            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="477.0" prefWidth="354.0">
+            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="477.0" prefWidth="354.0">
                <children>
-                  <TextField id="TFdpi" layoutX="66.0" layoutY="93.0" prefHeight="26.0" prefWidth="235.0" />
-                  <TextField id="TFnombres" layoutX="66.0" layoutY="137.0" prefHeight="26.0" prefWidth="235.0" />
+                  <TextField id="TFdpi" fx:id="TFdpi" layoutX="66.0" layoutY="93.0" prefHeight="26.0" prefWidth="235.0" />
+                  <TextField id="TFnombres" fx:id="TFname" layoutX="66.0" layoutY="137.0" prefHeight="26.0" prefWidth="235.0" />
                   <Label layoutX="159.0" layoutY="119.0" text="Nombres" />
-                  <TextField id="TFapellido" layoutX="66.0" layoutY="190.0" prefHeight="26.0" prefWidth="235.0" />
+                  <TextField id="TFapellido" fx:id="TFlastName" layoutX="66.0" layoutY="190.0" prefHeight="26.0" prefWidth="235.0" />
                   <Label layoutX="159.0" layoutY="172.0" text="Apellidos" />
                   <Label layoutX="128.0" layoutY="332.0" text="Fecha de Nacimiento" />
-                  <DatePicker id="TFfecha" layoutX="66.0" layoutY="360.0" prefHeight="26.0" prefWidth="235.0" />
+                  <DatePicker id="TFfecha" fx:id="DPcalendar" layoutX="66.0" layoutY="360.0" prefHeight="26.0" prefWidth="235.0" />
                   <Label layoutX="175.0" layoutY="64.0" text="dpi" />
-                  <Button id="Bregestrar" layoutX="152.0" layoutY="415.0" mnemonicParsing="false" text="Registrar" />
+                  <Button id="Bregestrar" layoutX="152.0" layoutY="415.0" mnemonicParsing="false" onAction="#registrarCliente" text="Registrar" />
                   <Label layoutX="120.0" layoutY="5.0" text="Registro de los usuarios" />
                   <Label layoutX="153.0" layoutY="216.0" text="Estado Civil" />
-                  <ChoiceBox id="TestadoCivil" layoutX="62.0" layoutY="239.0" prefHeight="26.0" prefWidth="243.0" />
+                  <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="62.0" layoutY="239.0" prefHeight="26.0" prefWidth="243.0" />
                   <Label layoutX="162.0" layoutY="265.0" text="Numero" />
-                  <TextField id="TFnumero" layoutX="66.0" layoutY="283.0" prefHeight="26.0" prefWidth="235.0" />
+                  <TextField id="TFnumero" fx:id="TFnumber" layoutX="66.0" layoutY="283.0" prefHeight="26.0" prefWidth="235.0" />
                   <Button layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
                </children></AnchorPane>
          </children></AnchorPane>

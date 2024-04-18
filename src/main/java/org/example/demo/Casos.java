@@ -8,15 +8,13 @@ public class Casos {
   private String estadoDelProceso;
   private String Detalles;
 
-  public Casos() {}
-
-  public Casos(String tipo, String cliente, String costo, String saldoPendiente, String estadoDelProceso, String detalles) {
-    this.tipo = tipo;
-    this.cliente = cliente;
-    this.costo = costo;
-    this.saldoPendiente = saldoPendiente;
-    this.estadoDelProceso = estadoDelProceso;
-    Detalles = detalles;
+  public Casos(String cliente,String tipo,String costo,String saldoPendiente,String estadoDelProceso,String detalles) {
+    this.cliente=cliente;
+    this.tipo=tipo;
+    this.costo=costo;
+    this.saldoPendiente=saldoPendiente;
+    this.estadoDelProceso=estadoDelProceso;
+    this.Detalles=detalles;
   }
 
   public String getCliente() {
