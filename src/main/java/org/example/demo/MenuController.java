@@ -3,19 +3,24 @@ package org.example.demo;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.*;
 import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class MenuController {
+public class MenuController implements Initializable{
   @FXML
   private TextField TFuser;
   @FXML
   private PasswordField TFpasword;
+  @FXML private Label Lmenu;
+
 
 
   public void iniciarSecion(ActionEvent event) {
@@ -88,4 +93,9 @@ public class MenuController {
     stage.show();
   }
 
-}
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    Lmenu.setStyle("-fx-font-family: 'Jersey10Charted-Regular';");
+    }
+  }
+

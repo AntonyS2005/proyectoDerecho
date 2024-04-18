@@ -153,6 +153,7 @@ public class RegistrosController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     if(CBestadoCivil !=null){
       CBestadoCivil.getItems().addAll(estadoCivilArray);
+
     }
     if(CBestadoProceso !=null){
       CBestadoProceso.getItems().addAll(estadoProceso);
