@@ -19,7 +19,6 @@ public class MenuController implements Initializable{
   private TextField TFuser;
   @FXML
   private PasswordField TFpasword;
-  @FXML private Label Lmenu;
 
 
 
@@ -39,7 +38,7 @@ public class MenuController implements Initializable{
         if ((Objects.equals(userBD, TFuser.getText())) & (Objects.equals(TFpasword.getText(), passwordBD))) {
           conexion.desconectarConexion();
           st.close();
-          openFXML("menuPrincipal","menu",event);
+          openFXML("menuPrincipal","menu",event,null);
         } else {
           JOptionPane.showMessageDialog(null, "la contraseña es incorrecta");
         }
@@ -56,46 +55,52 @@ public class MenuController implements Initializable{
   }
 
   public void openEdUs(ActionEvent event) throws IOException {
-    openFXML("editarUsuarios","Editar usuarios",event);
+    //el ultimo dato es el nombre del css te los deje en null por que como no se si vas a usar
+    //el mismo de menu.css o otro pero de hay solo escribre el nombre del archivo sin agregar .css
+    //ya lo programe yo para que te lo agregue solo
+    openFXML("editarUsuarios","Editar usuarios",event,"menu");
   }
 
   public void openEdCl(ActionEvent event) throws IOException {
-    openFXML("editarClientes","Editar clientes",event);
+    openFXML("editarClientes","Editar clientes",event,null);
   }
 
   public void openEdPr(ActionEvent event) throws IOException {
-    openFXML("editarCasos","Editar casos",event);
+    openFXML("editarCasos","Editar casos",event,null);
   }
 
   public void openReUs(ActionEvent event) throws IOException {
-    openFXML("registroUsuario","Registro de usuarios",event);
+    openFXML("registroUsuario","Registro de usuarios",event,null);
   }
 
   public void openReCl(ActionEvent event) throws IOException {
-    openFXML("registroClientes","Registro de clientes",event);
+    openFXML("registroClientes","Registro de clientes",event,null);
   }
 
   public void openRePr(ActionEvent event) throws IOException {
-    openFXML("registroCasos","Registro de casos",event);
+    openFXML("registroCasos","Registro de casos",event,null);
   }
 
   public void openMainMenu(ActionEvent event) throws IOException {
-    openFXML("menuPrincipal","Menu principal",event);
+    openFXML("menuPrincipal","Menu principal",event,null);
   }
 
-  public void openFXML(String fxml,String title,ActionEvent event) throws IOException{
+  public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
     fxml=fxml+".fxml";
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
     stage.setTitle(title);
+    if(nombreDelCSS != null){
+      nombreDelCSS+=".css";
+      String css = this.getClass().getResource(nombreDelCSS).toExternalForm();
+      scene.getStylesheets().add(css);}
     stage.setScene(scene);
     stage.show();
   }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    Lmenu.setStyle("-fx-font-family: 'Jersey10Charted-Regular';");
     }
   }
 
