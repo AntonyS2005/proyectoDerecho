@@ -15,7 +15,7 @@
       <Button layoutX="33.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="26.0" prefWidth="122.0" text="registro de clientes " />
       <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="26.0" prefWidth="122.0" text="registro de casos" />
       <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" onAction="#openReUs" text="registro de usuarios" />
-      <Label layoutX="32.0" layoutY="40.0" prefHeight="18.0" prefWidth="122.0" text="menu">
+      <Label fx:id="Lmenu" layoutX="32.0" layoutY="40.0" prefHeight="18.0" prefWidth="122.0" text="menu">
          <font>
             <Font size="46.0" />
          </font>

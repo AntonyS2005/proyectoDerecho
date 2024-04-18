@@ -8,9 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -23,21 +21,22 @@ import java.util.ResourceBundle;
 
 public class EditarController implements Initializable {
   @FXML private TextField TFdpi;
-  @FXML
-  private TableView<Casos> Tcasos;
-  @FXML
-  private TableColumn<Casos,String> Ccliente;
-  @FXML
-  private TableColumn<Casos,String> Ctipo;
-  @FXML
-  private TableColumn<Casos,String> Ccosto;
-  @FXML
-  private TableColumn<Casos,String> CsaldoPendiente;
-  @FXML
-  private TableColumn<Casos,String> Cestado;
-  @FXML
-  private TableColumn<Casos,String> Cdetalles;
+  @FXML private Label Lcliente;
+  @FXML private TextField TFtipo;
+  @FXML private TextField TFcosto;
+  @FXML private TextField TFadelanto;
+  @FXML private Label LsaldoPendiente;
+  @FXML private ChoiceBox CBestadoProceso;
+  @FXML private TextArea TAdetalles;
+  @FXML private TableView<Casos> Tcasos;
+  @FXML private TableColumn<Casos,String> Ccliente;
+  @FXML private TableColumn<Casos,String> Ctipo;
+  @FXML private TableColumn<Casos,String> Ccosto;
+  @FXML private TableColumn<Casos,String> CsaldoPendiente;
+  @FXML private TableColumn<Casos,String> Cestado;
+  @FXML private TableColumn<Casos,String> Cdetalles;
   private ObservableList<Casos> items= FXCollections.observableArrayList();
+  private String[] estadoProceso= {"pendiente","finalizado"};
 
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
@@ -49,6 +48,12 @@ public class EditarController implements Initializable {
   }
 
   public  void busPorDPIcasos(){
+    Lcliente.setText("");
+    TFtipo.setText("");
+    TFcosto.setText("");
+    LsaldoPendiente.setText("");
+    CBestadoProceso.setValue("");
+    TAdetalles.setText("");
     items.clear();
     String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
             " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"+TFdpi.getText()+"';";
@@ -109,8 +114,34 @@ public class EditarController implements Initializable {
     }
   }
 
+  public void getSelecDate(){
+    Tcasos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+      if (newSelection != null) {
+        // Obtener el valor de la columna "Ccliente" de la fila seleccionada
+        String cliente,tipo,costo,saldoPendiente,estado,detalle;
+                cliente = Ccliente.getCellData(newSelection).toString();
+                tipo = Ctipo.getCellData(newSelection).toString();
+                costo = Ccosto.getCellData(newSelection).toString();
+                saldoPendiente = CsaldoPendiente.getCellData(newSelection).toString();
+                estado = Cestado.getCellData(newSelection).toString();
+                detalle = Cdetalles.getCellData(newSelection).toString();
+
+        // Mostrar el dato en el TextField
+        Lcliente.setText(cliente);
+        TFtipo.setText(tipo);
+        TFcosto.setText(costo);
+        LsaldoPendiente.setText(saldoPendiente);
+        CBestadoProceso.setValue(estado);
+        TAdetalles.setText(detalle);
+      }
+    });
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    if(Tcasos != null){tablaCasos();}
+    if(Tcasos != null){
+      tablaCasos();
+      CBestadoProceso.getItems().addAll(estadoProceso);
+    }
   }
 }

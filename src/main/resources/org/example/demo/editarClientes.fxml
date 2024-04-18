@@ -15,7 +15,7 @@
       <Button layoutX="583.0" layoutY="164.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
       <Button id="Bregestrar" layoutX="509.0" layoutY="164.0" mnemonicParsing="false" text="Eliminar" />
       <Button id="Bregestrar" layoutX="432.0" layoutY="164.0" mnemonicParsing="false" text="Guardad" />
-      <DatePicker id="TFfecha" layoutX="463.0" layoutY="89.0" prefHeight="26.0" prefWidth="194.0" />
+      <DatePicker id="TFfecha" layoutX="474.0" layoutY="87.0" prefHeight="26.0" prefWidth="194.0" />
       <Label layoutX="341.0" layoutY="94.0" text="Fecha de Nacimiento" />
       <TextField id="TFnumero" layoutX="413.0" layoutY="124.0" prefHeight="26.0" prefWidth="235.0" />
       <Label layoutX="353.0" layoutY="129.0" text="Numero" />
@@ -37,11 +37,11 @@
       </TextField>
       <TableView layoutX="14.0" layoutY="247.0" prefHeight="308.0" prefWidth="752.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <columns>
-          <TableColumn prefWidth="195.19997787475586" text="Nombres" />
-          <TableColumn minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
-            <TableColumn prefWidth="113.5999755859375" text="Estado civil" />
-            <TableColumn prefWidth="114.4000244140625" text="Numero" />
-            <TableColumn prefWidth="136.7999267578125" text="Fecha de nacimiento" />
+          <TableColumn fx:id="Cname" prefWidth="195.19997787475586" text="Nombres" />
+          <TableColumn fx:id="ClastName" minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
+            <TableColumn fx:id="CestadoCivil" prefWidth="113.5999755859375" text="Estado civil" />
+            <TableColumn fx:id="Cnumber" prefWidth="114.4000244140625" text="Numero" />
+            <TableColumn fx:id="Cdate" prefWidth="136.7999267578125" text="Fecha de nacimiento" />
         </columns>
       </TableView>
       <Label layoutX="327.0" layoutY="199.0" prefHeight="39.0" prefWidth="96.0" text="Clientes">
