@@ -9,10 +9,30 @@ import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class HelloController {
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+
+public class HelloController implements Initializable{
+  @FXML
+  private TableColumn<?, ?> columDetalle;
+
+  @FXML
+  private TableColumn<?, ?> columName;
+
+  @FXML
+  private TableColumn<?, ?> columTipoCaso;
+
+  @FXML
+  private TableView<?> tablaNoti;
+
   @FXML
   private TextField TFuser;
   @FXML
@@ -120,4 +140,34 @@ public class HelloController {
     stage.show();
   }
 
+
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void openEdPr(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openEdUs(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openReCl(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openRePr(ActionEvent event) {
+
+    }
+
+    @FXML
+    void openReUs(ActionEvent event) {
+
+    }
+
+
+  }
 }
