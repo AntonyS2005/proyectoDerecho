@@ -9,36 +9,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="633.0" prefWidth="822.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
    <children>
-      <Button layoutX="144.0" layoutY="191.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="55.0" prefWidth="158.0" text="menu" />
-      <Button layoutX="331.0" layoutY="191.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="158.0" text="guardar" />
+      <Button layoutX="144.0" layoutY="211.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" textFill="#c69729">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="15.0" />
+         </font></Button>
+      <Button layoutX="331.0" layoutY="211.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" text="Guardar" textFill="#c69729">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="15.0" />
+         </font></Button>
       <TextField layoutX="168.0" layoutY="66.0" prefHeight="46.0" prefWidth="612.0">
          <font>
-            <Font size="21.0" />
+            <Font name="Book Antiqua Italic" size="20.0" />
          </font>
       </TextField>
       <PasswordField layoutX="168.0" layoutY="135.0" prefHeight="46.0" prefWidth="612.0">
          <font>
-            <Font size="21.0" />
+            <Font name="Book Antiqua Italic" size="20.0" />
          </font>
       </PasswordField>
-      <Label layoutX="19.0" layoutY="70.0" text="Usuario">
+      <Label layoutX="16.0" layoutY="72.0" text="Usuario" textFill="#bca875">
          <font>
-            <Font size="26.0" />
+            <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="138.0" text="Contraseña">
+      <Label layoutX="15.0" layoutY="138.0" text="Contraseña" textFill="#bca875">
          <font>
-            <Font size="27.0" />
+            <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="328.0" layoutY="14.0" text="Editar Usuarios">
+      <Label layoutX="303.0" layoutY="14.0" text="Editar Usuarios" textFill="#c9a551">
          <font>
-            <Font size="25.0" />
+            <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="510.0" layoutY="191.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="158.0" text="Eliminar" />
+      <Button layoutX="510.0" layoutY="211.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" text="Eliminar" textFill="#c69729">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="15.0" />
+         </font></Button>
       <TableView layoutX="11.2" layoutY="285.0" prefHeight="358.0" prefWidth="801.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
         <columns>
           <TableColumn prefWidth="383.1999931335449" text="Usuario" />
