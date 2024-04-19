@@ -80,6 +80,9 @@ public class MenuController {
   public void openAu(ActionEvent event) throws IOException {
       openFXML("agregarAudiencia", "agregar audiencia",event);
   }
+  public void openEdAud(ActionEvent event) throws IOException {
+    openFXML("editarAudiencia", "editar audiencia", event);
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event) throws IOException{
     fxml=fxml+".fxml";

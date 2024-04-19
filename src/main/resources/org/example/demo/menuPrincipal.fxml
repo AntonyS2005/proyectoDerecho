@@ -9,13 +9,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
    <children>
-      <Button layoutX="33.0" layoutY="287.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="26.0" prefWidth="122.0" text="editar clientes" />
-      <Button layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="26.0" prefWidth="121.0" text="editar caso" />
-      <Button layoutX="33.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="26.0" prefWidth="122.0" text="editar usuarios" />
-      <Button layoutX="33.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="26.0" prefWidth="122.0" text="registro de clientes " />
-      <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="26.0" prefWidth="122.0" text="registro de casos" />
-      <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" onAction="#openReUs" text="registro de usuarios" />
-      <Label layoutX="32.0" layoutY="40.0" prefHeight="18.0" prefWidth="122.0" text="menu">
+      <Button layoutX="35.0" layoutY="247.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="26.0" prefWidth="122.0" text="editar clientes" />
+      <Button layoutX="35.0" layoutY="212.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="26.0" prefWidth="121.0" text="editar caso" />
+      <Button layoutX="34.0" layoutY="178.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="26.0" prefWidth="122.0" text="editar usuarios" />
+      <Button layoutX="34.0" layoutY="108.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="26.0" prefWidth="122.0" text="registro de clientes " />
+      <Button layoutX="34.0" layoutY="74.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="26.0" prefWidth="122.0" text="registro de casos" />
+      <Button layoutX="35.0" layoutY="142.0" mnemonicParsing="false" onAction="#openReUs" text="registro de usuarios" />
+      <Label layoutX="34.0" layoutY="6.0" prefHeight="18.0" prefWidth="122.0" text="menu">
          <font>
             <Font size="46.0" />
          </font>
@@ -37,6 +37,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="43.0" layoutY="344.0" mnemonicParsing="false" text="pendientes" />
+      <Button layoutX="58.0" layoutY="350.0" mnemonicParsing="false" text="pendientes" />
+      <Button layoutX="35.0" layoutY="282.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
    </children>
 </AnchorPane>
