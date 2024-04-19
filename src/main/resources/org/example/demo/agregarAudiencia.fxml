@@ -6,23 +6,45 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="672.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="672.0" prefWidth="878.0" style="-fx-background-color: beige; -fx-border-color: brown;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
    <children>
-      <Button layoutX="80.0" layoutY="587.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="135.0" text="Guardar" />
-      <Button layoutX="226.0" layoutY="587.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="54.0" prefWidth="135.0" text="Menu" />
-      <DatePicker layoutX="127.0" layoutY="221.0" />
-      <Label layoutX="158.0" layoutY="198.0" text="Fecha de la audiencia" />
-      <TextField layoutX="140.0" layoutY="167.0" />
-      <Label layoutX="146.0" layoutY="145.0" text="Ubicacion de la audiencia" />
-      <TextField layoutX="140.0" layoutY="297.0" />
-      <Label layoutX="160.0" layoutY="267.0" text="Hora de la audiencia" />
-      <Label layoutX="194.0" layoutY="330.0" text="Detalles" />
-      <TextArea layoutX="115.0" layoutY="356.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="35.0" layoutY="596.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="135.0" text="Guardar" />
+      <Button layoutX="275.0" layoutY="596.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="36.0" prefWidth="135.0" text="Menu" />
+      <DatePicker layoutX="135.0" layoutY="262.0" />
+      <Label layoutX="139.0" layoutY="229.0" text="Fecha de la audiencia" textFill="#978d71">
+         <font>
+            <Font name="Book Antiqua Italic" size="18.0" />
+         </font></Label>
+      <TextField layoutX="139.0" layoutY="188.0" />
+      <Label layoutX="126.0" layoutY="156.0" text="Ubicacion de la audiencia" textFill="#978d71">
+         <font>
+            <Font name="Book Antiqua Italic" size="18.0" />
+         </font></Label>
+      <TextField layoutX="146.0" layoutY="336.0" />
+      <Label layoutX="147.0" layoutY="303.0" text="Hora de la audiencia" textFill="#978d71">
+         <font>
+            <Font name="Book Antiqua Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="190.0" layoutY="373.0" text="Detalles" textFill="#978d71">
+         <font>
+            <Font name="Book Antiqua Italic" size="18.0" />
+         </font></Label>
+      <TextArea layoutX="69.0" layoutY="410.0" prefHeight="146.0" prefWidth="303.0" />
       <TextField layoutX="139.0" layoutY="56.0" />
-      <Label layoutX="175.0" layoutY="30.0" text="Dpi del Cliente" />
-      <Label layoutX="195.0" layoutY="82.0" text="Cliente" />
-      <Label layoutX="164.0" layoutY="109.0" text="Nombre del cliente" />
-      <AnchorPane layoutX="439.0" prefHeight="672.0" prefWidth="438.0" />
+      <Label layoutX="175.0" layoutY="30.0" text="DPI del Cliente" textFill="#978d71">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="192.0" layoutY="87.0" text="Cliente" textFill="#978d71">
+         <font>
+            <Font name="Book Antiqua Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="163.0" layoutY="120.0" text="Nombre del cliente" textFill="#c9b376">
+         <font>
+            <Font name="Book Antiqua Italic" size="14.0" />
+         </font></Label>
+      <AnchorPane layoutX="439.0" prefHeight="672.0" prefWidth="438.0" style="-fx-background-color: beige; -fx-border-color: brown;" />
    </children>
 </AnchorPane>
