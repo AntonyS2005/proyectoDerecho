@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
 
 .label{
- -fx-font-size : 45;
- -fx-text-fill : #0000ff;
- -fx-font-family: "Jacquard 24", system-ui;
- -fx-font-weight: 400;
- -fx-font-style: normal;
+ //-fx-font-size : 45;
+ //-fx-text-fill : #0000ff;
+ //-fx-font-family: "Jacquard 24", system-ui;
+ //-fx-font-weight: 400;
+ //-fx-font-style: normal;
 }

@@ -9,50 +9,51 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
-   <children>
-      <Button layoutX="33.0" layoutY="287.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="28.0" prefWidth="137.0" text="Editar Caso" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="33.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="28.0" prefWidth="137.0" text="Editar Usuarios" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="33.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="30.0" prefWidth="137.0" text="Registro de Clientes " textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="28.0" prefWidth="137.0" text="Registro de Casos" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" onAction="#openReUs" text="Registro de Usuarios" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
-         <children>
-            <TableView layoutX="39.0" layoutY="104.0" prefHeight="269.0" prefWidth="392.0">
-              <columns>
-                <TableColumn prefWidth="193.0" text="Cliente" />
-                <TableColumn prefWidth="198.0" text="Detalles" />
-              </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-      <Button layoutX="108.0" layoutY="337.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font></Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3e68" height="128.0" layoutX="-5.0" layoutY="-23.0" stroke="#0f3e68" strokeType="INSIDE" width="641.0" />
-      <Label layoutX="14.0" layoutY="-9.0" text="Menú" textFill="#c3b89c">
-         <font>
-            <Font name="Book Antiqua Italic" size="96.0" />
-         </font>
-      </Label>
-   </children>
+    <children>
+        <Button layoutX="33.0" layoutY="287.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Button layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="28.0" prefWidth="137.0" text="Editar Caso" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Button layoutX="33.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="28.0" prefWidth="137.0" text="Editar Usuarios" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Button layoutX="33.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="30.0" prefWidth="137.0" text="Registro de Clientes " textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="28.0" prefWidth="137.0" text="Registro de Casos" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" onAction="#openReUs" text="Registro de Usuarios" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
+            <children>
+                <TableView layoutX="39.0" layoutY="104.0" prefHeight="269.0" prefWidth="392.0">
+                    <columns>
+                        <TableColumn fx:id="columName" prefWidth="126.0" text="cliente" />
+                        <TableColumn fx:id="columDetalle" prefWidth="124.0" text="detalle" />
+                        <TableColumn fx:id="columTipoCaso" prefWidth="134.0" text="tipo de caso" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <Button layoutX="108.0" layoutY="337.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font></Button>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3e68" height="128.0" layoutX="-5.0" layoutY="-23.0" stroke="#0f3e68" strokeType="INSIDE" width="641.0" />
+        <Label layoutX="14.0" layoutY="-9.0" text="Menú" textFill="#c3b89c">
+            <font>
+                <Font name="Book Antiqua Italic" size="96.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>
