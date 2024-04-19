@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="400.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
    <children>
       <Button layoutX="33.0" layoutY="287.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="26.0" prefWidth="122.0" text="editar clientes" />
       <Button layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="26.0" prefWidth="121.0" text="editar caso" />
@@ -22,13 +22,19 @@
       </Label>
       <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
          <children>
-            <TableView fx:id="tablaNoti" layoutY="7.0" prefHeight="327.0" prefWidth="385.0">
+            <TableView fx:id="tablaNoti" layoutY="49.0" prefHeight="285.0" prefWidth="455.0">
               <columns>
-                <TableColumn fx:id="columName" prefWidth="126.0" text="cliente" />
-                <TableColumn fx:id="columDetalle" prefWidth="124.0" text="detalle" />
-                  <TableColumn fx:id="columTipoCaso" prefWidth="134.0" text="tipo de caso" />
+                <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
+                <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
+                  <TableColumn fx:id="columHora" prefWidth="96.0" text="hora" />
+                  <TableColumn fx:id="columDetalles" prefWidth="113.0" text="detalles" />
               </columns>
             </TableView>
+            <Label layoutX="133.0" layoutY="14.0" text="Notificaciones de audiencias">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Button layoutX="43.0" layoutY="344.0" mnemonicParsing="false" text="pendientes" />

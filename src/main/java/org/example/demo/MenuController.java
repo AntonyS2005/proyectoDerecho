@@ -77,6 +77,9 @@ public class MenuController {
   public void openMainMenu(ActionEvent event) throws IOException {
     openFXML("menuPrincipal","Menu principal",event);
   }
+  public void openAu(ActionEvent event) throws IOException {
+      openFXML("agregarAudiencia", "agregar audiencia",event);
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event) throws IOException{
     fxml=fxml+".fxml";
