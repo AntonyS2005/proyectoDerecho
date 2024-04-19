@@ -8,31 +8,59 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
+<SplitPane dividerPositions="0.5033422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="718.0" style="-fx-background-color: brown;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="394.0">
          <children>
-            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="477.0" prefWidth="354.0">
+            <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="477.0" prefWidth="354.0" style="-fx-background-color: beige;">
                <children>
-                  <TextField id="TFdpi" fx:id="TFdpi" layoutX="66.0" layoutY="93.0" prefHeight="26.0" prefWidth="235.0" />
-                  <TextField id="TFnombres" fx:id="TFname" layoutX="66.0" layoutY="137.0" prefHeight="26.0" prefWidth="235.0" />
-                  <Label layoutX="159.0" layoutY="119.0" text="Nombres" />
-                  <TextField id="TFapellido" fx:id="TFlastName" layoutX="66.0" layoutY="190.0" prefHeight="26.0" prefWidth="235.0" />
-                  <Label layoutX="159.0" layoutY="172.0" text="Apellidos" />
-                  <Label layoutX="128.0" layoutY="332.0" text="Fecha de Nacimiento" />
-                  <DatePicker id="TFfecha" fx:id="DPcalendar" layoutX="66.0" layoutY="360.0" prefHeight="26.0" prefWidth="235.0" />
-                  <Label layoutX="175.0" layoutY="64.0" text="dpi" />
-                  <Button id="Bregestrar" layoutX="152.0" layoutY="415.0" mnemonicParsing="false" onAction="#registrarCliente" text="Registrar" />
-                  <Label layoutX="120.0" layoutY="5.0" text="Registro de los usuarios" />
-                  <Label layoutX="153.0" layoutY="216.0" text="Estado Civil" />
-                  <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="62.0" layoutY="239.0" prefHeight="26.0" prefWidth="243.0" />
-                  <Label layoutX="162.0" layoutY="265.0" text="Numero" />
-                  <TextField id="TFnumero" fx:id="TFnumber" layoutX="66.0" layoutY="283.0" prefHeight="26.0" prefWidth="235.0" />
-                  <Button layoutX="240.0" layoutY="415.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
+                  <TextField id="TFdpi" fx:id="TFdpi" layoutX="66.0" layoutY="88.0" prefHeight="26.0" prefWidth="235.0" />
+                  <TextField id="TFnombres" fx:id="TFname" layoutX="65.0" layoutY="137.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Label layoutX="159.0" layoutY="119.0" text="Nombres" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <TextField id="TFapellido" fx:id="TFlastName" layoutX="66.0" layoutY="198.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Label layoutX="159.0" layoutY="172.0" text="Apellidos" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="130.0" layoutY="352.0" text="Fecha de Nacimiento" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <DatePicker id="TFfecha" fx:id="DPcalendar" layoutX="65.0" layoutY="376.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Label layoutX="170.0" layoutY="66.0" text="DPI" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <Button id="Bregestrar" layoutX="66.0" layoutY="428.0" mnemonicParsing="false" onAction="#registrarCliente" text="Registrar" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Button>
+                  <Label layoutX="69.0" layoutY="14.0" text="Registro de los usuarios" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="150.0" layoutY="233.0" text="Estado Civil" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="62.0" layoutY="259.0" prefHeight="26.0" prefWidth="243.0" />
+                  <Label layoutX="161.0" layoutY="292.0" text="Número" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Label>
+                  <TextField id="TFnumero" fx:id="TFnumber" layoutX="65.0" layoutY="319.0" prefHeight="26.0" prefWidth="235.0" />
+                  <Button layoutX="253.0" layoutY="428.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#978d71">
+                     <font>
+                        <Font name="Book Antiqua Italic" size="14.0" />
+                     </font></Button>
                </children></AnchorPane>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: beige;">
          <children>
             <ImageView fitHeight="446.0" fitWidth="331.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
