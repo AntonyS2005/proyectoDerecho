@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class EditarController implements Initializable {
+public class  EditarController implements Initializable {
   @FXML private TextField TFdpi;
   @FXML private Label Lcliente;
   @FXML private TextField TFtipo;
