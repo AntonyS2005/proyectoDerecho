@@ -84,6 +84,9 @@ public class MenuController implements Initializable{
   public void openMainMenu(ActionEvent event) throws IOException {
     openFXML("menuPrincipal","Menu principal",event,null);
   }
+  public void openSubFil(ActionEvent event) throws IOException{
+    openFXML("subArchivo","Plantillas",event,null);
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
     fxml=fxml+".fxml";

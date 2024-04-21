@@ -31,5 +31,6 @@
          </children>
       </AnchorPane>
       <Button layoutX="43.0" layoutY="344.0" mnemonicParsing="false" text="pendientes" />
+      <Button layoutX="49.0" layoutY="313.0" mnemonicParsing="false" onAction="#openSubFil" text="Subir Archivo" />
    </children>
 </AnchorPane>
