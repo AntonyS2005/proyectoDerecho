@@ -1,5 +1,7 @@
 package org.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -8,15 +10,34 @@ import javafx.stage.*;
 import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class MenuController {
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
+public  class MenuController implements Initializable {
   @FXML
   private TextField TFuser;
   @FXML
   private PasswordField TFpasword;
+  @FXML
+  private TableView<Audiencias> tablaNoti;
+  @FXML
+  private TableColumn<Audiencias, String> columUbi;
+  @FXML
+  private TableColumn<Audiencias, String> columHora;
+  @FXML
+  private TableColumn<Audiencias, String> columFecha;
+  @FXML
+  private TableColumn<Audiencias, String> columDetalles;
+  private ObservableList<Audiencias> items= FXCollections.observableArrayList();
 
+  public void mostrarAudPendientes() {
+
+  }
 
   public void iniciarSecion(ActionEvent event) {
     String user = TFuser.getText();
@@ -49,6 +70,7 @@ public class MenuController {
     }
 
   }
+
 
   public void openEdUs(ActionEvent event) throws IOException {
     openFXML("editarUsuarios","Editar usuarios",event);
@@ -94,6 +116,8 @@ public class MenuController {
     stage.show();
   }
 
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+  }
 }
