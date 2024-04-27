@@ -11,5 +11,6 @@
       <TextField fx:id="filePathField" editable="false" layoutX="95.0" layoutY="86.0" prefHeight="26.0" prefWidth="347.0" />
       <Button layoutX="127.0" layoutY="124.0" mnemonicParsing="false" onAction="#chooseFileButtonPressed" text="seleccionar" />
       <Button layoutX="248.0" layoutY="124.0" mnemonicParsing="false" onAction="#uploadFileButtonPressed" text="subir" />
+      <Button layoutX="37.0" layoutY="288.0" mnemonicParsing="false" onAction="#openMainMenu" text="menu" />
    </children>
 </AnchorPane>

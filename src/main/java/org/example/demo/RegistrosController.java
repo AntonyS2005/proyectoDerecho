@@ -144,6 +144,7 @@ public class RegistrosController implements Initializable {
       LsaldoPendiente.setText("");
       CBestadoProceso.setValue(null);
       TFdpi.setText("");
+      TFadelanto.setText("");
     }catch (Exception e){
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos "+e);
     }
