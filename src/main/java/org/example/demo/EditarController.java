@@ -17,8 +17,10 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -47,11 +49,26 @@ public class  EditarController implements Initializable {
   @FXML private TableColumn<usuarios,String> CidUser;
   @FXML private TextField TFuser;
   @FXML private TextField TFpasword;
+  @FXML private TextField TFnameB;
+  @FXML private TextField TFname;
+  @FXML private TextField TFlastName;
+  @FXML private ChoiceBox CBestadoCivil;
+  @FXML private DatePicker DPfecNac;
+  @FXML private TextField TFnumber;
+  @FXML private TableView<clientes> Tclientes;
+  @FXML private TableColumn<clientes,String> ClastName;
+  @FXML private TableColumn<clientes,String> CestadoCivil;
+  @FXML private TableColumn<clientes,String> Cnumber;
+  @FXML private TableColumn<clientes,String> Cdate;
+  @FXML private TableColumn<clientes,String> Cname;
+  @FXML private TableColumn<clientes,String> CidClienet;
+  private ObservableList<clientes> itemsClientes= FXCollections.observableArrayList();
   private  String idCaso;
   private ObservableList<Casos> items= FXCollections.observableArrayList();
-  private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
+    private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
   private String[] estadoProceso= {"pendiente","finalizado"};
   int idUser;
+  int idCliente;
 
 
 
@@ -358,11 +375,171 @@ public class  EditarController implements Initializable {
     }
   }
 
+  public void editarCliente() {
+    try {
+      Conexion conexion = new Conexion();
+      String consulta = "UPDATE clientes SET nombre=?, apellidos=?, estado_civil=?, numero_de_telefono=?, fecha_de_nacimiento=? WHERE dpi=?";
+      CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
+      update.setString(1, TFname.getText());
+      update.setString(2, TFlastName.getText());
+      update.setString(3, CBestadoCivil.getValue().toString());
+      update.setString(4, TFnumber.getText());
+      update.setString(5, DPfecNac.getValue().toString());
+      update.setString(6, TFdpi.getText());
+      update.execute();
+      JOptionPane.showMessageDialog(null, "Se editó el cliente correctamente");
+      tablaClientes();
+      limpiarCamposCliente();
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "Error al editar el cliente. Por favor, verifique que los campos estén correctos. " + e);
+    }
+  }
+
+  public void eliminarCliente() {
+    int comp=JOptionPane.showConfirmDialog(null,"Esto eliminara todos los registros relacionados al client desea continuar","Advertencia",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+    System.out.println(comp);
+    if(comp == 1){
+      return;
+    }
+    String dpi = TFdpi.getText().trim();
+    if (!dpi.isEmpty()) {
+      try {
+        Conexion conexion = new Conexion();
+
+        // Eliminar registros de casos relacionados con el cliente
+        String deleteRegistrosCasos = "DELETE FROM registro_de_casos WHERE id_cliente = ?";
+        CallableStatement deleteStmtRegistrosCasos = conexion.establecerConexion().prepareCall(deleteRegistrosCasos);
+        deleteStmtRegistrosCasos.setString(1, dpi);
+        deleteStmtRegistrosCasos.execute();
+
+        // Eliminar audiencias relacionadas con el cliente
+        String deleteAudiencias = "DELETE FROM audiencias WHERE dpi = ?";
+        CallableStatement deleteStmtAudiencias = conexion.establecerConexion().prepareCall(deleteAudiencias);
+        deleteStmtAudiencias.setString(1, dpi);
+        deleteStmtAudiencias.execute();
+
+        // Eliminar al cliente
+        String deleteCliente = "DELETE FROM clientes WHERE dpi = ?";
+        CallableStatement deleteStmtCliente = conexion.establecerConexion().prepareCall(deleteCliente);
+        deleteStmtCliente.setString(1, dpi);
+        deleteStmtCliente.execute();
+
+        JOptionPane.showMessageDialog(null, "Se eliminaron todos los registros relacionados con el cliente correctamente");
+        tablaClientes();
+        limpiarCamposCliente();
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar los registros relacionados con el cliente. Por favor, verifique que los campos estén correctos. " + e);
+      }
+    } else {
+      JOptionPane.showMessageDialog(null, "Por favor, ingrese el DPI del cliente que desea eliminar.");
+    }
+  }
 
 
+  public void getSelecDataClientes() {
+    Tclientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+      if (newSelection != null) {
+        // Obtener el valor de las columnas de la fila seleccionada
+        String dpi, nombre, apellidos, estadoCivil, numeroTelefono, fechaNacimiento;
+
+        dpi = CidClienet.getCellData(newSelection);
+        nombre = Cname.getCellData(newSelection);
+        apellidos = ClastName.getCellData(newSelection);
+        estadoCivil = CestadoCivil.getCellData(newSelection);
+        numeroTelefono = Cnumber.getCellData(newSelection);
+        fechaNacimiento = Cdate.getCellData(newSelection);
+
+        // Mostrar los datos en los campos correspondientes
+        TFdpi.setText(dpi);
+        TFname.setText(nombre);
+        TFlastName.setText(apellidos);
+        CBestadoCivil.setValue(estadoCivil);
+        TFnumber.setText(numeroTelefono);
+        DPfecNac.setValue(LocalDate.parse(fechaNacimiento));
+      }
+    });
+  }
+
+  public void sqlTablaClientes(String consulta) {
+    try {
+      itemsClientes.clear();
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(consulta);
+      String dpi, nombre, apellidos, estadoCivil, numeroTelefono, fechaNacimiento;
+      while (rs.next()) {
+        dpi = rs.getString(1).trim();
+        nombre = rs.getString(2).trim();
+        apellidos = rs.getString(3).trim();
+        estadoCivil = rs.getString(4).trim();
+        numeroTelefono = rs.getString(5).trim();
+        fechaNacimiento = rs.getString(6).trim();
+        this.CidClienet.setCellValueFactory(new PropertyValueFactory<>("dpi"));
+        this.Cname.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        this.ClastName.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        this.CestadoCivil.setCellValueFactory(new PropertyValueFactory<>("estadoCivil"));
+        this.Cnumber.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        this.Cdate.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
+        itemsClientes.add(new clientes(dpi,fechaNacimiento,numeroTelefono,apellidos,estadoCivil,nombre));
+        this.Tclientes.setItems(itemsClientes);
+      }
+      st.close();
+      rs.close();
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "Error al conectar: ");
+    }
+  }
+
+  public void tablaClientes() {
+    String sql = "SELECT * FROM clientes";
+    sqlTablaClientes(sql);
+  }
+
+  public void limpiarCamposCliente() {
+    TFdpi.setText("");
+    TFname.setText("");
+    TFlastName.setText("");
+    CBestadoCivil.setValue(null);
+    TFnumber.setText("");
+    DPfecNac.setValue(null);
+  }
+
+  public void buscarPorDPI() {
+    String dpi = TFdpi.getText().trim();
+    itemsClientes.clear();
+    if (!dpi.isEmpty()) {
+      String sql = "SELECT * FROM clientes WHERE dpi=?";
+      buscarCliente(sql, dpi);
+    }
+  }
 
 
+  private void buscarCliente(String consulta, String parametro) {
+    try {
+      Conexion conexion = new Conexion();
+      PreparedStatement statement = conexion.establecerConexion().prepareStatement(consulta);
+      statement.setString(1, parametro);
+      ResultSet rs = statement.executeQuery();
+      itemsClientes.clear();
 
+      while (rs.next()) {
+        String dpi = rs.getString("dpi").trim();
+        String nombre = rs.getString("nombre").trim();
+        String apellidos = rs.getString("apellidos").trim();
+        String estadoCivil = rs.getString("estado_civil").trim();
+        String numeroTelefono = rs.getString("numero_de_telefono").trim();
+        String fechaNacimiento = rs.getString("fecha_de_nacimiento").trim();
+
+        itemsClientes.add(new clientes(dpi,fechaNacimiento,numeroTelefono,apellidos,estadoCivil,nombre));
+      }
+      Tclientes.setItems(itemsClientes);
+      statement.close();
+      rs.close();
+    } catch (Exception e) {
+    }
+  }
+
+  private String[] estadoCivilArray= {"Casad@","Solter@"};
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     if(Tcasos != null){
@@ -374,6 +551,11 @@ public class  EditarController implements Initializable {
     if(Tusers != null){
       tablaUsuarios();
       CidUser.setVisible(false);
+    }
+    if(Tclientes != null){
+      tablaClientes();
+      CidClienet.setVisible(false);
+      CBestadoCivil.getItems().addAll(estadoCivilArray);
     }
   }
 }
