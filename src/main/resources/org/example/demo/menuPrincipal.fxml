@@ -36,13 +36,19 @@
             </font></Button>
         <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
             <children>
-                <TableView layoutX="39.0" layoutY="104.0" prefHeight="269.0" prefWidth="392.0">
-                    <columns>
-                        <TableColumn fx:id="columName" prefWidth="126.0" text="cliente" />
-                        <TableColumn fx:id="columDetalle" prefWidth="124.0" text="detalle" />
-                        <TableColumn fx:id="columTipoCaso" prefWidth="134.0" text="tipo de caso" />
-                    </columns>
-                </TableView>
+                    <TableView fx:id="tablaNoti" layoutY="49.0" prefHeight="285.0" prefWidth="455.0">
+                        <columns>
+                            <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
+                            <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
+                            <TableColumn fx:id="columHora" prefWidth="96.0" text="hora" />
+                            <TableColumn fx:id="columDetalles" prefWidth="113.0" text="detalles" />
+                        </columns>
+                    </TableView>
+                    <Label layoutX="133.0" layoutY="14.0" text="Notificaciones de audiencias">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
             </children>
         </AnchorPane>
         <Button layoutX="61.0" layoutY="358.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
@@ -55,10 +61,13 @@
                 <Font name="Book Antiqua Italic" size="96.0" />
             </font>
         </Label>
-      <Button layoutX="34.0" layoutY="322.0" mnemonicParsing="false" onAction="#openSubFil" prefHeight="28.0" prefWidth="137.0" text="subir archivo" textFill="#80734c">
-         <font>
-            <Font name="Book Antiqua Italic" size="14.0" />
-         </font>
-      </Button>
+        <Button layoutX="34.0" layoutY="322.0" mnemonicParsing="false" onAction="#openSubFil" prefHeight="28.0" prefWidth="137.0" text="subir archivo" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font>
+        </Button>
+
+        <Button layoutX="35.0" layoutY="282.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
+        <Button layoutX="35.0" layoutY="315.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="25.0" prefWidth="121.0" text="editar audiencia" />
     </children>
 </AnchorPane>

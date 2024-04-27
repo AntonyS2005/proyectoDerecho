@@ -87,6 +87,12 @@ public class MenuController implements Initializable{
   public void openSubFil(ActionEvent event) throws IOException{
     openFXML("subArchivo","Plantillas",event,null);
   }
+  public void openAu(ActionEvent event) throws IOException {
+    openFXML("agregarAudiencia", "agregar audiencia",event,null);
+  }
+  public void openEdAud(ActionEvent event) throws IOException {
+    openFXML("editarAudiencia", "editar audiencia", event,null);
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
     fxml=fxml+".fxml";
@@ -104,6 +110,5 @@ public class MenuController implements Initializable{
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
   }
-
+}
