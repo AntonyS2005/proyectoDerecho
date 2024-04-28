@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.*;
 import javafx.scene.control.TextField;
 import javax.swing.*;
@@ -67,6 +68,32 @@ public  class MenuController implements Initializable {
 
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "error al conectar ");
+    }
+
+  }
+  public void tablaNoti(){
+    items.clear();
+    String sql = "SELECT ubicacion_de_audiencia, fecha, hora, detalles FROM audiencias;";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String ubicaciondeAudiencia, fecha,hora,detalles;
+      while(rs.next()){
+        ubicaciondeAudiencia=rs.getString(3).trim();
+        fecha=rs.getString(4).trim();
+        hora=rs.getString(5).trim();
+        detalles=rs.getString(6).trim();
+        this.columUbi.setCellValueFactory(new PropertyValueFactory<> ("ubicaciondeAudiencia"));
+        this.columFecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
+        this.columHora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
+        this.columDetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+        items.add(new Audiencias(ubicaciondeAudiencia, fecha, hora, detalles));
+        this.tablaNoti.setItems(items);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null,e);
     }
 
   }
