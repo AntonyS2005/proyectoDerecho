@@ -8,9 +8,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="468.0" prefWidth="704.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
     <children>
-        <Button layoutX="33.0" layoutY="287.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" textFill="#80734c">
+        <Button layoutX="34.0" layoutY="294.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" textFill="#80734c">
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Button>
@@ -34,26 +34,40 @@
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Button>
-        <AnchorPane layoutX="179.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
+        <AnchorPane layoutX="200.0" layoutY="104.0" prefHeight="358.0" prefWidth="497.0">
             <children>
-                <TableView layoutX="39.0" layoutY="104.0" prefHeight="269.0" prefWidth="392.0">
-                    <columns>
-                        <TableColumn fx:id="columName" prefWidth="126.0" text="cliente" />
-                        <TableColumn fx:id="columDetalle" prefWidth="124.0" text="detalle" />
-                        <TableColumn fx:id="columTipoCaso" prefWidth="134.0" text="tipo de caso" />
-                    </columns>
-                </TableView>
+                    <TableView fx:id="tablaNoti" layoutX="7.0" layoutY="36.0" prefHeight="400.0" prefWidth="498.0">
+                        <columns>
+                            <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
+                            <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
+                            <TableColumn fx:id="columHora" prefWidth="96.0" text="hora" />
+                            <TableColumn fx:id="columDetalles" prefWidth="113.0" text="detalles" />
+                        </columns>
+                    </TableView>
+                    <Label layoutX="162.0" layoutY="14.0" text="Notificaciones de audiencias">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
             </children>
         </AnchorPane>
-        <Button layoutX="108.0" layoutY="337.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
+        <Button layoutX="61.0" layoutY="430.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Button>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3e68" height="128.0" layoutX="-5.0" layoutY="-23.0" stroke="#0f3e68" strokeType="INSIDE" width="641.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3e68" height="128.0" layoutX="-5.0" layoutY="-23.0" stroke="#0f3e68" strokeType="INSIDE" width="716.0" />
         <Label layoutX="14.0" layoutY="-9.0" text="Menú" textFill="#c3b89c">
             <font>
                 <Font name="Book Antiqua Italic" size="96.0" />
             </font>
         </Label>
+        <Button layoutX="34.0" layoutY="394.0" mnemonicParsing="false" onAction="#openSubFil" prefHeight="28.0" prefWidth="137.0" text="subir archivo" textFill="#80734c">
+            <font>
+                <Font name="Book Antiqua Italic" size="14.0" />
+            </font>
+        </Button>
+
+        <Button layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
+        <Button layoutX="42.0" layoutY="360.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="25.0" prefWidth="121.0" text="editar audiencia" />
     </children>
 </AnchorPane>

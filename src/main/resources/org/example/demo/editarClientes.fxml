@@ -10,71 +10,77 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="783.0" style="-fx-background-color: Beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="783.0" style="-fx-background-color: Beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="589.0" layoutY="164.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#b9a263">
+      <Button layoutX="613.0" layoutY="256.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#b9a263">
          <font>
             <Font name="Book Antiqua Bold Italic" size="13.0" />
          </font></Button>
-      <Button id="Bregestrar" layoutX="509.0" layoutY="164.0" mnemonicParsing="false" text="Eliminar" textFill="#b9a263">
+      <Button id="Bregestrar" layoutX="523.0" layoutY="256.0" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" textFill="#b9a263">
          <font>
             <Font name="Book Antiqua Bold Italic" size="13.0" />
          </font></Button>
-      <Button id="Bregestrar" layoutX="432.0" layoutY="164.0" mnemonicParsing="false" text="Guardar" textFill="#b9a263">
+      <Button id="Bregestrar" layoutX="453.0" layoutY="255.0" mnemonicParsing="false" onAction="#editarCliente" text="Editar" textFill="#b9a263">
          <font>
             <Font name="Book Antiqua Bold Italic" size="13.0" />
          </font></Button>
-      <DatePicker id="TFfecha" layoutX="495.0" layoutY="87.0" prefHeight="26.0" prefWidth="194.0" />
-      <Label layoutX="353.0" layoutY="91.0" text="Fecha de Nacimiento" textFill="#978d71">
+      <DatePicker id="TFfecha" fx:id="DPfecNac" layoutX="516.0" layoutY="178.0" prefHeight="26.0" prefWidth="194.0" />
+      <Label layoutX="374.0" layoutY="182.0" text="Fecha de Nacimiento" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <TextField id="TFnumero" layoutX="495.0" layoutY="124.0" prefHeight="26.0" prefWidth="235.0" />
-      <Label layoutX="353.0" layoutY="129.0" text="Número" textFill="#978d71">
+      <TextField id="TFnumero" fx:id="TFnumber" layoutX="516.0" layoutY="215.0" prefHeight="26.0" prefWidth="235.0" />
+      <Label layoutX="374.0" layoutY="220.0" text="Número" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <Label layoutX="22.0" layoutY="167.0" text="Estado Civil" textFill="#978d71">
+      <Label layoutX="39.0" layoutY="260.0" text="Estado Civil" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <ChoiceBox id="TestadoCivil" layoutX="109.0" layoutY="163.0" prefHeight="26.0" prefWidth="226.0" />
-      <TextField id="TFapellido" layoutX="99.0" layoutY="89.0" prefHeight="26.0" prefWidth="235.0">
+      <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="130.0" layoutY="254.0" prefHeight="26.0" prefWidth="226.0" />
+      <TextField id="TFapellido" fx:id="TFname" layoutX="120.0" layoutY="180.0" prefHeight="26.0" prefWidth="235.0">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font></TextField>
-      <TextField id="TFnombres" layoutX="99.0" layoutY="125.0" prefHeight="26.0" prefWidth="235.0">
+      <TextField id="TFnombres" fx:id="TFlastName" layoutX="120.0" layoutY="216.0" prefHeight="26.0" prefWidth="235.0">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font></TextField>
-      <Label layoutX="27.0" layoutY="92.0" text="Nombres" textFill="#978d71">
+      <Label layoutX="50.0" layoutY="184.0" text="Nombres" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <Label layoutX="27.0" layoutY="128.0" text="Apellidos" textFill="#978d71">
+      <Label layoutX="48.0" layoutY="220.0" text="Apellidos" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <Label layoutX="37.0" layoutY="23.0" prefHeight="39.0" prefWidth="220.0" text="Buscar por DPI" textFill="#908053">
+      <Label layoutX="64.0" layoutY="57.0" prefHeight="39.0" prefWidth="220.0" text="Buscar por DPI" textFill="#908053">
          <font>
             <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="264.0" layoutY="19.0" prefHeight="39.0" prefWidth="443.0" promptText="Buscar por DPI">
+      <TextField fx:id="TFdpi" layoutX="291.0" layoutY="53.0" onKeyReleased="#buscarPorDPI" prefHeight="39.0" prefWidth="443.0" promptText="Buscar por DPI">
          <font>
             <Font name="Book Antiqua Italic" size="24.0" />
          </font>
       </TextField>
-      <TableView layoutX="14.0" layoutY="247.0" prefHeight="308.0" prefWidth="753.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0">
+      <TableView fx:id="Tclientes" layoutX="14.0" layoutY="247.0" onContextMenuRequested="#getSelecDataClientes" onMouseClicked="#getSelecDataClientes" onMouseDragged="#getSelecDataClientes" onMouseEntered="#getSelecDataClientes" onMouseExited="#getSelecDataClientes" prefHeight="374.0" prefWidth="753.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0">
         <columns>
           <TableColumn fx:id="Cname" prefWidth="195.19997787475586" text="Nombres" />
           <TableColumn fx:id="ClastName" minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
             <TableColumn fx:id="CestadoCivil" prefWidth="113.5999755859375" text="Estado civil" />
             <TableColumn fx:id="Cnumber" prefWidth="114.4000244140625" text="Número" />
             <TableColumn fx:id="Cdate" prefWidth="136.7999267578125" text="Fecha de nacimiento" />
+            <TableColumn fx:id="CidClienet" prefWidth="75.0" text="Column X" />
         </columns>
       </TableView>
-      <Label layoutX="327.0" layoutY="199.0" prefHeight="39.0" prefWidth="113.0" text="Clientes" textFill="#b29552">
+      <Label layoutX="348.0" layoutY="290.0" prefHeight="39.0" prefWidth="113.0" text="Clientes" textFill="#b29552">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="304.0" layoutY="14.0" prefHeight="39.0" prefWidth="201.0" text="Editar clientes" textFill="#b29552">
          <font>
             <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>

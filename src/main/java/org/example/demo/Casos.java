@@ -7,14 +7,34 @@ public class Casos {
   private String saldoPendiente;
   private String estadoDelProceso;
   private String Detalles;
+  private String dpi;
+  private String idCaso;
 
-  public Casos(String cliente,String tipo,String costo,String saldoPendiente,String estadoDelProceso,String detalles) {
+  public Casos(String dpi,String idCaso,String cliente,String tipo,String costo,String saldoPendiente,String estadoDelProceso,String detalles) {
+    this.dpi=dpi;
+    this.idCaso=idCaso;
     this.cliente=cliente;
     this.tipo=tipo;
     this.costo=costo;
     this.saldoPendiente=saldoPendiente;
     this.estadoDelProceso=estadoDelProceso;
     this.Detalles=detalles;
+  }
+
+  public String getIdCaso() {
+    return idCaso;
+  }
+
+  public void setIdCaso(String idCaso) {
+    this.idCaso = idCaso;
+  }
+
+  public String getDpi() {
+    return dpi;
+  }
+
+  public void setDpi(String dpi) {
+    this.dpi = dpi;
   }
 
   public String getCliente() {

@@ -58,7 +58,7 @@ public class MenuController implements Initializable{
     //el ultimo dato es el nombre del css te los deje en null por que como no se si vas a usar
     //el mismo de menu.css o otro pero de hay solo escribre el nombre del archivo sin agregar .css
     //ya lo programe yo para que te lo agregue solo
-    openFXML("editarUsuarios","Editar usuarios",event,"null");
+    openFXML("editarUsuarios","Editar usuarios",event,null);
   }
 
   public void openEdCl(ActionEvent event) throws IOException {
@@ -84,6 +84,15 @@ public class MenuController implements Initializable{
   public void openMainMenu(ActionEvent event) throws IOException {
     openFXML("menuPrincipal","Menu principal",event,null);
   }
+  public void openSubFil(ActionEvent event) throws IOException{
+    openFXML("subArchivo","Plantillas",event,null);
+  }
+  public void openAu(ActionEvent event) throws IOException {
+    openFXML("agregarAudiencia", "agregar audiencia",event,null);
+  }
+  public void openEdAud(ActionEvent event) throws IOException {
+    openFXML("editarAudiencia", "editar audiencia", event,null);
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
     fxml=fxml+".fxml";
@@ -101,6 +110,5 @@ public class MenuController implements Initializable{
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
   }
-
+}
