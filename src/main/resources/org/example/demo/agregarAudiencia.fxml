@@ -11,15 +11,15 @@
    <children>
       <Button layoutX="80.0" layoutY="587.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="135.0" text="Guardar" />
       <Button layoutX="226.0" layoutY="587.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="54.0" prefWidth="135.0" text="Menu" />
-      <DatePicker layoutX="127.0" layoutY="221.0" />
+      <DatePicker fx:id="DPAudiencia" layoutX="127.0" layoutY="221.0" />
       <Label layoutX="158.0" layoutY="198.0" text="Fecha de la audiencia" />
-      <TextField layoutX="140.0" layoutY="167.0" />
+      <TextField fx:id="AAUbi" layoutX="140.0" layoutY="167.0" />
       <Label layoutX="146.0" layoutY="145.0" text="Ubicacion de la audiencia" />
-      <TextField layoutX="140.0" layoutY="297.0" />
+      <TextField fx:id="AAhora" layoutX="140.0" layoutY="297.0" />
       <Label layoutX="160.0" layoutY="267.0" text="Hora de la audiencia" />
       <Label layoutX="194.0" layoutY="330.0" text="Detalles" />
-      <TextArea layoutX="115.0" layoutY="356.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField layoutX="139.0" layoutY="56.0" />
+      <TextArea fx:id="AAdetalles" layoutX="115.0" layoutY="358.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="AAdpi" layoutX="139.0" layoutY="56.0" />
       <Label layoutX="175.0" layoutY="30.0" text="Dpi del Cliente" />
       <Label layoutX="195.0" layoutY="82.0" text="Cliente" />
       <Label layoutX="164.0" layoutY="109.0" text="Nombre del cliente" />

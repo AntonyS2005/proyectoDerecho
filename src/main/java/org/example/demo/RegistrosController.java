@@ -35,6 +35,11 @@ public class RegistrosController implements Initializable {
   @FXML private Label LsaldoPendiente;
   @FXML private ChoiceBox<String> CBestadoProceso;
   @FXML private TextArea TAdetalles;
+  @FXML private TextField AAUbi;
+  @FXML private TextArea AAdetalles;
+  @FXML private TextField AAdpi;
+  @FXML private TextField AAhora;
+  @FXML private DatePicker DPAudiencia;
 
 
   private String[] estadoCivilArray= {"Casad@","Solter@"};
@@ -146,6 +151,26 @@ public class RegistrosController implements Initializable {
       TFdpi.setText("");
     }catch (Exception e){
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos "+e);
+    }
+  }
+  public void agregarAudiencia(){
+    try{
+      Conexion conexion = new Conexion();
+      String consulta = "INSERT INTO `audiencias` ('dpi', `ubicacion_de_la_audiencia`, `fecha_de_la_audiencia`, `hora_de_la_audiencia`, `detalles`) " +
+              "VALUES (?, ?, ?, ?, ?);";
+      CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
+      insert.setString(2,AAdpi.getText());
+      insert.setString(3,AAUbi.getText());
+      insert.setString(4,DPAudiencia.getValue().toString());
+      insert.setString(5, AAhora.getText());
+      insert.setString(6, AAdetalles.getText());
+      JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
+      AAdpi.setText("");
+      AAUbi.setText("");
+      AAhora.setText("");
+      AAdetalles.setText("");
+    }catch (Exception e){
+      JOptionPane.showMessageDialog(null,"error al agregar audiencia por favor verificar que los campos esten correctos "+e);
     }
   }
 

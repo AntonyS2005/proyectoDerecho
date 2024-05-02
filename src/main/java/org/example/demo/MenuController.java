@@ -73,7 +73,7 @@ public  class MenuController implements Initializable {
   }
   public void tablaNoti(){
     items.clear();
-    String sql = "SELECT ubicacion_de_audiencia, fecha, hora, detalles FROM audiencias;";
+    String sql = "SELECT ubicacion_de_audiencia, fecha, hora, detalles FROM audiencias WHERE fecha >= CURDATE();";
     try{
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
