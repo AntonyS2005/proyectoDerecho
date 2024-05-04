@@ -89,7 +89,7 @@ public class RegistrosController implements Initializable {
     }catch (Exception e){
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos");
     }}
-
+  //esta funcion busca el nombre de la persona y los datos
   public void regCaBusDpi(){
     String dpi;
     dpi=TFdpi.getText();
@@ -153,17 +153,17 @@ public class RegistrosController implements Initializable {
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos "+e);
     }
   }
-  public void agregarAudiencia(){
+  public void guardarAudiencia(){
     try{
       Conexion conexion = new Conexion();
-      String consulta = "INSERT INTO `audiencias` ('dpi', `ubicacion_de_la_audiencia`, `fecha_de_la_audiencia`, `hora_de_la_audiencia`, `detalles`) " +
+      String consulta = "INSERT INTO `audiencias` (`dpi`, `ubicacion_de_la_audiencia`, `fecha_de_la_audiencia`, `hora_de_la_audiencia`, `detalles`) " +
               "VALUES (?, ?, ?, ?, ?);";
       CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
-      insert.setString(2,AAdpi.getText());
-      insert.setString(3,AAUbi.getText());
-      insert.setString(4,DPAudiencia.getValue().toString());
-      insert.setString(5, AAhora.getText());
-      insert.setString(6, AAdetalles.getText());
+      insert.setString(1,AAdpi.getText());
+      insert.setString(2,AAUbi.getText());
+      insert.setString(3,DPAudiencia.getValue().toString());
+      insert.setString(4, AAhora.getText());
+      insert.setString(5, AAdetalles.getText());
       JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
       AAdpi.setText("");
       AAUbi.setText("");
@@ -172,6 +172,26 @@ public class RegistrosController implements Initializable {
     }catch (Exception e){
       JOptionPane.showMessageDialog(null,"error al agregar audiencia por favor verificar que los campos esten correctos "+e);
     }
+  }
+  public void regBusAudDPI(){
+    String dpi;
+    dpi=AAdpi.getText();
+    String sql = "SELECT * FROM `audiencias` WHERE dpi='"+dpi+"'";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      if (rs.next()) {
+        String nombre;
+        nombre=rs.getString(2)+" "+rs.getString(3);
+        Lname.setText(nombre);
+        }
+        conexion.desconectarConexion();
+        st.close();
+        rs.close();
+
+    }catch (Exception e){}
+
   }
 
   @Override
