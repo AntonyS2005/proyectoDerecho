@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
@@ -86,6 +87,7 @@ public class RegistrosController implements Initializable {
       TFlastName.setText("");
       CBestadoCivil.setValue("");
       TFnumber.setText("");
+      DPcalendar.setValue(null);
     }catch (Exception e){
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos");
     }}
@@ -153,26 +155,42 @@ public class RegistrosController implements Initializable {
       JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos "+e);
     }
   }
-  public void guardarAudiencia(){
-    try{
-      Conexion conexion = new Conexion();
-      String consulta = "INSERT INTO `audiencias` (`dpi`, `ubicacion_de_la_audiencia`, `fecha_de_la_audiencia`, `hora_de_la_audiencia`, `detalles`) " +
-              "VALUES (?, ?, ?, ?, ?);";
+  public void guardarAudiencia() {
+    Conexion conexion = null;
+    try {
+      conexion = new Conexion();
+      String consulta = "INSERT INTO `audiencias`(`dpi`, `ubicacion_de_la_audiencia`, `fecha_de_audiencia`, " +
+              "`hora_de_la_audiencia`, `detalles`) VALUES (?,?,?,?,?)";
       CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
-      insert.setString(1,AAdpi.getText());
-      insert.setString(2,AAUbi.getText());
-      insert.setString(3,DPAudiencia.getValue().toString());
+      insert.setString(1, AAdpi.getText());
+      insert.setString(2, AAUbi.getText());
+      DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+      String fechaFormateada = DPAudiencia.getValue().format(dateFormatter);
+      insert.setString(3, fechaFormateada);
       insert.setString(4, AAhora.getText());
       insert.setString(5, AAdetalles.getText());
-      JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
+
+      // Ejecuta la consulta para guardar los datos en la base de datos
+      insert.executeUpdate();
+
+      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+
+      // Limpia los campos después de guardar los datos
       AAdpi.setText("");
       AAUbi.setText("");
       AAhora.setText("");
       AAdetalles.setText("");
-    }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al agregar audiencia por favor verificar que los campos esten correctos "+e);
+      DPAudiencia.setValue(null);
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "Error al agregar audiencia. Por favor verificar que los campos estén correctos. " + e);
+    } finally {
+      // Cierra la conexión a la base de datos en cualquier caso
+      if (conexion != null) {
+        conexion.desconectarConexion();
+      }
     }
   }
+
   public void regBusAudDPI(){
     String dpi;
     dpi=AAdpi.getText();
