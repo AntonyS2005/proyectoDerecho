@@ -93,6 +93,10 @@ public class MenuController implements Initializable{
   public void openEdAud(ActionEvent event) throws IOException {
     openFXML("editarAudiencia", "editar audiencia", event,null);
   }
+  public void exportToExcel(){
+    ExportToExcel exportToExcel= new ExportToExcel();
+    exportToExcel.exportToExcel();
+  }
 
   public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
     fxml=fxml+".fxml";

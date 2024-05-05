@@ -69,5 +69,10 @@
 
         <Button layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
         <Button layoutX="42.0" layoutY="360.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="25.0" prefWidth="121.0" text="editar audiencia" />
+      <Button layoutX="49.0" layoutY="477.0" mnemonicParsing="false" onAction="#exportToExcel" text="Exportar datos" textFill="#80724d">
+         <font>
+            <Font name="Book Antiqua Italic" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
