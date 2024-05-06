@@ -15,6 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import javafx.scene.control.Label;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,7 +26,7 @@ public  class MenuController implements Initializable {
   @FXML
   private PasswordField TFpasword;
   @FXML
-  private TableView<Audiencias> tablaNoti;
+  private TableView<Audiencias> Taudiencias;
   @FXML
   private TableColumn<Audiencias, String> columUbi;
   @FXML
@@ -34,6 +35,7 @@ public  class MenuController implements Initializable {
   private TableColumn<Audiencias, String> columFecha;
   @FXML
   private TableColumn<Audiencias, String> columDetalles;
+
   private ObservableList<Audiencias> items= FXCollections.observableArrayList();
 
   public void mostrarAudPendientes() {
@@ -72,31 +74,33 @@ public  class MenuController implements Initializable {
 
   }
   public void tablaNoti(){
-    items.clear();
-    String sql = "SELECT ubicacion_de_audiencia, fecha, hora, detalles FROM audiencias WHERE fecha >= CURDATE();";
+
+    String sql = "SELECT ubicacion_de_la_audiencia, fecha_de_audiencia, hora_de_la_audiencia, detalles FROM audiencias" +
+            " WHERE fecha_de_audiencia >= CURDATE();";
     try{
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
-      String ubicaciondeAudiencia, fecha,hora,detalles;
+      String ubicacion, fecha,hora,detalles;
       while(rs.next()){
-        ubicaciondeAudiencia=rs.getString(3).trim();
-        fecha=rs.getString(4).trim();
-        hora=rs.getString(5).trim();
-        detalles=rs.getString(6).trim();
-        this.columUbi.setCellValueFactory(new PropertyValueFactory<> ("ubicaciondeAudiencia"));
+        ubicacion=rs.getString(1).trim();
+        fecha=rs.getString(2).trim();
+        hora=rs.getString(3).trim();
+        detalles=rs.getString(4).trim();
+        this.columUbi.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
         this.columFecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
         this.columHora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
         this.columDetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
-        items.add(new Audiencias(ubicaciondeAudiencia, fecha, hora, detalles));
-        this.tablaNoti.setItems(items);
+        items.add(new Audiencias(ubicacion, fecha, hora, detalles));
+        this.Taudiencias.setItems(items);
       }
       st.close();
       rs.close();}catch(Exception e) {
-      JOptionPane.showMessageDialog(null,e);
+      JOptionPane.showMessageDialog(null, e);
     }
-
   }
+
+
 
 
   public void openEdUs(ActionEvent event) throws IOException {
@@ -132,6 +136,8 @@ public  class MenuController implements Initializable {
   public void openEdAud(ActionEvent event) throws IOException {
     openFXML("editarAudiencia", "editar audiencia", event);
   }
+
+
 
   public void openFXML(String fxml,String title,ActionEvent event) throws IOException{
     fxml=fxml+".fxml";

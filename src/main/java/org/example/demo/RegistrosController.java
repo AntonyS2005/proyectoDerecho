@@ -41,6 +41,7 @@ public class RegistrosController implements Initializable {
   @FXML private TextField AAdpi;
   @FXML private TextField AAhora;
   @FXML private DatePicker DPAudiencia;
+  @FXML private Label Aname;
 
 
   private String[] estadoCivilArray= {"Casad@","Solter@"};
@@ -194,7 +195,7 @@ public class RegistrosController implements Initializable {
   public void regBusAudDPI(){
     String dpi;
     dpi=AAdpi.getText();
-    String sql = "SELECT * FROM `audiencias` WHERE dpi='"+dpi+"'";
+    String sql = "SELECT * FROM `clientes` WHERE dpi='"+dpi+"'";
     try{
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
@@ -202,7 +203,7 @@ public class RegistrosController implements Initializable {
       if (rs.next()) {
         String nombre;
         nombre=rs.getString(2)+" "+rs.getString(3);
-        Lname.setText(nombre);
+        Aname.setText(nombre);
         }
         conexion.desconectarConexion();
         st.close();

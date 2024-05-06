@@ -19,10 +19,10 @@
       <Label layoutX="160.0" layoutY="267.0" text="Hora de la audiencia" />
       <Label layoutX="194.0" layoutY="330.0" text="Detalles" />
       <TextArea fx:id="AAdetalles" layoutX="115.0" layoutY="358.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="AAdpi" layoutX="139.0" layoutY="56.0" />
+      <TextField fx:id="AAdpi" layoutX="139.0" layoutY="56.0" onKeyReleased="#regBusAudDPI" />
       <Label layoutX="175.0" layoutY="30.0" text="Dpi del Cliente" />
       <Label layoutX="195.0" layoutY="82.0" text="Cliente" />
-      <Label layoutX="164.0" layoutY="109.0" text="Nombre del cliente" />
+      <Label fx:id="Aname" layoutX="164.0" layoutY="109.0" text="Nombre del cliente" />
       <AnchorPane layoutX="439.0" prefHeight="672.0" prefWidth="438.0" />
    </children>
 </AnchorPane>

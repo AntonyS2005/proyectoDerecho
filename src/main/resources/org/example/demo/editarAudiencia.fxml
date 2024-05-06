@@ -3,15 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="651.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="651.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="106.0" layoutY="274.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="42.0" prefWidth="92.0" text="Editar" />
+      <Button layoutX="106.0" layoutY="274.0" mnemonicParsing="false" onAction="#editarAudiencia" prefHeight="42.0" prefWidth="92.0" text="Editar" />
       <Button layoutX="311.0" layoutY="275.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="41.0" prefWidth="92.0" text="Menu" />
       <DatePicker layoutX="204.0" layoutY="185.0" />
       <Label layoutX="50.0" layoutY="198.0" text="Fecha de la audiencia" />
@@ -21,19 +21,18 @@
       <Label layoutX="52.0" layoutY="237.0" text="Hora de la audiencia" />
       <Label layoutX="409.0" layoutY="101.0" text="Detalles" />
       <TextArea layoutX="409.0" layoutY="120.0" prefHeight="155.0" prefWidth="270.0" />
-      <TextField fx:id="AAdpi" layoutX="216.0" layoutY="18.0" prefHeight="26.0" prefWidth="451.0" />
+      <TextField fx:id="AAdpi" layoutX="216.0" layoutY="18.0" onAction="#BusAudDPI" onKeyReleased="#BusAudDPI" prefHeight="26.0" prefWidth="451.0" />
       <Label layoutX="51.0" layoutY="22.0" text="Dpi del Cliente" />
       <Label layoutX="53.0" layoutY="110.0" text="Cliente" />
-      <Label layoutX="107.0" layoutY="110.0" text="Nombre del cliente" />
+      <Label fx:id="EdAname" layoutX="107.0" layoutY="110.0" text="Nombre del cliente" />
       <Button layoutX="209.0" layoutY="274.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="42.0" prefWidth="92.0" text="Eliminar" />
-      <TreeTableView layoutX="9.0" layoutY="328.0" prefHeight="305.0" prefWidth="696.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="328.0">
+      <TableView fx:id="TEAudiencias" layoutX="25.0" layoutY="350.0" prefHeight="286.0" prefWidth="674.0">
         <columns>
-          <TreeTableColumn prefWidth="113.0" text="Cliente" />
-          <TreeTableColumn prefWidth="145.0" text="Ubicacion de audiencia" />
-            <TreeTableColumn prefWidth="145.0" text="Fecha" />
-            <TreeTableColumn prefWidth="145.0" text="Hora" />
-            <TreeTableColumn prefWidth="145.0" text="Detalles" />
+          <TableColumn fx:id="Eubicacion" minWidth="0.0" prefWidth="136.0" text="ubicacion" />
+            <TableColumn fx:id="Efecha" prefWidth="138.0" text="fecha" />
+            <TableColumn fx:id="Ehora" prefWidth="87.0" text="hora" />
+            <TableColumn fx:id="Edetalles" prefWidth="176.0" text="detalles" />
         </columns>
-      </TreeTableView>
+      </TableView>
    </children>
 </AnchorPane>

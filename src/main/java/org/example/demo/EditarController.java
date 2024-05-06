@@ -20,6 +20,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.scene.control.Label;
 
 public class  EditarController implements Initializable {
   @FXML private TextField TFdpi;
@@ -36,8 +37,23 @@ public class  EditarController implements Initializable {
   @FXML
   private TableColumn<Casos,String> Cestado;
   @FXML
+  private TableColumn<Audiencias, String> Efecha;
+  @FXML
+  private TableColumn<Audiencias, String> Ehora;
+  @FXML
+  private TableColumn<Audiencias, String> Eubicacion;
+  @FXML
+  private TableColumn<Audiencias, String> Edetalles;
+  @FXML
   private TableColumn<Casos,String> Cdetalles;
+  @FXML
+  private TextField AAdpi;
+  @FXML
+  private Label EdAname;
+  @FXML
+  private TableView<Audiencias> TEAudiencias;
   private ObservableList<Casos> items= FXCollections.observableArrayList();
+  private ObservableList<Audiencias> itemsAud= FXCollections.observableArrayList();
 
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
@@ -105,9 +121,56 @@ public class  EditarController implements Initializable {
       }
       st.close();
       rs.close();}catch(Exception e) {
-      JOptionPane.showMessageDialog(null, "error al conectar");
+      JOptionPane.showMessageDialog(null, e);
     }
   }
+  public void editarAudiencia(){
+    String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
+            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi;";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String ubicacion,fecha,hora,detalles;
+      while(rs.next()){
+        ubicacion=rs.getString(3).trim();
+        fecha=rs.getString(4).trim();
+        hora=rs.getString(5).trim();
+        detalles=rs.getString(6).trim();
+        this.Eubicacion.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
+        this.Efecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
+        this.Ehora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
+        this.Edetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+        itemsAud.add(new Audiencias(ubicacion,fecha,hora,detalles));
+        this.TEAudiencias.setItems(itemsAud);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+  }
+  public void BusAudDPI(){
+    String dpi;
+    dpi=AAdpi.getText();
+    String sql = "SELECT * FROM `clientes` WHERE dpi='"+dpi+"'";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      if (rs.next()) {
+        String nombre;
+        nombre=rs.getString(2)+" "+rs.getString(3);
+        EdAname.setText(nombre);
+      }
+      conexion.desconectarConexion();
+      st.close();
+      rs.close();
+
+    }catch (Exception e){}
+
+  }
+
+
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {

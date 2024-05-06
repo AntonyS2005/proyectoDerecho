@@ -22,7 +22,7 @@
       </Label>
       <AnchorPane fx:id="TnotiAu" layoutX="180.0" layoutY="20.0" prefHeight="342.0" prefWidth="258.0">
          <children>
-            <TableView fx:id="tablaNoti" layoutY="49.0" prefHeight="285.0" prefWidth="455.0">
+            <TableView fx:id="Taudiencias" layoutY="49.0" prefHeight="285.0" prefWidth="455.0">
               <columns>
                 <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
                 <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
@@ -37,7 +37,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="58.0" layoutY="350.0" mnemonicParsing="false" text="pendientes" />
+      <Button layoutX="58.0" layoutY="350.0" mnemonicParsing="false" onAction="#tablaNoti" text="pendientes" />
       <Button layoutX="35.0" layoutY="282.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
       <Button layoutX="35.0" layoutY="315.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="25.0" prefWidth="121.0" text="editar audiencia" />
    </children>
