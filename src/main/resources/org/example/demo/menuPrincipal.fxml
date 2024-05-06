@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,66 +9,104 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="468.0" prefWidth="704.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane prefHeight="468.0" prefWidth="704.0" style="-fx-background-color: #7A9AA5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
     <children>
-        <Button layoutX="34.0" layoutY="294.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Button layoutX="33.0" layoutY="253.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="28.0" prefWidth="137.0" text="Editar Caso" textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Button layoutX="33.0" layoutY="219.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="28.0" prefWidth="137.0" text="Editar Usuarios" textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Button layoutX="33.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="30.0" prefWidth="137.0" text="Registro de Clientes " textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Button layoutX="33.0" layoutY="120.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="28.0" prefWidth="137.0" text="Registro de Casos" textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Button layoutX="34.0" layoutY="187.0" mnemonicParsing="false" onAction="#openReUs" text="Registro de Usuarios" textFill="#80734c">
-            <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
         <AnchorPane layoutX="200.0" layoutY="104.0" prefHeight="358.0" prefWidth="497.0">
             <children>
-                    <TableView fx:id="tablaNoti" layoutX="7.0" layoutY="36.0" prefHeight="400.0" prefWidth="498.0">
+                    <TableView fx:id="tablaNoti" layoutX="-146.0" layoutY="83.0" prefHeight="254.0" prefWidth="593.0">
                         <columns>
-                            <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
-                            <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
-                            <TableColumn fx:id="columHora" prefWidth="96.0" text="hora" />
-                            <TableColumn fx:id="columDetalles" prefWidth="113.0" text="detalles" />
+                            <TableColumn fx:id="columUbi" prefWidth="186.0" text="Ubicación" />
+                            <TableColumn fx:id="columFecha" prefWidth="103.0" text="Fecha" />
+                            <TableColumn fx:id="columHora" prefWidth="95.0" text="Hora" />
+                            <TableColumn fx:id="columDetalles" prefWidth="208.0" text="Detalles" />
                         </columns>
                     </TableView>
-                    <Label layoutX="162.0" layoutY="14.0" text="Notificaciones de audiencias">
+                    <Label layoutX="33.0" layoutY="48.0" text="Notificaciones de audiencias" textFill="WHITE">
                         <font>
-                            <Font size="15.0" />
+                            <Font name="Franklin Gothic Book Italic" size="18.0" />
                         </font>
                     </Label>
             </children>
         </AnchorPane>
-        <Button layoutX="61.0" layoutY="430.0" mnemonicParsing="false" text="Pendientes" textFill="#80724d">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6e7fa" height="150.0" layoutX="-5.0" layoutY="-23.0" stroke="#131e22" strokeType="INSIDE" width="716.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Rectangle>
+        <Label layoutX="284.0" layoutY="-12.0" prefHeight="71.0" prefWidth="180.0" text="Menú" textFill="WHITE">
             <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
-            </font></Button>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3e68" height="128.0" layoutX="-5.0" layoutY="-23.0" stroke="#0f3e68" strokeType="INSIDE" width="716.0" />
-        <Label layoutX="14.0" layoutY="-9.0" text="Menú" textFill="#c3b89c">
-            <font>
-                <Font name="Book Antiqua Italic" size="96.0" />
+                <Font name="Century" size="48.0" />
             </font>
         </Label>
-        <Button layoutX="34.0" layoutY="394.0" mnemonicParsing="false" onAction="#openSubFil" prefHeight="28.0" prefWidth="137.0" text="subir archivo" textFill="#80734c">
+        <Button layoutX="502.0" layoutY="90.0" mnemonicParsing="false" onAction="#openSubFil" opacity="0.66" prefHeight="30.0" prefWidth="97.0" text="Subir Archivo" textFill="#80734c">
             <font>
-                <Font name="Book Antiqua Italic" size="14.0" />
+                <Font name="Franklin Gothic Book Italic" size="12.0" />
             </font>
         </Button>
-
-        <Button layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#openAu" prefHeight="25.0" prefWidth="121.0" text="agregar audiencia" />
-        <Button layoutX="42.0" layoutY="360.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="25.0" prefWidth="121.0" text="editar audiencia" />
+      <Button layoutX="45.0" layoutY="54.0" mnemonicParsing="false" onAction="#openRePr" opacity="0.66" prefHeight="30.0" prefWidth="131.0" text="Registro de Casos" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="200.0" layoutY="54.0" mnemonicParsing="false" onAction="#openReCl" opacity="0.66" prefHeight="30.0" prefWidth="143.0" text="Registro de Clientes " textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="372.0" layoutY="53.0" mnemonicParsing="false" onAction="#openReUs" opacity="0.66" prefHeight="30.0" prefWidth="149.0" text="Registro de Usuarios" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="546.0" layoutY="54.0" mnemonicParsing="false" onAction="#openEdUs" opacity="0.66" prefHeight="30.0" prefWidth="105.0" text="Editar Usuarios" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="27.0" layoutY="90.0" mnemonicParsing="false" onAction="#openEdPr" opacity="0.66" prefHeight="30.0" prefWidth="83.0" text="Editar Caso" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="125.0" layoutY="90.0" mnemonicParsing="false" onAction="#openEdCl" opacity="0.66" prefHeight="30.0" prefWidth="105.0" text="Editar Clientes" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="241.0" layoutY="90.0" mnemonicParsing="false" onAction="#openAu" opacity="0.66" prefHeight="30.0" prefWidth="123.0" text="Agregar Audiencia" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="371.0" layoutY="90.0" mnemonicParsing="false" onAction="#openEdAud" opacity="0.66" prefHeight="30.0" prefWidth="123.0" text="Editar Audiencia" textFill="#80734c">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="606.0" layoutY="90.0" mnemonicParsing="false" opacity="0.66" text="Pendientes" textFill="#80724d">
+         <font>
+            <Font name="Franklin Gothic Book Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

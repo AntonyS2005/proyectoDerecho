@@ -7,32 +7,38 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #81C9BE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
    <children>
-      <Button layoutX="77.0" layoutY="277.0" mnemonicParsing="false" onAction="#iniciarSecion" text="Iniciar sesión" textFill="#b5952a">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="13.0" />
-         </font></Button>
-      <Label layoutX="92.0" layoutY="69.0" text="Usuario" textFill="#b5a263">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="20.0" />
-         </font></Label>
-      <Label layoutX="77.0" layoutY="163.0" text="Contraseña" textFill="#b5a263">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="20.0" />
-         </font></Label>
-      <PasswordField fx:id="TFpasword" layoutX="42.0" layoutY="209.0" prefHeight="25.0" prefWidth="168.0" />
-      <TextField fx:id="TFuser" layoutX="45.0" layoutY="106.0" prefHeight="25.0" prefWidth="162.0" />
-      <Label layoutX="326.0" layoutY="190.0" text="Iniciar sesión" textFill="#bc933beb">
-         <font>
-            <Font name="Bodoni MT Bold Italic" size="30.0" />
-         </font></Label>
-      <ImageView fitHeight="92.0" fitWidth="73.0" layoutX="382.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aff9ed" height="250.0" layoutX="111.0" layoutY="91.0" stroke="#aff9ed" strokeType="INSIDE" width="375.0" />
+      <ImageView fitHeight="103.0" fitWidth="132.0" layoutX="249.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Downloads/Descargar%20vector%20de%20diseño%20de%20icono%20de%20perfil_%20gratis.jpeg" />
+            <Image url="@../../../../../../../../../Downloads/Descargar_vector_de_diseño_de_icono_de_perfil__gratis-removebg-preview.png" />
          </image>
       </ImageView>
+      <Label layoutX="217.0" layoutY="111.0" text="Iniciar sesión" textFill="#bc933beb">
+         <font>
+            <Font name="Bodoni MT Italic" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="257.0" layoutY="298.0" mnemonicParsing="false" onAction="#iniciarSecion" text="Iniciar sesión" textFill="#b5952a">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="138.0" layoutY="168.0" text="Usuario:" textFill="#b5a263">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFuser" layoutX="220.0" layoutY="166.0" prefHeight="26.0" prefWidth="225.0" />
+      <Label layoutX="138.0" layoutY="227.0" text="Contraseña:" textFill="#b5a263">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="TFpasword" layoutX="249.0" layoutY="227.0" prefHeight="26.0" prefWidth="196.0" />
    </children>
 </AnchorPane>

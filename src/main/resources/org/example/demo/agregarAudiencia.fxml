@@ -51,6 +51,5 @@
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font></Label>
-      <AnchorPane layoutX="439.0" prefHeight="672.0" prefWidth="438.0" style="-fx-background-color: beige; -fx-border-color: brown;" />
    </children>
 </AnchorPane>
