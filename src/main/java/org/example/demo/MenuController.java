@@ -74,7 +74,7 @@ public  class MenuController implements Initializable {
 
   }
   public void tablaNoti(){
-
+    items.clear();
     String sql = "SELECT ubicacion_de_la_audiencia, fecha_de_audiencia, hora_de_la_audiencia, detalles FROM audiencias" +
             " WHERE fecha_de_audiencia >= CURDATE();";
     try{
@@ -151,6 +151,6 @@ public  class MenuController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    tablaNoti();
   }
 }
