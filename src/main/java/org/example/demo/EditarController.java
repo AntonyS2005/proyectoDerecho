@@ -61,10 +61,18 @@ public class  EditarController implements Initializable {
   @FXML private TableColumn<clientes,String> Cdate;
   @FXML private TableColumn<clientes,String> Cname;
   @FXML private TableColumn<clientes,String> CidClienet;
+  @FXML private TableColumn<Audiencias, String> Efecha;
+  @FXML private TableColumn<Audiencias, String> Ehora;
+  @FXML private TableColumn<Audiencias, String> Eubicacion;
+  @FXML private TableColumn<Audiencias, String> Edetalles;
+  @FXML private TextField AAdpi;
+  @FXML private Label EdAname;
+  @FXML private TableView<Audiencias> TEAudiencias;
+  private ObservableList<Casos> items= FXCollections.observableArrayList();
+  private ObservableList<Audiencias> itemsAud= FXCollections.observableArrayList();
   private ObservableList<clientes> itemsClientes= FXCollections.observableArrayList();
   private  String idCaso;
-  private ObservableList<Casos> items= FXCollections.observableArrayList();
-    private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
+  private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
   private String[] estadoProceso= {"pendiente","finalizado"};
   int idUser;
   int idCliente;
@@ -95,7 +103,7 @@ public class  EditarController implements Initializable {
     }else {
       String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
               " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"+TFdpi.getText()+"';";
-     sqlTablaCasos(sql);
+      sqlTablaCasos(sql);
     }}
 
   public void tablaCasos(){
@@ -266,29 +274,29 @@ public class  EditarController implements Initializable {
 
   public void editarCaso(){
     if(calcularSaldoPendiente()){
-    try{
-      Conexion conexion = new Conexion();
-      String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
-      CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
-      update.setString(1, TFtipo.getText());
-      update.setString(2, TFcosto.getText());
-      update.setString(3, TAdetalles.getText());
-      update.setString(4, LsaldoPendiente.getText());
-      update.setString(5, CBestadoProceso.getValue().toString());
-      update.setString(6, idCaso);
-      update.execute();
-      JOptionPane.showMessageDialog(null,"Se editaron los datos correctamente");
-      busPorDPIcasos();
-      TFcosto.setText("");
-      TAdetalles.setText("");
-      LsaldoPendiente.setText("");
-      CBestadoProceso.setValue(null);
-      TFdpi.setText("");
-      TFcostoNew.setText("");
-    }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al editar los casos por favor verificar que los campos esten correctos "+e);
-    }
-  }else return;}
+      try{
+        Conexion conexion = new Conexion();
+        String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
+        CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
+        update.setString(1, TFtipo.getText());
+        update.setString(2, TFcosto.getText());
+        update.setString(3, TAdetalles.getText());
+        update.setString(4, LsaldoPendiente.getText());
+        update.setString(5, CBestadoProceso.getValue().toString());
+        update.setString(6, idCaso);
+        update.execute();
+        JOptionPane.showMessageDialog(null,"Se editaron los datos correctamente");
+        busPorDPIcasos();
+        TFcosto.setText("");
+        TAdetalles.setText("");
+        LsaldoPendiente.setText("");
+        CBestadoProceso.setValue(null);
+        TFdpi.setText("");
+        TFcostoNew.setText("");
+      }catch (Exception e){
+        JOptionPane.showMessageDialog(null,"error al editar los casos por favor verificar que los campos esten correctos "+e);
+      }
+    }else return;}
   public void eliminarCaso() {
     try {
       Conexion conexion = new Conexion();
@@ -589,6 +597,33 @@ public class  EditarController implements Initializable {
   }
 
   private String[] estadoCivilArray= {"Casad@","Solter@"};
+
+  public void editarAudiencia(){
+    String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
+            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi;";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String ubicacion,fecha,hora,detalles;
+      while(rs.next()){
+        ubicacion=rs.getString(3).trim();
+        fecha=rs.getString(4).trim();
+        hora=rs.getString(5).trim();
+        detalles=rs.getString(6).trim();
+        this.Eubicacion.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
+        this.Efecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
+        this.Ehora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
+        this.Edetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+        itemsAud.add(new Audiencias(ubicacion,fecha,hora,detalles));
+        this.TEAudiencias.setItems(itemsAud);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     if(Tcasos != null){
@@ -606,5 +641,7 @@ public class  EditarController implements Initializable {
       CidClienet.setVisible(false);
       CBestadoCivil.getItems().addAll(estadoCivilArray);
     }
+    if(TEAudiencias!=null){
+      editarAudiencia();}
   }
-}
+  }

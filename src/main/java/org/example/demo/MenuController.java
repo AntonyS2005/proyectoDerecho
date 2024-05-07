@@ -1,5 +1,9 @@
 package org.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -13,13 +17,30 @@ import java.net.URL;
 import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 public class MenuController implements Initializable{
   @FXML
   private TextField TFuser;
   @FXML
   private PasswordField TFpasword;
+  @FXML
+  private TableView<Audiencias> Taudiencias;
+  @FXML
+  private TableColumn<Audiencias, String> columUbi;
+  @FXML
+  private TableColumn<Audiencias, String> columHora;
+  @FXML
+  private TableColumn<Audiencias, String> columFecha;
+  @FXML
+  private TableColumn<Audiencias, String> columDetalles;
 
+  private ObservableList<Audiencias> items= FXCollections.observableArrayList();
+
+  public void mostrarAudPendientes() {
+
+  }
 
 
   public void iniciarSecion(ActionEvent event) {
@@ -112,7 +133,35 @@ public class MenuController implements Initializable{
     stage.show();
   }
 
+  public void tablaNoti(){
+    items.clear();
+    String sql = "SELECT ubicacion_de_la_audiencia, fecha_de_audiencia, hora_de_la_audiencia, detalles FROM audiencias" +
+            " WHERE fecha_de_audiencia >= CURDATE();";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String ubicacion, fecha,hora,detalles;
+      while(rs.next()){
+        ubicacion=rs.getString(1).trim();
+        fecha=rs.getString(2).trim();
+        hora=rs.getString(3).trim();
+        detalles=rs.getString(4).trim();
+        this.columUbi.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
+        this.columFecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
+        this.columHora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
+        this.columDetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+        items.add(new Audiencias(ubicacion, fecha, hora, detalles));
+        this.Taudiencias.setItems(items);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    tablaNoti();
   }
 }
