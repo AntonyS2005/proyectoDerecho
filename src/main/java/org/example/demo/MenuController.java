@@ -70,7 +70,7 @@ public class MenuController implements Initializable{
   }
 
   public void openReUs(ActionEvent event) throws IOException {
-    openFXML("registroUsuario","Registro de usuarios",event,null);
+    openFXML("registroUsuario","Registro de usuarios",event,"ejemploNombreS");
   }
 
   public void openReCl(ActionEvent event) throws IOException {
