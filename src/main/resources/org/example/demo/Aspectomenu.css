@@ -1,0 +1,42 @@
+.menu-bar {
+    -fx-background-color: #3F51B5; /* Azul índigo */
+}
+#titulo {
+    -fx-font-size: 158px; /* Tres veces más grande que 96px */
+    /* Otros estilos si los necesitas */
+}
+.label{
+-fx-background-color: #2980b9; /* Azul oscuro */
+    -fx-text-fill: #ffffff; /* Texto blanco */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10, 0, 0, 0);
+    -fx-transition: all 0.3s ease;
+}
+
+.menu {
+    -fx-text-fill: #FFFFFF; /* Texto blanco */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-text-fill: #FFFFFF; /* Texto blanco */
+}
+
+.menu-item:hover {
+    -fx-background-color: #536DFE; /* Azul más claro al pasar el mouse */
+}
+
+.sub-menu {
+    -fx-background-color: #3F51B5; /* Color del menú principal */
+}
+
+.sub-menu-item {
+    -fx-text-fill: #FFFFFF; /* Texto blanco */
+}
+
+.sub-menu-item:hover {
+    -fx-background-color: #536DFE; /* Azul más claro al pasar el mouse */
+}

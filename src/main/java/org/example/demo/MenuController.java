@@ -109,7 +109,7 @@ public class MenuController implements Initializable{
     openFXML("subArchivo","Plantillas",event,null);
   }
   public void openAu(ActionEvent event) throws IOException {
-    openFXML("agregarAudiencia", "agregar audiencia",event,null);
+    openFXML("agregarAudiencia", "agregar audiencia",event,"AgregarAudiencia");
   }
   public void openEdAud(ActionEvent event) throws IOException {
     openFXML("editarAudiencia", "editar audiencia", event,null);
