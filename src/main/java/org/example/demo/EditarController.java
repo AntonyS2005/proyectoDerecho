@@ -49,7 +49,6 @@ public class  EditarController implements Initializable {
   @FXML private TableColumn<usuarios,String> CidUser;
   @FXML private TextField TFuser;
   @FXML private TextField TFpasword;
-  @FXML private TextField TFnameB;
   @FXML private TextField TFname;
   @FXML private TextField TFlastName;
   @FXML private ChoiceBox CBestadoCivil;
@@ -62,10 +61,18 @@ public class  EditarController implements Initializable {
   @FXML private TableColumn<clientes,String> Cdate;
   @FXML private TableColumn<clientes,String> Cname;
   @FXML private TableColumn<clientes,String> CidClienet;
+  @FXML private TableColumn<Audiencias, String> Efecha;
+  @FXML private TableColumn<Audiencias, String> Ehora;
+  @FXML private TableColumn<Audiencias, String> Eubicacion;
+  @FXML private TableColumn<Audiencias, String> Edetalles;
+  @FXML private TextField AAdpi;
+  @FXML private Label EdAname;
+  @FXML private TableView<Audiencias> TEAudiencias;
+  private ObservableList<Casos> items= FXCollections.observableArrayList();
+  private ObservableList<Audiencias> itemsAud= FXCollections.observableArrayList();
   private ObservableList<clientes> itemsClientes= FXCollections.observableArrayList();
   private  String idCaso;
-  private ObservableList<Casos> items= FXCollections.observableArrayList();
-    private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
+  private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
   private String[] estadoProceso= {"pendiente","finalizado"};
   int idUser;
   int idCliente;
@@ -80,91 +87,6 @@ public class  EditarController implements Initializable {
     stage.setScene(scene);
     stage.show();
   }
-
-  public boolean calcularSaldoPendiente() {
-    String adelantoStr = TFadelanto.getText();
-    String newCostStr = TFcostoNew.getText();
-
-    // Obtener los valores actuales
-    double costoActual = Double.parseDouble(TFcosto.getText());
-    double saldoPendienteActual = Double.parseDouble(LsaldoPendiente.getText());
-
-    // Variables para el nuevo costo y saldo pendiente
-    double newCost = costoActual;
-    double saldoPendienteNuevo = saldoPendienteActual;
-
-    // Verificar si se ha ingresado un nuevo costo
-    if (!newCostStr.isEmpty()) {
-      newCost = Double.parseDouble(newCostStr); // Nuevo costo ingresado por el usuario
-
-      // Verificar si el nuevo costo es válido (no negativo)
-      if (newCost < 0) {
-        JOptionPane.showMessageDialog(null, "Error: El nuevo costo no puede ser negativo.");
-        TFcostoNew.setText("");
-        return false;
-      }
-
-      // Calcular el adelanto dado actual
-      double adelantoDadoActual = costoActual - saldoPendienteActual;
-
-      // Verificar si se ha ingresado un adelanto
-      if (!adelantoStr.isEmpty()) {
-        double adelanto = Double.parseDouble(adelantoStr); // Adelanto ingresado por el usuario
-
-        // Verificar si el adelanto es válido (no negativo)
-        if (adelanto < 0) {
-          JOptionPane.showMessageDialog(null, "Error: El adelanto no puede ser negativo.");
-          TFadelanto.setText("");
-          return false;
-        }
-
-        // Verificar si el adelanto es mayor que el saldo pendiente actual
-        if (adelanto > saldoPendienteActual) {
-          JOptionPane.showMessageDialog(null, "Error: El adelanto es mayor que el saldo pendiente.");
-          TFadelanto.setText("");
-          return false;
-        }
-
-        // Calcular el saldo pendiente nuevo teniendo en cuenta el nuevo costo y el adelanto
-        saldoPendienteNuevo = Math.max(0, newCost - adelanto);
-      } else { // Si no se ha ingresado un adelanto
-        // Calcular el saldo pendiente nuevo teniendo en cuenta el nuevo costo y el adelanto dado actual
-        saldoPendienteNuevo = Math.max(0, newCost - adelantoDadoActual);
-      }
-    } else if (!adelantoStr.isEmpty()) { // Si no se ha ingresado un nuevo costo pero sí un adelanto
-      double adelanto = Double.parseDouble(adelantoStr); // Adelanto ingresado por el usuario
-
-      // Verificar si el adelanto es válido (no negativo)
-      if (adelanto < 0) {
-        JOptionPane.showMessageDialog(null, "Error: El adelanto no puede ser negativo.");
-        TFadelanto.setText("");
-        return false;
-      }
-
-      // Verificar si el adelanto es mayor que el saldo pendiente actual
-      if (adelanto > saldoPendienteActual) {
-        JOptionPane.showMessageDialog(null, "Error: El adelanto es mayor que el saldo pendiente.");
-        TFadelanto.setText("");
-        return false;
-      }
-
-      // Calcular el saldo pendiente nuevo teniendo en cuenta solo el adelanto
-      saldoPendienteNuevo = Math.max(0, costoActual - adelanto);
-    }
-
-    // Actualizar los campos solo si hay cambios
-    if (newCost != costoActual || saldoPendienteNuevo != saldoPendienteActual) {
-      TFcosto.setText(String.valueOf(newCost));
-      LsaldoPendiente.setText(String.valueOf(saldoPendienteNuevo));
-      TFadelanto.setText("");
-      return true;
-    }
-
-    // Devolver verdadero incluso si no hay cambios
-    return true;
-  }
-
-
 
 
 
@@ -181,7 +103,7 @@ public class  EditarController implements Initializable {
     }else {
       String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
               " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"+TFdpi.getText()+"';";
-     sqlTablaCasos(sql);
+      sqlTablaCasos(sql);
     }}
 
   public void tablaCasos(){
@@ -215,31 +137,166 @@ public class  EditarController implements Initializable {
     });
   }
 
+  public boolean calcularSaldoPendiente() {
+    try {
+      // Obtener los valores de los campos de entrada
+      String costoNuevoText = TFcostoNew.getText();
+      String adelantoText = TFadelanto.getText();
+      double saldoPendiente = Double.parseDouble(LsaldoPendiente.getText());
+
+      // Verificar si ambos campos están vacíos
+      if (costoNuevoText.isEmpty() && adelantoText.isEmpty()) {
+        return true; // No se realizan cálculos
+      }
+
+      // Calcular el nuevo costo y el nuevo saldo pendiente si cambian ambos valores
+      if (!costoNuevoText.isEmpty() && !adelantoText.isEmpty()) {
+        double nuevoCosto = Double.parseDouble(costoNuevoText);
+        double adelanto = Double.parseDouble(adelantoText);
+
+        // Verificar si el nuevo costo es negativo
+        if (nuevoCosto < 0) {
+          JOptionPane.showMessageDialog(null, "El costo nuevo no puede ser negativo.");
+          TFcostoNew.setText("");
+          return false;
+        }
+
+        // Calcular el nuevo saldo pendiente
+        double nuevoSaldoPendiente = saldoPendiente + (nuevoCosto - Double.parseDouble(TFcosto.getText()));
+
+        // Verificar si el saldo pendiente es negativo
+        if (nuevoSaldoPendiente < 0) {
+          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          TFcostoNew.setText("");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Actualizar los valores en los Labels
+        LsaldoPendiente.setText(String.valueOf(nuevoSaldoPendiente));
+        TFcosto.setText(costoNuevoText);
+        TFcostoNew.setText("");
+
+        // Verificar si el adelanto es mayor o igual al saldo pendiente
+        if (adelanto < 0 || adelanto > nuevoSaldoPendiente) {
+          JOptionPane.showMessageDialog(null, "El adelanto no puede ser negativo o mayor que el saldo pendiente.");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Calcular el nuevo saldo pendiente con el adelanto ingresado
+        double nuevoSaldoPendienteConAdelanto = nuevoSaldoPendiente - adelanto;
+
+        // Verificar si el nuevo saldo pendiente con adelanto es negativo
+        if (nuevoSaldoPendienteConAdelanto < 0) {
+          JOptionPane.showMessageDialog(null, "El saldo pendiente con adelanto no puede ser negativo.");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Actualizar el saldo pendiente en el Label
+        LsaldoPendiente.setText(String.valueOf(nuevoSaldoPendienteConAdelanto));
+        TFadelanto.setText("");
+
+        return true; // Todo está correcto
+      }
+
+      // Calcular el costo nuevo y el nuevo saldo pendiente si cambia solo el costo
+      if (!costoNuevoText.isEmpty()) {
+        double nuevoCosto = Double.parseDouble(costoNuevoText);
+
+        // Verificar si el nuevo costo es negativo
+        if (nuevoCosto < 0) {
+          JOptionPane.showMessageDialog(null, "El costo nuevo no puede ser negativo.");
+          TFcostoNew.setText("");
+          return false;
+        }
+
+        // Calcular el nuevo saldo pendiente
+        double nuevoSaldoPendiente = saldoPendiente + (nuevoCosto - Double.parseDouble(TFcosto.getText()));
+
+        // Verificar si el saldo pendiente es negativo
+        if (nuevoSaldoPendiente < 0) {
+          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          TFcostoNew.setText("");
+          return false;
+        }
+
+        // Actualizar los valores en los Labels
+        LsaldoPendiente.setText(String.valueOf(nuevoSaldoPendiente));
+        TFcosto.setText(costoNuevoText);
+        TFcostoNew.setText("");
+      }
+
+      // Calcular el saldo pendiente con el adelanto ingresado
+      if (!adelantoText.isEmpty()) {
+        double adelanto = Double.parseDouble(adelantoText);
+
+        // Verificar si el adelanto es negativo
+        if (adelanto < 0) {
+          JOptionPane.showMessageDialog(null, "El adelanto no puede ser negativo.");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Verificar si el adelanto es mayor o igual al saldo pendiente
+        if (adelanto > saldoPendiente) {
+          JOptionPane.showMessageDialog(null, "El adelanto no puede ser mayor que el saldo pendiente.");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Calcular el nuevo saldo pendiente
+        double nuevoSaldoPendiente = saldoPendiente - adelanto;
+
+        // Verificar si el nuevo saldo pendiente es negativo
+        if (nuevoSaldoPendiente < 0) {
+          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          TFadelanto.setText("");
+          return false;
+        }
+
+        // Actualizar el saldo pendiente en el Label
+        LsaldoPendiente.setText(String.valueOf(nuevoSaldoPendiente));
+        TFadelanto.setText("");
+      }
+
+      return true; // Todo está correcto
+    } catch (NumberFormatException e) {
+      // Si se ingresan caracteres no numéricos, mostrar mensaje de error y resetear los campos
+      JOptionPane.showMessageDialog(null, "Por favor, ingresa solo valores numéricos.");
+      TFcostoNew.setText("");
+      TFadelanto.setText("");
+      return false;
+    }
+  }
+
+
   public void editarCaso(){
     if(calcularSaldoPendiente()){
-    try{
-      Conexion conexion = new Conexion();
-      String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
-      CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
-      update.setString(1, TFtipo.getText());
-      update.setString(2, TFcosto.getText());
-      update.setString(3, TAdetalles.getText());
-      update.setString(4, LsaldoPendiente.getText());
-      update.setString(5, CBestadoProceso.getValue().toString());
-      update.setString(6, idCaso);
-      update.execute();
-      JOptionPane.showMessageDialog(null,"Se editaron los datos correctamente");
-      busPorDPIcasos();
-      TFcosto.setText("");
-      TAdetalles.setText("");
-      LsaldoPendiente.setText("");
-      CBestadoProceso.setValue(null);
-      TFdpi.setText("");
-      TFcostoNew.setText("");
-    }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al editar los casos por favor verificar que los campos esten correctos "+e);
-    }
-  }else return;}
+      try{
+        Conexion conexion = new Conexion();
+        String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
+        CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
+        update.setString(1, TFtipo.getText());
+        update.setString(2, TFcosto.getText());
+        update.setString(3, TAdetalles.getText());
+        update.setString(4, LsaldoPendiente.getText());
+        update.setString(5, CBestadoProceso.getValue().toString());
+        update.setString(6, idCaso);
+        update.execute();
+        JOptionPane.showMessageDialog(null,"Se editaron los datos correctamente");
+        busPorDPIcasos();
+        TFcosto.setText("");
+        TAdetalles.setText("");
+        LsaldoPendiente.setText("");
+        CBestadoProceso.setValue(null);
+        TFdpi.setText("");
+        TFcostoNew.setText("");
+      }catch (Exception e){
+        JOptionPane.showMessageDialog(null,"error al editar los casos por favor verificar que los campos esten correctos "+e);
+      }
+    }else return;}
   public void eliminarCaso() {
     try {
       Conexion conexion = new Conexion();
@@ -540,6 +597,33 @@ public class  EditarController implements Initializable {
   }
 
   private String[] estadoCivilArray= {"Casad@","Solter@"};
+
+  public void editarAudiencia(){
+    String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
+            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi;";
+    try{
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      String ubicacion,fecha,hora,detalles;
+      while(rs.next()){
+        ubicacion=rs.getString(3).trim();
+        fecha=rs.getString(4).trim();
+        hora=rs.getString(5).trim();
+        detalles=rs.getString(6).trim();
+        this.Eubicacion.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
+        this.Efecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
+        this.Ehora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
+        this.Edetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+        itemsAud.add(new Audiencias(ubicacion,fecha,hora,detalles));
+        this.TEAudiencias.setItems(itemsAud);
+      }
+      st.close();
+      rs.close();}catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     if(Tcasos != null){
@@ -557,5 +641,7 @@ public class  EditarController implements Initializable {
       CidClienet.setVisible(false);
       CBestadoCivil.getItems().addAll(estadoCivilArray);
     }
+    if(TEAudiencias!=null){
+      editarAudiencia();}
   }
-}
+  }
