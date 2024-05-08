@@ -14,10 +14,12 @@ package org.example.demo;
     public void start(Stage stage) throws IOException {
       FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
       Scene scene = new Scene(fxmlLoader.load());
+
       //String css = this.getClass().getResource("menu.css").toExternalForm();
       //scene.getStylesheets().add(css);
     stage.setTitle("Iniciar secion");
     stage.setScene(scene);
+      stage.setResizable(false);
     stage.show();
   }
 

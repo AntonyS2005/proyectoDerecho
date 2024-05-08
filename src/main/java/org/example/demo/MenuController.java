@@ -118,20 +118,29 @@ public class MenuController implements Initializable{
     ExportToExcel exportToExcel= new ExportToExcel();
     exportToExcel.exportToExcel();
   }
+  public  void openSubFile(ActionEvent event) throws IOException {
+    openFXML("upload","subir plantillas",event,null);
+  }
+  public  void openPlan(ActionEvent event) throws IOException {
+    openFXML("GestionDocumentos","Plantillas",event,null);
+  }
 
-  public void openFXML(String fxml,String title,ActionEvent event,String nombreDelCSS) throws IOException{
-    fxml=fxml+".fxml";
+  public void openFXML(String fxml, String title, ActionEvent event, String nombreDelCSS) throws IOException {
+    fxml = fxml + ".fxml";
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
     stage.setTitle(title);
-    if(nombreDelCSS != null){
-      nombreDelCSS+=".css";
+    if (nombreDelCSS != null) {
+      nombreDelCSS += ".css";
       String css = this.getClass().getResource(nombreDelCSS).toExternalForm();
-      scene.getStylesheets().add(css);}
+      scene.getStylesheets().add(css);
+    }
     stage.setScene(scene);
+    stage.setResizable(false); // No permitir redimensionar la ventana
     stage.show();
   }
+
 
   public void tablaNoti(){
     items.clear();

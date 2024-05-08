@@ -31,7 +31,6 @@
          </font></Label>
       <ImageView fitHeight="92.0" fitWidth="73.0" layoutX="382.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../Downloads/Descargar%20vector%20de%20diseño%20de%20icono%20de%20perfil_%20gratis.jpeg" />
          </image>
       </ImageView>
    </children>

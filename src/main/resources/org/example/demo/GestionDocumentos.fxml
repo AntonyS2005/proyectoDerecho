@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="516.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.GestionDocumentosController">
+    <children>
+        <TableView fx:id="documentosTableView" layoutX="15.0" layoutY="107.0" prefHeight="330.0" prefWidth="592.0">
+        </TableView>
+        <HBox layoutX="16.0" layoutY="444.0" spacing="10.0">
+            <children>
+                <Button fx:id="descargarButton" onAction="#descargarArchivo" prefHeight="32.0" prefWidth="81.0" text="usar">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+                <Button fx:id="editarButton" onAction="#editarDocumento" prefHeight="30.0" prefWidth="85.0" text="Editar">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+                <Button fx:id="eliminarButton" onAction="#eliminarDocumento" prefHeight="46.0" prefWidth="106.0" text="Eliminar">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+            </children>
+        </HBox>
+      <Button layoutX="452.0" layoutY="446.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="46.0" prefWidth="154.0" text="Menu">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Label layoutX="208.0" layoutY="21.0" text="Plantillas">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
