@@ -2,6 +2,7 @@ package org.example.demo;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import javafx.event.ActionEvent;
@@ -123,6 +124,10 @@ public class MenuController implements Initializable{
   }
   public  void openPlan(ActionEvent event) throws IOException {
     openFXML("GestionDocumentos","Plantillas",event,null);
+  }
+
+  public void openCreditos(ActionEvent event) throws IOException {
+    openFXML("pantallaCompleta","Creditos",event,"creditos");
   }
 
   public void openFXML(String fxml, String title, ActionEvent event, String nombreDelCSS) throws IOException {
