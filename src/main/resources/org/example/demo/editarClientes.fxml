@@ -10,72 +10,72 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="668.0" layoutY="290.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#b9a263">
+      <Button layoutX="627.0" layoutY="277.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="58.0" prefWidth="140.0" text="Menú">
          <font>
-            <Font name="Book Antiqua Bold Italic" size="13.0" />
+            <Font name="Book Antiqua Bold Italic" size="23.0" />
          </font>
       </Button>
-      <Button id="Bregestrar" layoutX="658.0" layoutY="220.0" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" textFill="#b9a263">
+      <Button id="Bregestrar" layoutX="627.0" layoutY="200.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="58.0" prefWidth="140.0" text="Eliminar">
          <font>
-            <Font name="Book Antiqua Bold Italic" size="13.0" />
+            <Font name="Book Antiqua Bold Italic" size="23.0" />
          </font>
       </Button>
-      <Button id="Bregestrar" layoutX="665.0" layoutY="140.0" mnemonicParsing="false" onAction="#editarCliente" text="Editar" textFill="#b9a263">
+      <Button id="Bregestrar" layoutX="627.0" layoutY="124.0" mnemonicParsing="false" onAction="#editarCliente" prefHeight="58.0" prefWidth="140.0" text="Editar">
          <font>
-            <Font name="Book Antiqua Bold Italic" size="13.0" />
+            <Font name="Book Antiqua Bold Italic" size="23.0" />
          </font>
       </Button>
-      <DatePicker id="TFfecha" fx:id="DPfecNac" layoutX="213.0" layoutY="277.0" prefHeight="26.0" prefWidth="388.0" />
-      <Label layoutX="14.0" layoutY="281.0" text="Fecha de Nacimiento" textFill="#978d71">
+      <DatePicker id="TFfecha" fx:id="DPfecNac" layoutX="175.0" layoutY="302.0" prefHeight="26.0" prefWidth="420.0" />
+      <Label layoutX="14.0" layoutY="306.0" text="Fecha de Nacimiento">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField id="TFnumero" fx:id="TFnumber" layoutX="146.0" layoutY="321.0" prefHeight="26.0" prefWidth="462.0" />
-      <Label layoutX="39.0" layoutY="325.0" text="Número" textFill="#978d71">
+      <TextField id="TFnumero" fx:id="TFnumber" layoutX="164.0" layoutY="341.0" prefHeight="26.0" prefWidth="430.0" />
+      <Label layoutX="31.0" layoutY="345.0" text="Número">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="233.0" text="Estado Civil" textFill="#978d71">
+      <Label layoutX="17.0" layoutY="262.0" text="Estado Civil">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="140.0" layoutY="229.0" prefHeight="26.0" prefWidth="462.0" />
-      <TextField id="TFapellido" fx:id="TFname" layoutX="137.0" layoutY="118.0" prefHeight="26.0" prefWidth="454.0">
+      <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="171.0" layoutY="258.0" prefHeight="26.0" prefWidth="430.0" />
+      <TextField id="TFapellido" fx:id="TFname" layoutX="164.0" layoutY="163.0" prefHeight="26.0" prefWidth="430.0">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </TextField>
-      <TextField id="TFnombres" fx:id="TFlastName" layoutX="137.0" layoutY="178.0" prefHeight="26.0" prefWidth="461.0">
+      <TextField id="TFnombres" fx:id="TFlastName" layoutX="172.0" layoutY="216.0" prefHeight="26.0" prefWidth="430.0">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </TextField>
-      <Label layoutX="36.0" layoutY="122.0" text="Nombres" textFill="#978d71">
+      <Label layoutX="36.0" layoutY="167.0" text="Nombres">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="182.0" text="Apellidos" textFill="#978d71">
+      <Label layoutX="39.0" layoutY="220.0" text="Apellidos">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="57.0" prefHeight="39.0" prefWidth="220.0" text="Buscar por DPI" textFill="#908053">
+      <Label layoutX="5.0" layoutY="60.0" prefHeight="39.0" prefWidth="244.0" text="Buscar por DPI">
          <font>
-            <Font name="Book Antiqua Bold Italic" size="30.0" />
+            <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="TFdpi" layoutX="291.0" layoutY="53.0" onKeyReleased="#buscarPorDPI" prefHeight="39.0" prefWidth="443.0" promptText="Buscar por DPI">
+      <TextField fx:id="TFdpi" layoutX="31.0" layoutY="100.0" onKeyReleased="#buscarPorDPI" prefHeight="47.0" prefWidth="550.0" promptText="Buscar por DPI">
          <font>
             <Font name="Book Antiqua Italic" size="24.0" />
          </font>
       </TextField>
-      <TableView fx:id="Tclientes" layoutX="14.0" layoutY="247.0" onContextMenuRequested="#getSelecDataClientes" onMouseClicked="#getSelecDataClientes" onMouseDragged="#getSelecDataClientes" onMouseEntered="#getSelecDataClientes" onMouseExited="#getSelecDataClientes" prefHeight="362.0" prefWidth="753.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0">
+      <TableView fx:id="Tclientes" layoutX="19.0" layoutY="384.0" onContextMenuRequested="#getSelecDataClientes" onMouseClicked="#getSelecDataClientes" onMouseDragged="#getSelecDataClientes" onMouseEntered="#getSelecDataClientes" onMouseExited="#getSelecDataClientes" prefHeight="263.0" prefWidth="753.0" AnchorPane.bottomAnchor="14.799999999999955" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="11.400000000000091">
          <columns>
             <TableColumn fx:id="Cname" prefWidth="195.19997787475586" text="Nombres" />
             <TableColumn fx:id="ClastName" minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
@@ -85,7 +85,7 @@
             <TableColumn fx:id="CidClienet" prefWidth="75.0" text="Column X" />
          </columns>
       </TableView>
-      <Label layoutX="304.0" layoutY="6.0" prefHeight="39.0" prefWidth="201.0" text="Editar clientes" textFill="#b29552">
+      <Label layoutX="295.0" layoutY="7.0" prefHeight="39.0" prefWidth="244.0" text="Editar clientes">
          <font>
             <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>

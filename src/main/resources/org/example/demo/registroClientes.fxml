@@ -17,53 +17,53 @@
                <children>
                   <TextField id="TFdpi" fx:id="TFdpi" layoutX="77.0" layoutY="142.0" prefHeight="26.0" prefWidth="574.0" />
                   <TextField id="TFnombres" fx:id="TFname" layoutX="77.0" layoutY="210.0" prefHeight="26.0" prefWidth="574.0" />
-                  <Label layoutX="338.0" layoutY="180.0" text="Nombres" textFill="#978d71">
+                  <Label layoutX="338.0" layoutY="180.0" text="Nombres">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
                   <TextField id="TFapellido" fx:id="TFlastName" layoutX="77.0" layoutY="286.0" prefHeight="26.0" prefWidth="574.0" />
-                  <Label layoutX="337.0" layoutY="253.0" text="Apellidos" textFill="#978d71">
+                  <Label layoutX="337.0" layoutY="253.0" text="Apellidos">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="305.0" layoutY="488.0" text="Fecha de Nacimiento" textFill="#978d71">
+                  <Label layoutX="305.0" layoutY="488.0" text="Fecha de Nacimiento">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
                   <DatePicker id="TFfecha" fx:id="DPcalendar" layoutX="67.0" layoutY="523.0" prefHeight="26.0" prefWidth="574.0" />
-                  <Label layoutX="352.0" layoutY="94.0" text="DPI" textFill="#978d71">
+                  <Label layoutX="352.0" layoutY="94.0" text="DPI">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Button id="Bregestrar" layoutX="184.0" layoutY="561.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="44.0" prefWidth="98.0" text="Registrar" textFill="#978d71">
+                  <Button id="Bregestrar" layoutX="67.0" layoutY="569.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="69.0" prefWidth="255.0" text="Registrar">
                      <font>
-                        <Font name="Book Antiqua Italic" size="14.0" />
+                        <Font name="Book Antiqua Italic" size="35.0" />
                      </font>
                   </Button>
-                  <Label layoutX="270.0" layoutY="20.0" text="Registro de clientes" textFill="#978d71">
+                  <Label layoutX="270.0" layoutY="20.0" text="Registro de clientes">
                      <font>
                         <Font name="Book Antiqua Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="323.0" layoutY="333.0" text="Estado Civil" textFill="#978d71">
+                  <Label layoutX="323.0" layoutY="333.0" text="Estado Civil">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
                   <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="67.0" layoutY="365.0" prefHeight="26.0" prefWidth="574.0" />
-                  <Label layoutX="334.0" layoutY="408.0" text="Número" textFill="#978d71">
+                  <Label layoutX="334.0" layoutY="408.0" text="Número">
                      <font>
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
                   <TextField id="TFnumero" fx:id="TFnumber" layoutX="77.0" layoutY="441.0" prefHeight="26.0" prefWidth="574.0" />
-                  <Button layoutX="439.0" layoutY="569.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="54.0" prefWidth="98.0" text="Menú" textFill="#978d71">
+                  <Button layoutX="381.0" layoutY="568.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="70.0" prefWidth="255.0" text="Menú">
                      <font>
-                        <Font name="Book Antiqua Italic" size="14.0" />
+                        <Font name="Book Antiqua Italic" size="36.0" />
                      </font>
                   </Button>
                </children>

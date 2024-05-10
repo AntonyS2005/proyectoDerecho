@@ -9,9 +9,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
     <children>
-        <Button layoutX="22.0" layoutY="317.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
-        <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="28.0" prefWidth="137.0" text="Editar Caso" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
-        <Button layoutX="22.0" layoutY="232.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="28.0" prefWidth="137.0" text="Editar Usuarios" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
+        <Button layoutX="22.0" layoutY="352.0" mnemonicParsing="false" onAction="#openEdCl" prefHeight="28.0" prefWidth="137.0" text="Editar Clientes" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
+        <Button layoutX="22.0" layoutY="311.0" mnemonicParsing="false" onAction="#openEdPr" prefHeight="28.0" prefWidth="137.0" text="Editar Caso" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
+        <Button layoutX="22.0" layoutY="476.0" mnemonicParsing="false" onAction="#openEdUs" prefHeight="28.0" prefWidth="137.0" text="Editar Usuarios" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
         <Button layoutX="22.0" layoutY="153.0" mnemonicParsing="false" onAction="#openReCl" prefHeight="30.0" prefWidth="137.0" text="Registro de Clientes" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
         <Button layoutX="22.0" layoutY="115.0" mnemonicParsing="false" onAction="#openRePr" prefHeight="28.0" prefWidth="137.0" text="Registro de Casos" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
         <Button layoutX="22.0" layoutY="192.0" mnemonicParsing="false" onAction="#openReUs" prefHeight="30.0" prefWidth="138.0" text="Registro de Usuarios" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
@@ -32,16 +32,16 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label fx:id="titulo" layoutX="41.0" prefHeight="58.0" prefWidth="175.0" text="Menú">
+        <Label fx:id="titulo" layoutX="22.0" prefHeight="94.0" prefWidth="213.0" text="Menú">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
 
-        <Button layoutX="22.0" layoutY="358.0" mnemonicParsing="false" onAction="#openAu" prefHeight="30.0" prefWidth="138.0" text="agregar audiencia" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
-        <Button layoutX="22.0" layoutY="404.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="30.0" prefWidth="138.0" text="editar audiencia" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
+        <Button layoutX="22.0" layoutY="233.0" mnemonicParsing="false" onAction="#openAu" prefHeight="30.0" prefWidth="138.0" text="Registro de audiencias" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
+        <Button layoutX="22.0" layoutY="395.0" mnemonicParsing="false" onAction="#openEdAud" prefHeight="30.0" prefWidth="138.0" text="Editar audiencia" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
         <Button layoutX="22.0" layoutY="538.0" mnemonicParsing="false" onAction="#exportToExcel" prefHeight="30.0" prefWidth="138.0" text="Exportar datos" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
-        <Button layoutX="22.0" layoutY="447.0" mnemonicParsing="false" onAction="#openSubFile" prefHeight="28.0" prefWidth="137.0" text="subir plantilla" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
-        <Button layoutX="22.0" layoutY="495.0" mnemonicParsing="false" onAction="#openPlan" prefHeight="28.0" prefWidth="137.0" text="plantillas" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="548.4" />
+        <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" onAction="#openSubFile" prefHeight="28.0" prefWidth="137.0" text="Registro de plantillas" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
+        <Button layoutX="22.0" layoutY="439.0" mnemonicParsing="false" onAction="#openPlan" prefHeight="28.0" prefWidth="137.0" text="plantillas" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="549.1999999999999" />
     </children>
 </AnchorPane>

@@ -11,23 +11,8 @@
     <children>
         <TableView fx:id="documentosTableView" layoutX="15.0" layoutY="107.0" prefHeight="330.0" prefWidth="592.0">
         </TableView>
-        <HBox layoutX="16.0" layoutY="444.0" spacing="10.0">
-            <children>
-                <Button fx:id="descargarButton" onAction="#descargarArchivo" prefHeight="32.0" prefWidth="81.0" text="usar">
-               <font>
-                  <Font size="22.0" />
-               </font></Button>
-                <Button fx:id="editarButton" onAction="#editarDocumento" prefHeight="30.0" prefWidth="85.0" text="Editar">
-               <font>
-                  <Font size="22.0" />
-               </font></Button>
-                <Button fx:id="eliminarButton" onAction="#eliminarDocumento" prefHeight="46.0" prefWidth="106.0" text="Eliminar">
-               <font>
-                  <Font size="22.0" />
-               </font></Button>
-            </children>
-        </HBox>
-      <Button layoutX="452.0" layoutY="446.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="46.0" prefWidth="154.0" text="Menu">
+        <HBox layoutX="16.0" layoutY="444.0" spacing="10.0" />
+      <Button layoutX="500.0" layoutY="446.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="56.0" prefWidth="106.0" text="Menu">
          <font>
             <Font size="26.0" />
          </font>
@@ -37,5 +22,20 @@
             <Font size="53.0" />
          </font>
       </Label>
+      <Button fx:id="descargarButton" layoutX="256.0" layoutY="450.0" onAction="#descargarArchivo" prefHeight="46.0" prefWidth="106.0" text="Usar">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="editarButton" layoutX="140.0" layoutY="450.0" onAction="#editarDocumento" prefHeight="46.0" prefWidth="106.0" text="Editar">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="eliminarButton" layoutX="22.0" layoutY="450.0" onAction="#eliminarDocumento" prefHeight="46.0" prefWidth="106.0" text="Eliminar">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

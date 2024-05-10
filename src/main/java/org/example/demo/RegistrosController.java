@@ -19,33 +19,57 @@ import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class RegistrosController implements Initializable {
-  @FXML private TextField TFuser;
-  @FXML private TextField TFpassword;
-  @FXML private TextField TFdpi;
-  @FXML private TextField TFname;
-  @FXML private ChoiceBox<String> CBestadoCivil;
-  @FXML private TextField TFlastName;
-  @FXML private TextField TFnumber;
-  @FXML private DatePicker DPcalendar;
-  @FXML private Label LfechaNacimiento;
-  @FXML private Label Lname;
-  @FXML private Label LestadoCivil;
-  @FXML private TextField TFtipo;
-  @FXML private TextField TFcosto;
-  @FXML private TextField TFadelanto;
-  @FXML private Label LsaldoPendiente;
-  @FXML private ChoiceBox<String> CBestadoProceso;
-  @FXML private TextArea TAdetalles;
-  @FXML private TextField AAUbi;
-  @FXML private TextArea AAdetalles;
-  @FXML private TextField AAdpi;
-  @FXML private TextField AAhora;
-  @FXML private DatePicker DPAudiencia;
-  @FXML private Label Aname;
+  @FXML
+  private TextField TFuser;
+  @FXML
+  private TextField TFpassword;
+  @FXML
+  private TextField TFdpi;
+  @FXML
+  private TextField TFname;
+  @FXML
+  private ChoiceBox<String> CBestadoCivil;
+  @FXML
+  private TextField TFlastName;
+  @FXML
+  private TextField TFnumber;
+  @FXML
+  private DatePicker DPcalendar;
+  @FXML
+  private Label LfechaNacimiento;
+  @FXML
+  private Label Lname;
+  @FXML
+  private Label LestadoCivil;
+  @FXML
+  private TextField TFtipo;
+  @FXML
+  private TextField TFcosto;
+  @FXML
+  private TextField TFadelanto;
+  @FXML
+  private Label LsaldoPendiente;
+  @FXML
+  private ChoiceBox<String> CBestadoProceso;
+  @FXML
+  private TextArea TAdetalles;
+  @FXML
+  private TextField AAUbi;
+  @FXML
+  private TextArea AAdetalles;
+  @FXML
+  private TextField AAdpi;
+  @FXML
+  private TextField AAhora;
+  @FXML
+  private DatePicker DPAudiencia;
+  @FXML
+  private Label Aname;
 
 
-  private String[] estadoCivilArray= {"Casad@","Solter@"};
-  private String[] estadoProceso= {"pendiente","finalizado"};
+  private String[] estadoCivilArray = {"Casad@", "Solter@"};
+  private String[] estadoProceso = {"pendiente", "finalizado"};
+
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -58,56 +82,64 @@ public class RegistrosController implements Initializable {
   }
 
   public void registrarUsuarios() throws SQLException {
-    try{
-    Conexion conexion = new Conexion();
-    String consulta = "INSERT INTO `usuarios`(`usuario`, `contrasena`) VALUES (?,?)";
-    CallableStatement insert =conexion.establecerConexion().prepareCall(consulta);
-    insert.setString(1,TFuser.getText());
-    insert.setString(2,TFpassword.getText());
-    insert.execute();
-    JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
-    TFpassword.setText("");
-    TFuser.setText("");
-  }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al registrar usuario");
-    }}
+    try {
+      Conexion conexion = new Conexion();
+      String consulta = "INSERT INTO `usuarios`(`usuario`, `contrasena`) VALUES (?,?)";
+      CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
+      insert.setString(1, TFuser.getText());
+      insert.setString(2, TFpassword.getText());
+      insert.execute();
+      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+      TFpassword.setText("");
+      TFuser.setText("");
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "error al registrar usuario");
+    }
+  }
+
   public void registrarCliente() throws SQLException {
-    try{
+    try {
       Conexion conexion = new Conexion();
       String consulta = "INSERT INTO `clientes`(`dpi`, `nombre`, `apellidos`, `estado_civil`, `numero_de_telefono`, `fecha_de_nacimiento`) " +
               "VALUES (?,?,?,?,?,?)";
-      CallableStatement insert =conexion.establecerConexion().prepareCall(consulta);
-      insert.setString(1,TFdpi.getText());
-      insert.setString(2,TFname.getText());
-      insert.setString(3,TFlastName.getText());
-      insert.setString(4,CBestadoCivil.getValue().toString());
-      insert.setString(5,TFnumber.getText());
-      insert.setString(6,DPcalendar.getValue().toString());
+      CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
+      insert.setString(1, TFdpi.getText());
+      insert.setString(2, TFname.getText());
+      insert.setString(3, TFlastName.getText());
+      insert.setString(4, CBestadoCivil.getValue().toString());
+      insert.setString(5, TFnumber.getText());
+      insert.setString(6, DPcalendar.getValue().toString());
       insert.execute();
-      JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
+      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
       TFdpi.setText("");
       TFname.setText("");
       TFlastName.setText("");
       CBestadoCivil.setValue("");
       TFnumber.setText("");
       DPcalendar.setValue(null);
-    }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos");
-    }}
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "error al registrar usuario por favor verificar que los campos esten correctos");
+    }
+  }
+
   //esta funcion busca el nombre de la persona y los datos
-  public void regCaBusDpi(){
+  public void regCaBusDpi() {
+
+    Lname.setText("");
+    LestadoCivil.setText("");
+    LfechaNacimiento.setText("");
     String dpi;
-    dpi=TFdpi.getText();
-    String sql = "SELECT * FROM `clientes` WHERE dpi='"+dpi+"'";
+    dpi = TFdpi.getText();
+    String sql = "SELECT * FROM `clientes` WHERE dpi='" + dpi + "'";
     try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
       if (rs.next()) {
-        String fechaNacimiento,nombre,estadoCivil;
-        nombre=rs.getString(2)+" "+rs.getString(3);
-        estadoCivil=rs.getString(4);
-        fechaNacimiento=rs.getString(6);
+        String fechaNacimiento, nombre, estadoCivil;
+        nombre = rs.getString(2) + " " + rs.getString(3);
+        estadoCivil = rs.getString(4);
+        fechaNacimiento = rs.getString(6);
         Lname.setText(nombre);
         LestadoCivil.setText(estadoCivil);
         LfechaNacimiento.setText(fechaNacimiento);
@@ -115,39 +147,42 @@ public class RegistrosController implements Initializable {
       conexion.desconectarConexion();
       st.close();
       rs.close();
-    }catch (Exception e){}
+    } catch (Exception e) {
+    }
   }
 
-  public void calcularSaldoPendiente(){
+  public void calcularSaldoPendiente() {
     try {
-    Double costo=Double.parseDouble(TFcosto.getText());
-    Double saldoPendiente;
-    LsaldoPendiente.setText(String.valueOf(costo));
-    if(TFadelanto.getText() != ""){
-      saldoPendiente=costo-Double.parseDouble(TFadelanto.getText());
-      if(saldoPendiente >= 0){
-      LsaldoPendiente.setText(String.valueOf(saldoPendiente));}
-      else {
-        JOptionPane.showMessageDialog(null,"el adelato es mayor al costo");
-        TFadelanto.setText("");
+      Double costo = Double.parseDouble(TFcosto.getText());
+      Double saldoPendiente;
+      LsaldoPendiente.setText(String.valueOf(costo));
+      if (TFadelanto.getText() != "") {
+        saldoPendiente = costo - Double.parseDouble(TFadelanto.getText());
+        if (saldoPendiente >= 0) {
+          LsaldoPendiente.setText(String.valueOf(saldoPendiente));
+        } else {
+          JOptionPane.showMessageDialog(null, "el adelato es mayor al costo");
+          TFadelanto.setText("");
+        }
       }
+    } catch (Exception e) {
     }
-    }catch (Exception e){}}
+  }
 
-  public void guardarCaso(){
-    try{
+  public void guardarCaso() {
+    try {
       Conexion conexion = new Conexion();
       String consulta = "INSERT INTO `registro_de_casos`( `tipo`, `costo`, `detalles`, `saldo_pendiente`, `estado_del_proceso`, `id_cliente`) " +
               "VALUES (?,?,?,?,?,?)";
-      CallableStatement insert =conexion.establecerConexion().prepareCall(consulta);
-      insert.setString(1,TFtipo.getText());
-      insert.setString(2,TFcosto.getText());
-      insert.setString(3,TAdetalles.getText());
-      insert.setString(4,LsaldoPendiente.getText());
-      insert.setString(5,CBestadoProceso.getValue().toString());
-      insert.setString(6,TFdpi.getText());
+      CallableStatement insert = conexion.establecerConexion().prepareCall(consulta);
+      insert.setString(1, TFtipo.getText());
+      insert.setString(2, TFcosto.getText());
+      insert.setString(3, TAdetalles.getText());
+      insert.setString(4, LsaldoPendiente.getText());
+      insert.setString(5, CBestadoProceso.getValue().toString());
+      insert.setString(6, TFdpi.getText());
       insert.execute();
-      JOptionPane.showMessageDialog(null,"Se guardaron los datos correctamente");
+      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
       TFtipo.setText("");
       TFcosto.setText("");
       TAdetalles.setText("");
@@ -155,10 +190,11 @@ public class RegistrosController implements Initializable {
       CBestadoProceso.setValue(null);
       TFdpi.setText("");
       TFadelanto.setText("");
-    }catch (Exception e){
-      JOptionPane.showMessageDialog(null,"error al registrar usuario por favor verificar que los campos esten correctos "+e);
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "error al registrar usuario por favor verificar que los campos esten correctos " + e);
     }
   }
+
   public void guardarAudiencia() {
     Conexion conexion = null;
     try {
@@ -195,38 +231,37 @@ public class RegistrosController implements Initializable {
     }
   }
 
-  public void regBusAudDPI(){
+  public void regBusAudDPI() {
+    Aname.setText("");
     String dpi;
-    dpi=AAdpi.getText();
-    String sql = "SELECT * FROM `clientes` WHERE dpi='"+dpi+"'";
-    try{
+    dpi = AAdpi.getText();
+    String sql = "SELECT * FROM `clientes` WHERE dpi='" + dpi + "'";
+    try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
       if (rs.next()) {
         String nombre;
-        nombre=rs.getString(2)+" "+rs.getString(3);
+        nombre = rs.getString(2) + " " + rs.getString(3);
         Aname.setText(nombre);
-        }
-        conexion.desconectarConexion();
-        st.close();
-        rs.close();
+      }
+      conexion.desconectarConexion();
+      st.close();
+      rs.close();
 
-    }catch (Exception e){}
+    } catch (Exception e) {
+    }
 
   }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    if(CBestadoCivil !=null){
+    if (CBestadoCivil != null) {
       CBestadoCivil.getItems().addAll(estadoCivilArray);
 
     }
-    if(CBestadoProceso !=null){
+    if (CBestadoProceso != null) {
       CBestadoProceso.getItems().addAll(estadoProceso);
     }
-
   }
-
-
 }

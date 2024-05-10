@@ -10,87 +10,87 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="777.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
    <children>
-      <Label layoutX="209.0" layoutY="14.0" text="DPI" textFill="#d3a462">
+      <Label layoutX="209.0" layoutY="14.0" text="DPI">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="TFdpi" layoutX="57.0" layoutY="40.0" onKeyReleased="#regCaBusDpi" prefHeight="26.0" prefWidth="307.0" />
-      <Label layoutX="162.0" layoutY="221.0" text="Fecha de Nacimiento:" textFill="#d3a462">
+      <Label layoutX="162.0" layoutY="221.0" text="Fecha de Nacimiento:">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label id="Lfecha" fx:id="LfechaNacimiento" layoutX="60.0" layoutY="252.0" prefHeight="18.0" prefWidth="307.0" text="Fecha de Nacimiento" textFill="#978d71">
+      <Label id="Lfecha" fx:id="LfechaNacimiento" layoutX="60.0" layoutY="252.0" prefHeight="18.0" prefWidth="307.0" text="Fecha de Nacimiento">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="169.0" layoutY="82.0" text="Nombre completo:" textFill="#d3a462">
+      <Label layoutX="169.0" layoutY="82.0" text="Nombre completo:">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label id="Lfecha" fx:id="Lname" layoutX="74.0" layoutY="109.0" prefHeight="18.0" prefWidth="307.0" text="Nombre" textFill="#978d71">
+      <Label id="Lfecha" fx:id="Lname" layoutX="74.0" layoutY="109.0" prefHeight="18.0" prefWidth="307.0" text="Nombre">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="147.0" layoutY="158.0" prefHeight="18.0" prefWidth="142.0" text="Estado Civil:" textFill="#d3a462">
+      <Label layoutX="147.0" layoutY="158.0" prefHeight="18.0" prefWidth="142.0" text="Estado Civil:">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label id="Lfecha" fx:id="LestadoCivil" layoutX="68.0" layoutY="185.0" prefHeight="18.0" prefWidth="307.0" text="Estado Civil" textFill="#978d71">
+      <Label id="Lfecha" fx:id="LestadoCivil" layoutX="68.0" layoutY="185.0" prefHeight="18.0" prefWidth="307.0" text="Estado Civil">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="503.0" layoutY="89.0" text="Detalles" textFill="#d79d4d">
+      <Label layoutX="552.0" layoutY="102.0" text="Detalles">
          <font>
             <Font name="Book Antiqua Italic" size="24.0" />
          </font>
       </Label>
       <TextArea fx:id="TAdetalles" layoutX="430.0" layoutY="147.0" prefHeight="515.0" prefWidth="323.0" />
-      <Label layoutX="214.0" layoutY="294.0" text="Tipo" textFill="#d3a462">
+      <Label layoutX="214.0" layoutY="294.0" text="Tipo">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="211.0" layoutY="376.0" text="Costo" textFill="#d3a462">
+      <Label layoutX="211.0" layoutY="376.0" text="Costo">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="TFadelanto" layoutX="65.0" layoutY="479.0" onKeyReleased="#calcularSaldoPendiente" onMouseExited="#calcularSaldoPendiente" prefHeight="26.0" prefWidth="307.0" />
-      <Label layoutX="193.0" layoutY="449.0" text="Adelanto" textFill="#d3a462">
+      <Label layoutX="193.0" layoutY="449.0" text="Adelanto">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="182.0" layoutY="522.0" text="Saldo Pendiente" textFill="#d3a462">
+      <Label layoutX="182.0" layoutY="522.0" text="Saldo Pendiente">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="176.0" layoutY="602.0" text="Estado del proceso" textFill="#d3a462">
+      <Label layoutX="176.0" layoutY="602.0" text="Estado del proceso">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="449.0" layoutY="48.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#d3a462">
+      <Button layoutX="430.0" layoutY="18.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="57.0" prefWidth="158.0" text="Menú">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Button>
       <TextField fx:id="TFcosto" layoutX="72.0" layoutY="407.0" onKeyReleased="#calcularSaldoPendiente" prefHeight="26.0" prefWidth="307.0" />
       <ChoiceBox fx:id="CBestadoProceso" layoutX="65.0" layoutY="640.0" prefHeight="26.0" prefWidth="307.0" />
-      <Button layoutX="548.0" layoutY="48.0" mnemonicParsing="false" onAction="#guardarCaso" text="Guardar" textFill="#d3a462">
+      <Button layoutX="611.0" layoutY="17.0" mnemonicParsing="false" onAction="#guardarCaso" prefHeight="58.0" prefWidth="151.0" text="Guardar">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Button>
-      <Label id="Lfecha" fx:id="LsaldoPendiente" layoutX="74.0" layoutY="554.0" prefHeight="18.0" prefWidth="307.0" textFill="#a11717">
+      <Label id="Lfecha" fx:id="LsaldoPendiente" layoutX="74.0" layoutY="554.0" prefHeight="18.0" prefWidth="307.0">
          <font>
             <Font name="Book Antiqua Italic" size="13.0" />
          </font>

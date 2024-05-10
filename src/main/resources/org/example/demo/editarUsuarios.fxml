@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="573.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="149.0" layoutY="230.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" textFill="#c69729">
+      <Button layoutX="149.0" layoutY="230.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="editarUsuario" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar" textFill="#c69729">
+      <Button fx:id="editarUsuario" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
          </font>
@@ -25,22 +25,22 @@
             <Font name="Book Antiqua Italic" size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="37.0" layoutY="76.0" text="Usuario" textFill="#bca875">
+      <Label layoutX="37.0" layoutY="76.0" text="Usuario" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="158.0" text="Contraseña" textFill="#bca875">
+      <Label layoutX="24.0" layoutY="158.0" text="Contraseña" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="303.0" layoutY="14.0" text="Editar Usuarios" textFill="#c9a551">
+      <Label layoutX="303.0" layoutY="14.0" text="Editar Usuarios" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="eliminarUsuario" layoutX="515.0" layoutY="230.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar" textFill="#c69729">
+      <Button fx:id="eliminarUsuario" layoutX="515.0" layoutY="230.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
          </font>

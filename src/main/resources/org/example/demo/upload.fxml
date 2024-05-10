@@ -16,7 +16,7 @@
             </font>
          </Label>
           <TextField fx:id="tituloField" layoutX="126.0" layoutY="79.0" prefHeight="26.0" prefWidth="469.0" promptText="Nombre del documento" />
-          <Button layoutX="301.0" layoutY="187.0" onAction="#seleccionarArchivo" text="Seleccionar Archivo" />
+          <Button layoutX="267.0" layoutY="180.0" onAction="#seleccionarArchivo" prefHeight="50.0" prefWidth="186.0" text="Seleccionar Archivo" />
           <Label fx:id="archivoLabel" layoutX="99.0" layoutY="136.0" prefHeight="26.0" prefWidth="523.0" text="" />
           <Button layoutX="181.0" layoutY="249.0" onAction="#subirArchivo" prefHeight="53.0" prefWidth="119.0" text="Subir" />
          <Button layoutX="414.0" layoutY="249.0" onAction="#openMainMenu" prefHeight="53.0" prefWidth="119.0" text="Menu" />

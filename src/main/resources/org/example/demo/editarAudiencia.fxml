@@ -12,48 +12,48 @@
 
 <AnchorPane prefHeight="666.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="393.0" layoutY="333.0" mnemonicParsing="false" onAction="#editarDatosAudiencia" prefHeight="26.0" prefWidth="92.0" text="Editar" textFill="#978046">
+      <Button layoutX="393.0" layoutY="333.0" mnemonicParsing="false" onAction="#editarDatosAudiencia" prefHeight="26.0" prefWidth="92.0" text="Editar">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>
-      <Button layoutX="594.0" layoutY="333.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="26.0" prefWidth="92.0" text="Menú" textFill="#978046">
+      <Button layoutX="594.0" layoutY="333.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="26.0" prefWidth="92.0" text="Menú">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>
       <DatePicker fx:id="DPfecha" layoutX="30.0" layoutY="228.0" prefHeight="26.0" prefWidth="350.0" />
-      <Label layoutX="147.0" layoutY="198.0" text="Fecha de la audiencia" textFill="#978d71">
+      <Label layoutX="147.0" layoutY="198.0" text="Fecha de la audiencia" >
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
       <TextField fx:id="EdUbi" layoutX="32.0" layoutY="163.0" prefHeight="26.0" prefWidth="350.0" />
-      <Label layoutX="133.0" layoutY="131.0" text="Ubicacion de la audiencia" textFill="#978d71">
+      <Label layoutX="133.0" layoutY="131.0" text="Ubicacion de la audiencia" >
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
       <TextField fx:id="EdHora" layoutX="30.0" layoutY="310.0" prefHeight="26.0" prefWidth="349.0" />
-      <Label layoutX="141.0" layoutY="273.0" text="Hora de la audiencia" textFill="#978d71">
+      <Label layoutX="141.0" layoutY="273.0" text="Hora de la audiencia" >
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="510.0" layoutY="61.0" text="Detalles" textFill="#978d71">
+      <Label layoutX="510.0" layoutY="61.0" text="Detalles" >
          <font>
             <Font name="Book Antiqua Italic" size="18.0" />
          </font></Label>
       <TextArea fx:id="EdDetalle" layoutX="392.0" layoutY="94.0" prefHeight="229.0" prefWidth="294.0" />
       <TextField fx:id="AAdpi" layoutX="216.0" layoutY="18.0" onKeyReleased="#editarAudienciabusPorDpi" prefHeight="26.0" prefWidth="451.0" />
-      <Label layoutX="65.0" layoutY="20.0" text="DPI del Cliente" textFill="#978d71">
+      <Label layoutX="65.0" layoutY="20.0" text="DPI del Cliente" >
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="184.0" layoutY="62.0" text="Cliente" textFill="#978d71">
+      <Label layoutX="184.0" layoutY="62.0" text="Cliente" >
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label fx:id="EdAname" layoutX="30.0" layoutY="96.0" prefHeight="18.0" prefWidth="350.0" text="Nombre del cliente" textFill="#867856">
+      <Label fx:id="EdAname" layoutX="30.0" layoutY="96.0" prefHeight="18.0" prefWidth="350.0" text="Nombre del cliente" >
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font></Label>
-      <Button layoutX="488.0" layoutY="333.0" mnemonicParsing="false" onAction="#eliminarAudiencia" prefHeight="26.0" prefWidth="92.0" text="Eliminar" textFill="#978046">
+      <Button layoutX="488.0" layoutY="333.0" mnemonicParsing="false" onAction="#eliminarAudiencia" prefHeight="26.0" prefWidth="92.0" text="Eliminar" >
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>

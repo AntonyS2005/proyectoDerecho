@@ -8,48 +8,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="588.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
+<AnchorPane prefHeight="637.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
     <children>
-        <Button layoutX="316.0" layoutY="515.0" mnemonicParsing="false" onAction="#guardarAudiencia" prefHeight="36.0" prefWidth="135.0" text="Guardar" textFill="#978d71">
+        <Button layoutX="138.0" layoutY="552.0" mnemonicParsing="false" onAction="#guardarAudiencia" prefHeight="69.0" prefWidth="226.0" text="Guardar">
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Button>
-        <Button layoutX="473.0" layoutY="515.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="36.0" prefWidth="135.0" text="Menu" textFill="#978d71">
+        <Button layoutX="412.0" layoutY="552.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="70.0" prefWidth="226.0" text="Menu">
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Button>
-        <DatePicker fx:id="DPAudiencia" layoutX="222.0" layoutY="220.0" prefHeight="26.0" prefWidth="473.0" />
-        <Label layoutX="37.0" layoutY="221.0" text="Fecha de la audiencia" textFill="#978d71">
+        <DatePicker fx:id="DPAudiencia" layoutX="238.0" layoutY="269.0" prefHeight="26.0" prefWidth="462.0" />
+        <Label layoutX="41.0" layoutY="270.0" text="Fecha de la audiencia">
             <font>
                 <Font name="Book Antiqua Italic" size="18.0" />
             </font></Label>
-        <TextField fx:id="AAUbi" layoutX="218.0" layoutY="163.0" prefHeight="26.0" prefWidth="480.0" />
-        <Label layoutX="10.0" layoutY="164.0" text="Ubicacion de la audiencia" textFill="#978d71">
+        <TextField fx:id="AAUbi" layoutX="240.0" layoutY="212.0" prefHeight="26.0" prefWidth="462.0" />
+        <Label layoutX="14.0" layoutY="213.0" text="Ubicacion de la audiencia">
             <font>
                 <Font name="Book Antiqua Italic" size="18.0" />
             </font></Label>
-        <TextField fx:id="AAhora" layoutX="222.0" layoutY="276.0" prefHeight="26.0" prefWidth="480.0" />
-        <Label layoutX="47.0" layoutY="277.0" text="Hora de la audiencia" textFill="#978d71">
+        <TextField fx:id="AAhora" layoutX="245.0" layoutY="325.0" prefHeight="26.0" prefWidth="461.0" />
+        <Label layoutX="51.0" layoutY="326.0" text="Hora de la audiencia">
             <font>
                 <Font name="Book Antiqua Italic" size="18.0" />
             </font></Label>
-        <Label layoutX="73.0" layoutY="336.0" text="Detalles" textFill="#978d71">
+        <Label layoutX="77.0" layoutY="385.0" text="Detalles">
             <font>
                 <Font name="Book Antiqua Italic" size="18.0" />
             </font></Label>
-        <TextArea fx:id="AAdetalles" layoutX="222.0" layoutY="336.0" prefHeight="146.0" prefWidth="480.0" />
-        <TextField fx:id="AAdpi" layoutX="216.0" layoutY="43.0" prefHeight="26.0" prefWidth="480.0" />
-        <Label layoutX="69.0" layoutY="46.0" text="DPI del Cliente" textFill="#978d71">
+        <TextArea fx:id="AAdetalles" layoutX="244.0" layoutY="385.0" prefHeight="146.0" prefWidth="462.0" />
+        <TextField fx:id="AAdpi" layoutX="220.0" layoutY="92.0" onKeyReleased="#regBusAudDPI" prefHeight="26.0" prefWidth="480.0" />
+        <Label layoutX="73.0" layoutY="95.0" text="DPI del Cliente">
             <font>
                 <Font name="System Italic" size="14.0" />
             </font></Label>
-        <Label layoutX="69.0" layoutY="108.0" text="Cliente" textFill="#978d71">
+        <Label layoutX="73.0" layoutY="157.0" text="Cliente">
             <font>
                 <Font name="Book Antiqua Italic" size="18.0" />
             </font></Label>
-        <Label fx:id="Aname" layoutX="220.0" layoutY="110.0" prefHeight="18.0" prefWidth="480.0" text="Nombre del cliente" textFill="#c9b376">
+        <Label fx:id="Aname" layoutX="242.0" layoutY="159.0" prefHeight="18.0" prefWidth="462.0" text="Nombre del cliente">
             <font>
                 <Font name="Book Antiqua Italic" size="14.0" />
             </font></Label>
+      <Label layoutX="231.0" layoutY="7.0" text="Registar audiencia">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
