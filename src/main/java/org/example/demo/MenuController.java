@@ -160,7 +160,7 @@ public class MenuController implements Initializable{
         this.columFecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
         this.columHora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
         this.columDetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
-        items.add(new Audiencias(ubicacion, fecha, hora, detalles));
+        items.add(new Audiencias("",ubicacion, fecha, hora, detalles));
         this.Taudiencias.setItems(items);
       }
       st.close();
