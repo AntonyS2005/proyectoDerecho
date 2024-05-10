@@ -1,0 +1,190 @@
+.button {
+    -fx-alignment: center;
+    -fx-alignment-insets: center;
+    -fx-background-color: linear-gradient(to right, #e7738e, #ee8e7d);
+    -fx-background-radius: 30;
+    -fx-text-fill: rgb(221, 214, 214);
+    -fx-font-size: 17px;
+    -fx-padding: 3 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(77, 34, 34, 0.6), 10, 0, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #e7738e, #ff416c);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.label {
+-fx-alignment: center;
+    -fx-alignment-insets: center;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #ee7498da;
+    -fx-padding: 2px 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(78, 10, 21, 0.644), 5, 0, 0, 0);
+}
+
+
+
+.label:pressed {
+    -fx-background-color: #ee7498da;
+    -fx-effect: dropshadow(three-pass-box, rgba(78, 10, 21, 0.644), 5, 0, 0, 0);
+}
+
+.table-view {
+    -fx-background-color: #c94e5e;
+    -fx-padding: 10px;
+}
+
+.table-cell {
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #d1bebe;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+
+.table-column .label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #9c2d36;
+    -fx-padding: 5px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #b37979;
+}
+.table-row-cell:hover {
+    -fx-background-color: #b89b9b;
+}
+
+.text-field {
+    -fx-background-color: #fde6ec; /* Color de fondo */
+    -fx-text-fill: #704d54; /* Color del texto */
+    -fx-padding: 8px; /* Espaciado interno */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-border-color: #e9ced5; /* Color del borde */
+    -fx-border-radius: 3px; /* Radio de borde */
+    -fx-prompt-text-fill: #8b616c; /* Color del texto de marcador */
+}
+.text-area {
+    -fx-background-color: #fde6ec; /* Color de fondo */
+    -fx-text-fill: #704d54; /* Color del texto */
+    -fx-padding: 8px; /* Espaciado interno */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-border-color: #e9ced5; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de borde */
+    -fx-prompt-text-fill: #8b616c; /* Color del texto de marcador */
+}
+
+.text-field:hover {
+    -fx-background-color: #ffcde4; /* Cambio de color de fondo al pasar el mouse */
+}
+
+.text-field:focused {
+    -fx-border-color: #ca5891; /* Color del borde al estar enfocado */
+    -fx-box-shadow: 0px 0px 5px rgba(155, 17, 52, 0.849); /* Sombra al estar enfocado */
+}
+
+.text-field:disabled {
+    -fx-opacity: 0.6; /* Opacidad cuando está deshabilitado */
+}
+
+.date-picker-popup {
+    -fx-background-color: #c2677b;
+    -fx-border-color: #c26d8d;
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell {
+    -fx-background-color: #ee4662;
+    -fx-text-fill: rgb(139, 70, 93);
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell:hover {
+    -fx-background-color: #c71651;
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell:selected {
+    -fx-background-color: #e03677;
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell:disabled {
+    -fx-opacity: 0.4;
+}
+
+.date-picker-popup > .calendar-date-pane > .week-number-cell {
+    -fx-background-color: #d82167;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-date-pane > .week-number-cell:hover {
+    -fx-background-color: #c7326b;
+}
+
+.date-picker-popup > .calendar-date-pane > .week-number-cell:selected {
+    -fx-background-color: #dd5086;
+}
+
+.date-picker-popup > .calendar-date-pane > .week-number-cell:disabled {
+    -fx-opacity: 0.4;
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell > .date-display {
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-date-pane > .day-cell > .date-display:hover {
+    -fx-text-fill: rgb(65, 62, 62);
+}
+
+/* Estilo base para el PasswordField */
+#passwordField {
+    -fx-background-color: #f2f2f2; /* Color de fondo */
+    -fx-text-fill: #7c5f5f; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-padding: 5px; /* Relleno interno */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #cccccc; /* Color del borde */
+}
+
+/* Estilo cuando el PasswordField tiene el foco */
+#passwordField:focused {
+    -fx-border-color: #ff99aa; /* Cambiar color del borde al tener el foco */
+}
+
+/* Estilo cuando el PasswordField está deshabilitado */
+#passwordField:disabled {
+    -fx-opacity: 0.5; /* Opacidad reducida para indicar que está deshabilitado */
+}
+
+.choice-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.choice-box .arrow-button .arrow {
+    -fx-background-color: #ff588a;
+}
+
+.choice-box .arrow-button .arrow:hover {
+    -fx-background-color: #fd306db7;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-padding: 0.5em;
+}
+
+.choice-box .arrow-button .arrow:pressed {
+    -fx-background-color: #e64064;
+}
+
+.choice-box .arrow-button .arrow:disabled {
+    -fx-opacity: 0.5;
+}
+
+.choice-box .arrow-button .arrow-label {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: white;
+}

@@ -10,16 +10,16 @@
 <VBox alignment="CENTER" prefHeight="340.0" prefWidth="721.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.UploadController">
    <AnchorPane prefHeight="512.0" prefWidth="722.0">
       <children>
-          <Label layoutX="188.0" layoutY="45.0" text="Subir Documento Word">
+          <Label layoutX="188.0" layoutY="14.0" text="Subir Documento Word">
             <font>
                <Font size="33.0" />
             </font>
          </Label>
-          <TextField fx:id="tituloField" layoutX="126.0" layoutY="95.0" prefHeight="26.0" prefWidth="469.0" promptText="Nombre del documento" />
-          <Button layoutX="301.0" layoutY="147.0" onAction="#seleccionarArchivo" text="Seleccionar Archivo" />
-          <Label fx:id="archivoLabel" layoutX="99.0" layoutY="121.0" prefHeight="26.0" prefWidth="523.0" text="" />
-          <Button layoutX="205.0" layoutY="195.0" onAction="#subirArchivo" prefHeight="53.0" prefWidth="119.0" text="Subir" />
-         <Button layoutX="407.0" layoutY="195.0" onAction="#openMainMenu" prefHeight="53.0" prefWidth="119.0" text="Menu" />
+          <TextField fx:id="tituloField" layoutX="126.0" layoutY="79.0" prefHeight="26.0" prefWidth="469.0" promptText="Nombre del documento" />
+          <Button layoutX="301.0" layoutY="187.0" onAction="#seleccionarArchivo" text="Seleccionar Archivo" />
+          <Label fx:id="archivoLabel" layoutX="99.0" layoutY="136.0" prefHeight="26.0" prefWidth="523.0" text="" />
+          <Button layoutX="181.0" layoutY="249.0" onAction="#subirArchivo" prefHeight="53.0" prefWidth="119.0" text="Subir" />
+         <Button layoutX="414.0" layoutY="249.0" onAction="#openMainMenu" prefHeight="53.0" prefWidth="119.0" text="Menu" />
       </children>
    </AnchorPane>
 </VBox>

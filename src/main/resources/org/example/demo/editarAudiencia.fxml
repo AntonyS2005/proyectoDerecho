@@ -3,67 +3,67 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<AnchorPane prefHeight="651.0" prefWidth="717.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="666.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="106.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Editar"  onAction="#editarAudiencia" textFill="#978046">
+      <Button layoutX="393.0" layoutY="333.0" mnemonicParsing="false" onAction="#editarDatosAudiencia" prefHeight="26.0" prefWidth="92.0" text="Editar" textFill="#978046">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>
-      <Button layoutX="311.0" layoutY="290.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="26.0" prefWidth="92.0" text="Menú" textFill="#978046">
+      <Button layoutX="594.0" layoutY="333.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="26.0" prefWidth="92.0" text="Menú" textFill="#978046">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>
-      <DatePicker layoutX="204.0" layoutY="185.0" />
-      <Label layoutX="30.0" layoutY="186.0" text="Fecha de la audiencia" textFill="#978d71">
+      <DatePicker fx:id="DPfecha" layoutX="30.0" layoutY="228.0" prefHeight="26.0" prefWidth="350.0" />
+      <Label layoutX="147.0" layoutY="198.0" text="Fecha de la audiencia" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <TextField layoutX="204.0" layoutY="145.0" />
-      <Label layoutX="30.0" layoutY="147.0" text="Ubicacion de la audiencia" textFill="#978d71">
+      <TextField fx:id="EdUbi" layoutX="32.0" layoutY="163.0" prefHeight="26.0" prefWidth="350.0" />
+      <Label layoutX="133.0" layoutY="131.0" text="Ubicacion de la audiencia" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <TextField layoutX="204.0" layoutY="225.0" />
-      <Label layoutX="28.0" layoutY="228.0" text="Hora de la audiencia" textFill="#978d71">
+      <TextField fx:id="EdHora" layoutX="30.0" layoutY="310.0" prefHeight="26.0" prefWidth="349.0" />
+      <Label layoutX="141.0" layoutY="273.0" text="Hora de la audiencia" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="409.0" layoutY="61.0" text="Detalles" textFill="#978d71">
+      <Label layoutX="510.0" layoutY="61.0" text="Detalles" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="18.0" />
          </font></Label>
-      <TextArea layoutX="409.0" layoutY="87.0" prefHeight="180.0" prefWidth="294.0" />
-      <TextField fx:id="AAdpi"  layoutX="216.0" layoutY="18.0" prefHeight="26.0" prefWidth="451.0" />
-      <Label layoutX="108.0" layoutY="22.0" text="DPI del Cliente" textFill="#978d71">
+      <TextArea fx:id="EdDetalle" layoutX="392.0" layoutY="94.0" prefHeight="229.0" prefWidth="294.0" />
+      <TextField fx:id="AAdpi" layoutX="216.0" layoutY="18.0" onKeyReleased="#editarAudienciabusPorDpi" prefHeight="26.0" prefWidth="451.0" />
+      <Label layoutX="65.0" layoutY="20.0" text="DPI del Cliente" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label layoutX="43.0" layoutY="84.0" text="Cliente" textFill="#978d71">
+      <Label layoutX="184.0" layoutY="62.0" text="Cliente" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="16.0" />
          </font></Label>
-      <Label fx:id="EdAname" layoutX="106.0" layoutY="86.0" text="Nombre del cliente" textFill="#867856">
+      <Label fx:id="EdAname" layoutX="30.0" layoutY="96.0" prefHeight="18.0" prefWidth="350.0" text="Nombre del cliente" textFill="#867856">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
          </font></Label>
-      <Button layoutX="209.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="Eliminar" textFill="#978046">
+      <Button layoutX="488.0" layoutY="333.0" mnemonicParsing="false" onAction="#eliminarAudiencia" prefHeight="26.0" prefWidth="92.0" text="Eliminar" textFill="#978046">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Button>
-      <TableView fx:id="TEAudiencias" layoutX="6.0" layoutY="332.0" prefHeight="305.0" prefWidth="696.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="332.0">
+      <TableView fx:id="TEAudiencias" layoutX="10.0" layoutY="376.0" onMouseClicked="#getSelectDataAu" prefHeight="274.0" prefWidth="696.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.7999999999999545" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.799999999999955" AnchorPane.topAnchor="376.0">
         <columns>
             <TableColumn fx:id="Eubicacion" minWidth="0.0" prefWidth="136.0" text="ubicacion" />
             <TableColumn fx:id="Efecha" prefWidth="138.0" text="fecha" />
             <TableColumn fx:id="Ehora" prefWidth="87.0" text="hora" />
             <TableColumn fx:id="Edetalles" prefWidth="176.0" text="detalles" />
+            <TableColumn fx:id="Eid" prefWidth="75.0" text="id" />
         </columns>
       </TableView>
    </children>

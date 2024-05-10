@@ -21,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -61,13 +62,27 @@ public class  EditarController implements Initializable {
   @FXML private TableColumn<clientes,String> Cdate;
   @FXML private TableColumn<clientes,String> Cname;
   @FXML private TableColumn<clientes,String> CidClienet;
+
   @FXML private TableColumn<Audiencias, String> Efecha;
   @FXML private TableColumn<Audiencias, String> Ehora;
   @FXML private TableColumn<Audiencias, String> Eubicacion;
   @FXML private TableColumn<Audiencias, String> Edetalles;
+  @FXML private TableColumn<Audiencias, String> Eid;
   @FXML private TextField AAdpi;
   @FXML private Label EdAname;
   @FXML private TableView<Audiencias> TEAudiencias;
+  @FXML
+  private TextField EdUbi; // TextField para la ubicación de la audiencia
+
+  @FXML
+  private DatePicker DPfecha; // DatePicker para la fecha de la audiencia
+
+  @FXML
+  private TextField EdHora; // TextField para la hora de la audiencia
+
+
+  @FXML
+  private TextArea EdDetalle; // TextArea para los detalles de la audiencia
   private ObservableList<Casos> items= FXCollections.observableArrayList();
   private ObservableList<Audiencias> itemsAud= FXCollections.observableArrayList();
   private ObservableList<clientes> itemsClientes= FXCollections.observableArrayList();
@@ -76,13 +91,15 @@ public class  EditarController implements Initializable {
   private String[] estadoProceso= {"pendiente","finalizado"};
   int idUser;
   int idCliente;
-
+  String idAu;
 
 
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
+    String css = this.getClass().getResource("Aspecto.css").toExternalForm();
+    scene.getStylesheets().add(css);
     stage.setTitle("menu");
     stage.setScene(scene);
     stage.show();
@@ -615,7 +632,9 @@ public class  EditarController implements Initializable {
         this.Efecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
         this.Ehora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
         this.Edetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
-        itemsAud.add(new Audiencias(ubicacion,fecha,hora,detalles));
+        Eid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idAu = rs.getString("id_audiencia".trim());
+        itemsAud.add(new Audiencias(idAu,ubicacion,fecha,hora,detalles));
         this.TEAudiencias.setItems(itemsAud);
       }
       st.close();
@@ -623,6 +642,198 @@ public class  EditarController implements Initializable {
       JOptionPane.showMessageDialog(null, e);
     }
   }
+  public void editarAudienciabusPorDpi() {
+    // Obtener el valor de DPI del TextField AAdpi
+    String dpi = AAdpi.getText().trim();
+
+    // Consulta SQL con filtro WHERE por el valor de DPI
+    String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
+            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi " +
+            "WHERE audiencias.dpi = '" + dpi + "';";
+
+    try {
+      Conexion conexion = new Conexion();
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+
+      String ubicacion, fecha, hora, detalles;
+
+      // Limpiar la tabla antes de agregar nuevos elementos
+      TEAudiencias.getItems().clear();
+
+      while(rs.next()) {
+        ubicacion = rs.getString(3).trim();
+        fecha = rs.getString(4).trim();
+        hora = rs.getString(5).trim();
+        detalles = rs.getString(6).trim();
+
+        // Agregar elementos a la tabla
+        idAu = rs.getString("id_audiencia").trim();
+        itemsAud.add(new Audiencias(idAu, ubicacion, fecha, hora, detalles));
+      }
+
+      // Asignar valores a las celdas de la tabla
+      this.Eubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
+      this.Efecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+      this.Ehora.setCellValueFactory(new PropertyValueFactory<>("hora"));
+      this.Edetalles.setCellValueFactory(new PropertyValueFactory<>("detalles"));
+      Eid.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+      // Actualizar la tabla con los nuevos elementos
+      this.TEAudiencias.setItems(itemsAud);
+
+      st.close();
+      rs.close();
+    } catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+  }
+
+  public void getSelectDataAu() {
+    // Obtener la fila seleccionada en la tabla
+    Audiencias audienciaSeleccionada = TEAudiencias.getSelectionModel().getSelectedItem();
+
+    if (audienciaSeleccionada != null) {
+      // Obtener los datos de la audiencia seleccionada
+      String ubicacion = audienciaSeleccionada.getUbicacion();
+      String fecha = audienciaSeleccionada.getFecha();
+      String hora = audienciaSeleccionada.getHora();
+      String detalles = audienciaSeleccionada.getDetalles();
+      String dpi = consultarDPIAudiencia(audienciaSeleccionada.getId());
+      idAu = audienciaSeleccionada.getId();
+      // Establecer los datos en los campos correspondientes
+      EdUbi.setText(ubicacion);
+      DPfecha.setValue(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+      EdHora.setText(hora);
+      EdDetalle.setText(detalles);
+
+      // Consultar el nombre del cliente asociado al DPI
+      String nombreCliente = consultarNombreCliente(dpi);
+
+      // Establecer el nombre del cliente en el Label EdAname
+      EdAname.setText(nombreCliente);
+
+      // Establecer el DPI en el TextField AAdpi
+      AAdpi.setText(dpi);
+      TEAudiencias.getSelectionModel().clearSelection();
+
+    } else {
+      // Si no hay fila seleccionada, limpiar los campos
+      EdUbi.clear();
+      DPfecha.setValue(null);
+      EdHora.clear();
+      EdDetalle.clear();
+      EdAname.setText("");
+      AAdpi.clear();
+    }
+  }
+  public void eliminarAudiencia() {
+    if (idAu != null && !idAu.isEmpty()) {
+      try {
+        Conexion conexion = new Conexion();
+        String sql = "DELETE FROM audiencias WHERE id_audiencia = ?";
+        PreparedStatement pstmt = conexion.establecerConexion().prepareStatement(sql);
+        pstmt.setString(1, idAu);
+        int filasEliminadas = pstmt.executeUpdate();
+        if (filasEliminadas > 0) {
+          // Eliminación exitosa
+          JOptionPane.showMessageDialog(null, "La audiencia ha sido eliminada exitosamente.");
+          // Actualizar la tabla después de la eliminación
+          TEAudiencias.getItems().clear();
+          editarAudiencia();
+          // Limpiar los campos después de eliminar la audiencia
+          limpiarCampos();
+        } else {
+          // No se encontró ninguna fila para eliminar
+          JOptionPane.showMessageDialog(null, "No se encontró ninguna audiencia para eliminar.");
+        }
+        pstmt.close();
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar la audiencia: " + e.getMessage());
+      }
+    } else {
+      JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para eliminar.");
+    }
+  }
+  private void limpiarCampos() {
+    EdUbi.clear();
+    DPfecha.setValue(null);
+    EdHora.clear();
+    EdDetalle.clear();
+    EdAname.setText("");
+    AAdpi.clear();
+    idAu = null;
+  }
+
+  private String consultarDPIAudiencia(String idAudiencia) {
+    String dpi = "";
+    try {
+      Conexion conexion = new Conexion();
+      String sql = "SELECT dpi FROM audiencias WHERE id_audiencia = '" + idAudiencia + "'";
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      if (rs.next()) {
+        dpi = rs.getString("dpi");
+      }
+      st.close();
+      rs.close();
+    } catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+    return dpi;
+  }
+  // Método para consultar el nombre del cliente asociado al DPI
+  private String consultarNombreCliente(String dpi) {
+    String nombreCliente = "";
+    try {
+      Conexion conexion = new Conexion();
+      String sql = "SELECT `nombre` FROM `clientes` WHERE `dpi` = '" + dpi + "'";
+      Statement st = conexion.establecerConexion().createStatement();
+      ResultSet rs = st.executeQuery(sql);
+      if (rs.next()) {
+        nombreCliente = rs.getString("nombre");
+      }
+      st.close();
+      rs.close();
+    } catch(Exception e) {
+      JOptionPane.showMessageDialog(null, e);
+    }
+    return nombreCliente;
+  }
+
+  public void editarDatosAudiencia() {
+    if (idAu != null && !idAu.isEmpty()) {
+      try {
+        Conexion conexion = new Conexion();
+        String sql = "UPDATE audiencias SET ubicacion_de_la_audiencia = ?, fecha_de_audiencia = ?, hora_de_la_audiencia = ?, detalles = ? WHERE id_audiencia = ?";
+        PreparedStatement pstmt = conexion.establecerConexion().prepareStatement(sql);
+        pstmt.setString(1, EdUbi.getText());
+        pstmt.setString(2, DPfecha.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        pstmt.setString(3, EdHora.getText());
+        pstmt.setString(4, EdDetalle.getText());
+        pstmt.setString(5, idAu);
+        int filasActualizadas = pstmt.executeUpdate();
+        if (filasActualizadas > 0) {
+          // Actualización exitosa
+          JOptionPane.showMessageDialog(null, "Los datos de la audiencia han sido actualizados exitosamente.");
+          // Limpiar los campos después de la edición
+          limpiarCampos();
+          // Actualizar la tabla después de la edición
+          TEAudiencias.getItems().clear();
+          editarAudiencia();
+        } else {
+          // No se encontró ninguna fila para actualizar
+          JOptionPane.showMessageDialog(null, "No se encontró ninguna audiencia para actualizar.");
+        }
+        pstmt.close();
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al actualizar los datos de la audiencia: " + e.getMessage());
+      }
+    } else {
+      JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para editar.");
+    }
+  }
+
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
