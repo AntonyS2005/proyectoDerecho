@@ -32,7 +32,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label fx:id="titulo" layoutX="41.0" layoutY="-8.0" prefHeight="122.0" prefWidth="175.0" text="Menú">
+        <Label fx:id="titulo" layoutX="41.0" prefHeight="58.0" prefWidth="175.0" text="Menú">
             <font>
                 <Font size="64.0" />
             </font>

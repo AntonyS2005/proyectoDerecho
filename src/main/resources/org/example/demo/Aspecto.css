@@ -1,32 +1,32 @@
-.custom-button {
+.button {
+    -fx-alignment: center;
+    -fx-alignment-insets: center;
     -fx-background-color: linear-gradient(to right, #e7738e, #ee8e7d);
     -fx-background-radius: 30;
     -fx-text-fill: rgb(221, 214, 214);
-    -fx-font-size: 14px;
-    -fx-padding: 10 20;
+    -fx-font-size: 17px;
+    -fx-padding: 3 20;
     -fx-effect: dropshadow(three-pass-box, rgba(77, 34, 34, 0.6), 10, 0, 0, 0);
 }
 
-.custom-button:hover {
+.button:hover {
     -fx-background-color: linear-gradient(to right, #e7738e, #ff416c);
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .label {
+-fx-alignment: center;
+    -fx-alignment-insets: center;
     -fx-font-family: "Arial";
-    -fx-font-size: 16px;
     -fx-text-fill: #ffffff;
     -fx-background-color: #ee7498da;
-    -fx-padding: 5px 10px;
+    -fx-padding: 2px 2px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-effect: dropshadow(three-pass-box, rgba(78, 10, 21, 0.644), 5, 0, 0, 0);
 }
 
-.label:hover {
-    -fx-background-color: #ee7498da;
-    -fx-effect: dropshadow(three-pass-box, rgba(78, 10, 21, 0.644), 5, 0, 0, 0);
-}
+
 
 .label:pressed {
     -fx-background-color: #ee7498da;
@@ -68,7 +68,7 @@
     -fx-padding: 8px; /* Espaciado interno */
     -fx-font-size: 14px; /* Tamaño de la fuente */
     -fx-border-color: #e9ced5; /* Color del borde */
-    -fx-border-radius: 5px; /* Radio de borde */
+    -fx-border-radius: 3px; /* Radio de borde */
     -fx-prompt-text-fill: #8b616c; /* Color del texto de marcador */
 }
 .text-area {
