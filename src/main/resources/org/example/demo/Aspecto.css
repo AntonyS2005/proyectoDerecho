@@ -71,6 +71,15 @@
     -fx-border-radius: 5px; /* Radio de borde */
     -fx-prompt-text-fill: #8b616c; /* Color del texto de marcador */
 }
+.text-area {
+    -fx-background-color: #fde6ec; /* Color de fondo */
+    -fx-text-fill: #704d54; /* Color del texto */
+    -fx-padding: 8px; /* Espaciado interno */
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-border-color: #e9ced5; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de borde */
+    -fx-prompt-text-fill: #8b616c; /* Color del texto de marcador */
+}
 
 .text-field:hover {
     -fx-background-color: #ffcde4; /* Cambio de color de fondo al pasar el mouse */

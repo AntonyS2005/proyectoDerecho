@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="713.0" prefWidth="962.0" style="-fx-background-color: Beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane prefHeight="713.0" prefWidth="962.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
       <Label layoutX="121.0" layoutY="21.0" prefHeight="31.0" prefWidth="181.0" text="Buscar por DPI" textFill="#978d71">
          <font>
@@ -41,7 +41,8 @@
       <TextField fx:id="TFadelanto" layoutX="132.0" layoutY="205.0">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
-         </font></TextField>
+         </font>
+      </TextField>
       <Label layoutX="27.0" layoutY="208.0" text="Adelanto" textFill="#978d71">
          <font>
             <Font name="Book Antiqua Italic" size="18.0" />
@@ -65,15 +66,15 @@
 
       <TableView fx:id="Tcasos" layoutX="11.2" layoutY="327.2" onContextMenuRequested="#getSelecDate" onMouseClicked="#getSelecDate" onMouseDragged="#getSelecDate" onMouseEntered="#getSelecDate" onMouseExited="#getSelecDate" prefHeight="354.0" prefWidth="898.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="327.0">
          <columns>
-          <TableColumn fx:id="Ccliente" prefWidth="160.00000321865082" text="Cliente" />
-          <TableColumn fx:id="Ctipo" prefWidth="54.39996337890625" text="Tipo" />
+            <TableColumn fx:id="Ccliente" prefWidth="160.00000321865082" text="Cliente" />
+            <TableColumn fx:id="Ctipo" prefWidth="54.39996337890625" text="Tipo" />
             <TableColumn fx:id="Ccosto" prefWidth="111.20001220703125" text="Costo" />
             <TableColumn fx:id="CsaldoPendiente" prefWidth="103.20001220703125" text="Saldo Pendiente" />
             <TableColumn fx:id="Cestado" prefWidth="174.39996337890625" text="Estado" />
             <TableColumn fx:id="Cdetalles" prefWidth="292.8000366210938" text="Detalles" />
             <TableColumn fx:id="CidCaso" prefWidth="75.0" text="Column X" />
             <TableColumn fx:id="Cdpi" prefWidth="75.0" text="Column X" />
-        </columns>
+         </columns>
       </TableView>
       <Label layoutX="417.0" layoutY="282.0" text="Casos" textFill="#978046">
          <font>
@@ -103,11 +104,13 @@
       <TextField fx:id="TFcostoNew" layoutX="132.0" layoutY="173.0">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
-         </font></TextField>
+         </font>
+      </TextField>
       <TextField fx:id="TFtipo" layoutX="136.0" layoutY="96.0">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />
-         </font></TextField>
+         </font>
+      </TextField>
       <Label fx:id="LsaldoPendiente" layoutX="135.0" layoutY="244.0" textFill="#c3a450">
          <font>
             <Font name="Book Antiqua Italic" size="14.0" />

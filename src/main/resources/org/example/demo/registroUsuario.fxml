@@ -10,42 +10,46 @@
 <?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <AnchorPane prefHeight="398.0" prefWidth="296.0" style="-fx-background-color: beige; -fx-border-color: brown;">
-               <children>
-                  <Button layoutX="126.0" layoutY="339.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#978d71">
-                     <font>
-                        <Font name="Book Antiqua Italic" size="14.0" />
-                     </font></Button>
-                  <Label layoutX="90.0" layoutY="36.0" text="Registro" textFill="#978d71">
-                     <font>
-                        <Font name="Book Antiqua Italic" size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="121.0" layoutY="125.0" text="Usuario" textFill="#978d71">
-                     <font>
-                        <Font name="Book Antiqua" size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="TFuser" layoutX="58.0" layoutY="159.0" prefHeight="25.0" prefWidth="195.0" />
-                  <Label layoutX="106.0" layoutY="214.0" text="Contraseña" textFill="#978d71">
-                     <font>
-                        <Font name="Book Antiqua" size="18.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="92.0" layoutY="298.0" mnemonicParsing="false" onAction="#registrarUsuarios" text="Registrar Usuario" textFill="#978d71">
-                     <font>
-                        <Font name="Book Antiqua Italic" size="14.0" />
-                     </font>
-                  </Button>
-               </children></AnchorPane>
-            <PasswordField fx:id="TFpassword" layoutX="59.0" layoutY="257.0" prefHeight="25.0" prefWidth="195.0" />
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="303.0" prefWidth="296.0" style="-fx-background-color: beige; -fx-border-color: brown;">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></AnchorPane>
-  </items>
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <AnchorPane prefHeight="398.0" prefWidth="296.0">
+                    <children>
+                        <Button layoutX="126.0" layoutY="339.0" mnemonicParsing="false" onAction="#openMainMenu" text="Menú" textFill="#978d71">
+                            <font>
+                                <Font name="Book Antiqua Italic" size="14.0" />
+                            </font></Button>
+                        <Label layoutX="90.0" layoutY="36.0" text="Registro" textFill="#978d71">
+                            <font>
+                                <Font name="Book Antiqua Italic" size="36.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="121.0" layoutY="125.0" text="Usuario" textFill="#978d71">
+                            <font>
+                                <Font name="Book Antiqua" size="18.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="TFuser" layoutX="58.0" layoutY="159.0" prefHeight="25.0" prefWidth="195.0" />
+                        <Label layoutX="106.0" layoutY="214.0" text="Contraseña" textFill="#978d71">
+                            <font>
+                                <Font name="Book Antiqua" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="92.0" layoutY="298.0" mnemonicParsing="false" onAction="#registrarUsuarios" text="Registrar Usuario" textFill="#978d71">
+                            <font>
+                                <Font name="Book Antiqua Italic" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <PasswordField fx:id="TFpassword" layoutX="59.0" layoutY="257.0" prefHeight="25.0" prefWidth="195.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="303.0" prefWidth="296.0">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </AnchorPane>
+    </items>
 </SplitPane>
+

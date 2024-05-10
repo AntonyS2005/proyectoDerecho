@@ -15,8 +15,8 @@ package org.example.demo;
       FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
       Scene scene = new Scene(fxmlLoader.load());
 
-      //String css = this.getClass().getResource("menu.css").toExternalForm();
-      //scene.getStylesheets().add(css);
+      String css = this.getClass().getResource("Aspecto.css").toExternalForm();
+      scene.getStylesheets().add(css);
     stage.setTitle("Iniciar secion");
     stage.setScene(scene);
       stage.setResizable(false);
