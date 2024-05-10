@@ -9,29 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
-   <children>
-      <Button layoutX="77.0" layoutY="277.0" mnemonicParsing="false" onAction="#iniciarSecion" text="Iniciar sesión" textFill="#b5952a">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="13.0" />
-         </font></Button>
-      <Label layoutX="92.0" layoutY="69.0" text="Usuario" textFill="#b5a263">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="20.0" />
-         </font></Label>
-      <Label layoutX="77.0" layoutY="163.0" text="Contraseña" textFill="#b5a263">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="20.0" />
-         </font></Label>
-      <PasswordField fx:id="TFpasword" layoutX="42.0" layoutY="209.0" prefHeight="25.0" prefWidth="168.0" />
-      <TextField fx:id="TFuser" layoutX="45.0" layoutY="106.0" prefHeight="25.0" prefWidth="162.0" />
-      <Label layoutX="326.0" layoutY="190.0" text="Iniciar sesión" textFill="#bc933beb">
-         <font>
-            <Font name="Bodoni MT Bold Italic" size="30.0" />
-         </font></Label>
-      <ImageView fitHeight="92.0" fitWidth="73.0" layoutX="382.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+    <children>
+        <Button layoutX="108.0" layoutY="275.0" mnemonicParsing="false" onAction="#iniciarSecion" text="Iniciar sesión" textFill="#b5952a">
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="13.0" />
+            </font>
+        </Button>
+        <Label layoutX="120.0" layoutY="54.0" text="Usuario" textFill="#b5a263">
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="104.0" layoutY="167.0" text="Contraseña" textFill="#b5a263">
+            <font>
+                <Font name="Book Antiqua Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <PasswordField fx:id="TFpasword" layoutX="42.0" layoutY="209.0" prefHeight="26.0" prefWidth="227.0" />
+        <TextField fx:id="TFuser" layoutX="42.0" layoutY="101.0" prefHeight="26.0" prefWidth="227.0" />
+        <ImageView fitHeight="92.0" fitWidth="73.0" layoutX="382.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+            </image>
+        </ImageView>
+      <ImageView fitHeight="249.0" fitWidth="276.0" layoutX="294.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
+            <Image url="@../../../../java/org/example/demo/inicio.png" />
          </image>
       </ImageView>
-   </children>
+    </children>
 </AnchorPane>

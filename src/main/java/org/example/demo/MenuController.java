@@ -59,7 +59,7 @@ public class MenuController implements Initializable{
         if ((Objects.equals(userBD, TFuser.getText())) & (Objects.equals(TFpasword.getText(), passwordBD))) {
           conexion.desconectarConexion();
           st.close();
-          openFXML("menuPrincipal","menu",event,null);
+          openFXML("menuPrincipal","menu",event,"Aspecto");
         } else {
           JOptionPane.showMessageDialog(null, "la contraseña es incorrecta");
         }
@@ -79,50 +79,50 @@ public class MenuController implements Initializable{
     //el ultimo dato es el nombre del css te los deje en null por que como no se si vas a usar
     //el mismo de menu.css o otro pero de hay solo escribre el nombre del archivo sin agregar .css
     //ya lo programe yo para que te lo agregue solo
-    openFXML("editarUsuarios","Editar usuarios",event,null);
+    openFXML("editarUsuarios","Editar usuarios",event,"Aspecto");
   }
 
   public void openEdCl(ActionEvent event) throws IOException {
-    openFXML("editarClientes","Editar clientes",event,null);
+    openFXML("editarClientes","Editar clientes",event,"Aspecto");
   }
 
   public void openEdPr(ActionEvent event) throws IOException {
-    openFXML("editarCasos","Editar casos",event,null);
+    openFXML("editarCasos","Editar casos",event,"Aspecto");
   }
 
   public void openReUs(ActionEvent event) throws IOException {
-    openFXML("registroUsuario","Registro de usuarios",event,"ejemploNombreS");
+    openFXML("registroUsuario","Registro de usuarios",event,"Aspecto");
   }
 
   public void openReCl(ActionEvent event) throws IOException {
-    openFXML("registroClientes","Registro de clientes",event,null);
+    openFXML("registroClientes","Registro de clientes",event,"Aspecto");
   }
 
   public void openRePr(ActionEvent event) throws IOException {
-    openFXML("registroCasos","Registro de casos",event,null);
+    openFXML("registroCasos","Registro de casos",event,"Aspecto");
   }
 
   public void openMainMenu(ActionEvent event) throws IOException {
-    openFXML("menuPrincipal","Menu principal",event,null);
+    openFXML("menuPrincipal","Menu principal",event,"Aspecto");
   }
   public void openSubFil(ActionEvent event) throws IOException{
-    openFXML("subArchivo","Plantillas",event,null);
+    openFXML("subArchivo","Plantillas",event,"Aspecto");
   }
   public void openAu(ActionEvent event) throws IOException {
-    openFXML("agregarAudiencia", "agregar audiencia",event,"AgregarAudiencia");
+    openFXML("agregarAudiencia", "agregar audiencia",event,"Aspecto");
   }
   public void openEdAud(ActionEvent event) throws IOException {
-    openFXML("editarAudiencia", "editar audiencia", event,null);
+    openFXML("editarAudiencia", "editar audiencia", event,"Aspecto");
   }
   public void exportToExcel(){
     ExportToExcel exportToExcel= new ExportToExcel();
     exportToExcel.exportToExcel();
   }
   public  void openSubFile(ActionEvent event) throws IOException {
-    openFXML("upload","subir plantillas",event,null);
+    openFXML("upload","subir plantillas",event,"Aspecto");
   }
   public  void openPlan(ActionEvent event) throws IOException {
-    openFXML("GestionDocumentos","Plantillas",event,null);
+    openFXML("GestionDocumentos","Plantillas",event,"Aspecto");
   }
 
   public void openFXML(String fxml, String title, ActionEvent event, String nombreDelCSS) throws IOException {

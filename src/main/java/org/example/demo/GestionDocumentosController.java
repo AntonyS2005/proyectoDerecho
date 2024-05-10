@@ -83,6 +83,8 @@ public class GestionDocumentosController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
     stage.setTitle("menu");
+    String css = this.getClass().getResource("Aspecto.css").toExternalForm();
+    scene.getStylesheets().add(css);
     stage.setScene(scene);
     stage.show();
   }

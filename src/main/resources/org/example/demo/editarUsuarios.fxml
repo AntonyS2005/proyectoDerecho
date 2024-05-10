@@ -8,27 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="822.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane prefHeight="573.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="144.0" layoutY="211.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" textFill="#c69729">
+      <Button layoutX="149.0" layoutY="230.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" textFill="#c69729">
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font></Button>
-      <Button fx:id="editarUsuario" layoutX="331.0" layoutY="211.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar" textFill="#c69729">
+         </font>
+      </Button>
+      <Button fx:id="editarUsuario" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar" textFill="#c69729">
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font></Button>
-      <TextField fx:id="TFuser" layoutX="168.0" layoutY="66.0" prefHeight="46.0" prefWidth="612.0">
+         </font>
+      </Button>
+      <TextField fx:id="TFuser" layoutX="188.0" layoutY="76.0" prefHeight="46.0" prefWidth="612.0">
          <font>
             <Font name="Book Antiqua Italic" size="20.0" />
          </font>
       </TextField>
-      <Label layoutX="16.0" layoutY="72.0" text="Usuario" textFill="#bca875">
+      <Label layoutX="37.0" layoutY="76.0" text="Usuario" textFill="#bca875">
          <font>
             <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="138.0" text="Contraseña" textFill="#bca875">
+      <Label layoutX="24.0" layoutY="158.0" text="Contraseña" textFill="#bca875">
          <font>
             <Font name="Book Antiqua Bold Italic" size="28.0" />
          </font>
@@ -38,17 +40,18 @@
             <Font name="Book Antiqua Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="eliminarUsuario" layoutX="510.0" layoutY="211.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar" textFill="#c69729">
+      <Button fx:id="eliminarUsuario" layoutX="515.0" layoutY="230.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar" textFill="#c69729">
          <font>
             <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font></Button>
-      <TableView fx:id="Tusers" layoutX="11.2" layoutY="285.0" onContextMenuRequested="#getSelecDataUsuarios" onMouseClicked="#getSelecDataUsuarios" onMouseDragged="#getSelecDataUsuarios" onMouseEntered="#getSelecDataUsuarios" onMouseExited="#getSelecDataUsuarios" prefHeight="358.0" prefWidth="801.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
-        <columns>
-          <TableColumn fx:id="Cuser" prefWidth="383.1999931335449" text="Usuario" />
-          <TableColumn fx:id="Cpas" prefWidth="383.20001220703125" text="Contraseña" />
+         </font>
+      </Button>
+      <TableView fx:id="Tusers" layoutX="11.0" layoutY="283.0" onContextMenuRequested="#getSelecDataUsuarios" onMouseClicked="#getSelecDataUsuarios" onMouseDragged="#getSelecDataUsuarios" onMouseEntered="#getSelecDataUsuarios" onMouseExited="#getSelecDataUsuarios" prefHeight="276.0" prefWidth="800.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="12.199999999999932">
+         <columns>
+            <TableColumn fx:id="Cuser" prefWidth="383.1999931335449" text="Usuario" />
+            <TableColumn fx:id="Cpas" prefWidth="383.20001220703125" text="Contraseña" />
             <TableColumn fx:id="CidUser" prefWidth="75.0" text="Column X" />
-        </columns>
+         </columns>
       </TableView>
-      <TextField fx:id="TFpasword" layoutX="168.0" layoutY="143.0" prefHeight="26.0" prefWidth="393.0" />
+      <TextField fx:id="TFpasword" layoutX="188.0" layoutY="153.0" prefHeight="46.0" prefWidth="591.0" />
    </children>
 </AnchorPane>

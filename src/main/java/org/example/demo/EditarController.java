@@ -98,6 +98,8 @@ public class  EditarController implements Initializable {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Scene scene = new Scene(fxmlLoader.load());
+    String css = this.getClass().getResource("Aspecto.css").toExternalForm();
+    scene.getStylesheets().add(css);
     stage.setTitle("menu");
     stage.setScene(scene);
     stage.show();
