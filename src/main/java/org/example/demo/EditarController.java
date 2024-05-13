@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.skin.TableViewSkinBase;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
@@ -22,55 +23,101 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class  EditarController implements Initializable {
-  @FXML private TextField TFdpi;
-  @FXML private Label Lcliente;
-  @FXML private TextField TFtipo;
-  @FXML private Label TFcosto;
-  @FXML private TextField TFcostoNew;
-  @FXML private TextField TFadelanto;
-  @FXML private Label LsaldoPendiente;
-  @FXML private ChoiceBox CBestadoProceso;
-  @FXML private TextArea TAdetalles;
-  @FXML private TableView<Casos> Tcasos;
-  @FXML private TableColumn<Casos,String> Ccliente;
-  @FXML private TableColumn<Casos,String> Ctipo;
-  @FXML private TableColumn<Casos,String> Ccosto;
-  @FXML private TableColumn<Casos,String> CsaldoPendiente;
-  @FXML private TableColumn<Casos,String> Cestado;
-  @FXML private TableColumn<Casos,String> Cdetalles;
-  @FXML private  TableColumn<Casos,String> CidCaso;
-  @FXML private TableColumn<Casos,String> Cdpi;
-  @FXML private TableView<usuarios> Tusers;
-  @FXML private TableColumn<usuarios,String> Cuser;
-  @FXML private  TableColumn<usuarios,String> Cpas;
-  @FXML private TableColumn<usuarios,String> CidUser;
-  @FXML private TextField TFuser;
-  @FXML private TextField TFpasword;
-  @FXML private TextField TFname;
-  @FXML private TextField TFlastName;
-  @FXML private ChoiceBox CBestadoCivil;
-  @FXML private DatePicker DPfecNac;
-  @FXML private TextField TFnumber;
-  @FXML private TableView<clientes> Tclientes;
-  @FXML private TableColumn<clientes,String> ClastName;
-  @FXML private TableColumn<clientes,String> CestadoCivil;
-  @FXML private TableColumn<clientes,String> Cnumber;
-  @FXML private TableColumn<clientes,String> Cdate;
-  @FXML private TableColumn<clientes,String> Cname;
-  @FXML private TableColumn<clientes,String> CidClienet;
 
-  @FXML private TableColumn<Audiencias, String> Efecha;
-  @FXML private TableColumn<Audiencias, String> Ehora;
-  @FXML private TableColumn<Audiencias, String> Eubicacion;
-  @FXML private TableColumn<Audiencias, String> Edetalles;
-  @FXML private TableColumn<Audiencias, String> Eid;
-  @FXML private TextField AAdpi;
-  @FXML private Label EdAname;
-  @FXML private TableView<Audiencias> TEAudiencias;
+public class EditarController implements Initializable {
+  @FXML
+  private TextField TFdpi;
+  @FXML
+  private Label Lcliente;
+  @FXML
+  private TextField TFtipo;
+  @FXML
+  private Label TFcosto;
+  @FXML
+  private TextField TFcostoNew;
+  @FXML
+  private TextField TFadelanto;
+  @FXML
+  private Label LsaldoPendiente;
+  @FXML
+  private ChoiceBox CBestadoProceso;
+  @FXML
+  private TextArea TAdetalles;
+  @FXML
+  private TableView<Casos> Tcasos;
+  @FXML
+  private TableColumn<Casos, String> Ccliente;
+  @FXML
+  private TableColumn<Casos, String> Ctipo;
+  @FXML
+  private TableColumn<Casos, String> Ccosto;
+  @FXML
+  private TableColumn<Casos, String> CsaldoPendiente;
+  @FXML
+  private TableColumn<Casos, String> Cestado;
+  @FXML
+  private TableColumn<Casos, String> Cdetalles;
+  @FXML
+  private TableColumn<Casos, String> CidCaso;
+  @FXML
+  private TableColumn<Casos, String> Cdpi;
+  @FXML
+  private TableView<usuarios> Tusers;
+  @FXML
+  private TableColumn<usuarios, String> Cuser;
+  @FXML
+  private TableColumn<usuarios, String> Cpas;
+  @FXML
+  private TableColumn<usuarios, String> CidUser;
+  @FXML
+  private TextField TFuser;
+  @FXML
+  private TextField TFpasword;
+  @FXML
+  private TextField TFname;
+  @FXML
+  private TextField TFlastName;
+  @FXML
+  private ChoiceBox CBestadoCivil;
+  @FXML
+  private DatePicker DPfecNac;
+  @FXML
+  private TextField TFnumber;
+  @FXML
+  private TableView<clientes> Tclientes;
+  @FXML
+  private TableColumn<clientes, String> ClastName;
+  @FXML
+  private TableColumn<clientes, String> CestadoCivil;
+  @FXML
+  private TableColumn<clientes, String> Cnumber;
+  @FXML
+  private TableColumn<clientes, String> Cdate;
+  @FXML
+  private TableColumn<clientes, String> Cname;
+  @FXML
+  private TableColumn<clientes, String> CidClienet;
+
+  @FXML
+  private TableColumn<Audiencias, String> Efecha;
+  @FXML
+  private TableColumn<Audiencias, String> Ehora;
+  @FXML
+  private TableColumn<Audiencias, String> Eubicacion;
+  @FXML
+  private TableColumn<Audiencias, String> Edetalles;
+  @FXML
+  private TableColumn<Audiencias, String> Eid;
+  @FXML
+  private TextField AAdpi;
+  @FXML
+  private Label EdAname;
+  @FXML
+  private TableView<Audiencias> TEAudiencias;
   @FXML
   private TextField EdUbi; // TextField para la ubicación de la audiencia
 
@@ -80,19 +127,17 @@ public class  EditarController implements Initializable {
   @FXML
   private TextField EdHora; // TextField para la hora de la audiencia
 
-
   @FXML
   private TextArea EdDetalle; // TextArea para los detalles de la audiencia
-  private ObservableList<Casos> items= FXCollections.observableArrayList();
-  private ObservableList<Audiencias> itemsAud= FXCollections.observableArrayList();
-  private ObservableList<clientes> itemsClientes= FXCollections.observableArrayList();
-  private  String idCaso;
-  private ObservableList<usuarios> itemsUser= FXCollections.observableArrayList();
-  private String[] estadoProceso= {"pendiente","finalizado"};
+  private ObservableList<Casos> items = FXCollections.observableArrayList();
+  private ObservableList<Audiencias> itemsAud = FXCollections.observableArrayList();
+  private ObservableList<clientes> itemsClientes = FXCollections.observableArrayList();
+  private String idCaso;
+  private ObservableList<usuarios> itemsUser = FXCollections.observableArrayList();
+  private String[] estadoProceso = { "pendiente", "finalizado" };
   int idUser;
   int idCliente;
   String idAu;
-
 
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
@@ -103,11 +148,10 @@ public class  EditarController implements Initializable {
     stage.setTitle("menu");
     stage.setScene(scene);
     stage.show();
+    stage.centerOnScreen();
   }
 
-
-
-  public  void busPorDPIcasos(){
+  public void busPorDPIcasos() {
     Lcliente.setText("");
     TFtipo.setText("");
     TFcosto.setText("");
@@ -115,25 +159,27 @@ public class  EditarController implements Initializable {
     CBestadoProceso.setValue(null);
     TAdetalles.setText("");
     items.clear();
-    if(Objects.equals(TFdpi.getText(), "")){
+    if (Objects.equals(TFdpi.getText(), "")) {
       tablaCasos();
-    }else {
+    } else {
       String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
-              " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"+TFdpi.getText()+"';";
+          " clientes ON registro_de_casos.id_cliente = clientes.dpi WHERE registro_de_casos.id_cliente = '"
+          + TFdpi.getText() + "';";
       sqlTablaCasos(sql);
-    }}
+    }
+  }
 
-  public void tablaCasos(){
+  public void tablaCasos() {
     String sql = "SELECT registro_de_casos.*, clientes.nombre AS nombre_cliente FROM registro_de_casos INNER JOIN" +
-            " clientes ON registro_de_casos.id_cliente = clientes.dpi;";
+        " clientes ON registro_de_casos.id_cliente = clientes.dpi;";
     sqlTablaCasos(sql);
   }
 
-  public void getSelecDate(){
+  public void getSelecDate() {
     Tcasos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
       if (newSelection != null) {
         // Obtener el valor de la columna "Ccliente" de la fila seleccionada
-        String cliente,tipo,costo,saldoPendiente,estado,detalle,dpi;
+        String cliente, tipo, costo, saldoPendiente, estado, detalle, dpi;
         cliente = Ccliente.getCellData(newSelection);
         tipo = Ctipo.getCellData(newSelection);
         costo = Ccosto.getCellData(newSelection);
@@ -141,7 +187,7 @@ public class  EditarController implements Initializable {
         estado = Cestado.getCellData(newSelection);
         detalle = Cdetalles.getCellData(newSelection);
         idCaso = CidCaso.getCellData(newSelection);
-        dpi= Cdpi.getCellData(newSelection);
+        dpi = Cdpi.getCellData(newSelection);
         // Mostrar el dato en el TextField
         Lcliente.setText(cliente);
         TFtipo.setText(tipo);
@@ -280,7 +326,8 @@ public class  EditarController implements Initializable {
 
       return true; // Todo está correcto
     } catch (NumberFormatException e) {
-      // Si se ingresan caracteres no numéricos, mostrar mensaje de error y resetear los campos
+      // Si se ingresan caracteres no numéricos, mostrar mensaje de error y resetear
+      // los campos
       JOptionPane.showMessageDialog(null, "Por favor, ingresa solo valores numéricos.");
       TFcostoNew.setText("");
       TFadelanto.setText("");
@@ -288,10 +335,9 @@ public class  EditarController implements Initializable {
     }
   }
 
-
-  public void editarCaso(){
-    if(calcularSaldoPendiente()){
-      try{
+  public void editarCaso() {
+    if (calcularSaldoPendiente()) {
+      try {
         Conexion conexion = new Conexion();
         String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
         CallableStatement update = conexion.establecerConexion().prepareCall(consulta);
@@ -302,7 +348,7 @@ public class  EditarController implements Initializable {
         update.setString(5, CBestadoProceso.getValue().toString());
         update.setString(6, idCaso);
         update.execute();
-        JOptionPane.showMessageDialog(null,"Se editaron los datos correctamente");
+        JOptionPane.showMessageDialog(null, "Se editaron los datos correctamente");
         busPorDPIcasos();
         TFcosto.setText("");
         TAdetalles.setText("");
@@ -310,10 +356,14 @@ public class  EditarController implements Initializable {
         CBestadoProceso.setValue(null);
         TFdpi.setText("");
         TFcostoNew.setText("");
-      }catch (Exception e){
-        JOptionPane.showMessageDialog(null,"error al editar los casos por favor verificar que los campos esten correctos "+e);
+      } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,
+            "error al editar los casos por favor verificar que los campos esten correctos " + e);
       }
-    }else return;}
+    } else
+      return;
+  }
+
   public void eliminarCaso() {
     try {
       Conexion conexion = new Conexion();
@@ -333,25 +383,26 @@ public class  EditarController implements Initializable {
       TFadelanto.setText("");
       TFcostoNew.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al eliminar el registro. Por favor, verifique que los campos estén correctos. " + e);
+      JOptionPane.showMessageDialog(null,
+          "Error al eliminar el registro. Por favor, verifique que los campos estén correctos. " + e);
     }
   }
 
-  public void sqlTablaCasos(String consulta){
+  public void sqlTablaCasos(String consulta) {
     try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(consulta);
-      String cliente,tipo,costo,saldoPendiente,estado,detalles,dpi;
-      while(rs.next()) {
-        dpi=rs.getString(7).trim();
-        idCaso= rs.getString(1);
-        tipo=rs.getString(2).trim();
-        costo=rs.getString(3).trim();
-        saldoPendiente=rs.getString(5).trim();
-        detalles=rs.getString(4).trim();
-        estado=rs.getString(6).trim();
-        cliente=rs.getString(8).trim();
+      String cliente, tipo, costo, saldoPendiente, estado, detalles, dpi;
+      while (rs.next()) {
+        dpi = rs.getString(7).trim();
+        idCaso = rs.getString(1);
+        tipo = rs.getString(2).trim();
+        costo = rs.getString(3).trim();
+        saldoPendiente = rs.getString(5).trim();
+        detalles = rs.getString(4).trim();
+        estado = rs.getString(6).trim();
+        cliente = rs.getString(8).trim();
         this.CidCaso.setCellValueFactory(new PropertyValueFactory<>("idCaso"));
         this.Cdpi.setCellValueFactory(new PropertyValueFactory<>("dpi"));
         this.Ccliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
@@ -360,14 +411,16 @@ public class  EditarController implements Initializable {
         this.Cdetalles.setCellValueFactory(new PropertyValueFactory<>("Detalles"));
         this.CsaldoPendiente.setCellValueFactory(new PropertyValueFactory<>("saldoPendiente"));
         this.Cestado.setCellValueFactory(new PropertyValueFactory<>("estadoDelProceso"));
-        items.add(new Casos(dpi,idCaso,cliente,tipo,costo,saldoPendiente,estado,detalles));
+        items.add(new Casos(dpi, idCaso, cliente, tipo, costo, saldoPendiente, estado, detalles));
         this.Tcasos.setItems(items);
       }
       st.close();
-      rs.close();}catch(Exception e) {
+      rs.close();
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(null, "error al conectar");
     }
   }
+
   // user
   public void tablaUsuarios() {
     String sql = "SELECT * FROM usuarios";
@@ -380,7 +433,7 @@ public class  EditarController implements Initializable {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(consulta);
-      String usuario, contrasena,idUser;
+      String usuario, contrasena, idUser;
       while (rs.next()) {
         idUser = String.valueOf(rs.getInt(1));
         usuario = rs.getString(2).trim();
@@ -388,7 +441,7 @@ public class  EditarController implements Initializable {
         this.CidUser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
         this.Cuser.setCellValueFactory(new PropertyValueFactory<>("user"));
         this.Cpas.setCellValueFactory(new PropertyValueFactory<>("password"));
-        itemsUser.add(new usuarios( usuario, contrasena,idUser));
+        itemsUser.add(new usuarios(usuario, contrasena, idUser));
         this.Tusers.setItems(itemsUser);
       }
       st.close();
@@ -429,7 +482,8 @@ public class  EditarController implements Initializable {
       TFuser.setText("");
       TFpasword.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al editar el usuario. Por favor, verifique que los campos estén correctos. " + e);
+      JOptionPane.showMessageDialog(null,
+          "Error al editar el usuario. Por favor, verifique que los campos estén correctos. " + e);
     }
   }
 
@@ -445,7 +499,8 @@ public class  EditarController implements Initializable {
       TFuser.setText("");
       TFpasword.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al eliminar el usuario. Por favor, verifique que los campos estén correctos. " + e);
+      JOptionPane.showMessageDialog(null,
+          "Error al eliminar el usuario. Por favor, verifique que los campos estén correctos. " + e);
     }
   }
 
@@ -465,14 +520,17 @@ public class  EditarController implements Initializable {
       tablaClientes();
       limpiarCamposCliente();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al editar el cliente. Por favor, verifique que los campos estén correctos. " + e);
+      JOptionPane.showMessageDialog(null,
+          "Error al editar el cliente. Por favor, verifique que los campos estén correctos. " + e);
     }
   }
 
   public void eliminarCliente() {
-    int comp=JOptionPane.showConfirmDialog(null,"Esto eliminara todos los registros relacionados al client desea continuar","Advertencia",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
+    int comp = JOptionPane.showConfirmDialog(null,
+        "Esto eliminara todos los registros relacionados al client desea continuar", "Advertencia",
+        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
     System.out.println(comp);
-    if(comp == 1){
+    if (comp == 1) {
       return;
     }
     String dpi = TFdpi.getText().trim();
@@ -498,17 +556,19 @@ public class  EditarController implements Initializable {
         deleteStmtCliente.setString(1, dpi);
         deleteStmtCliente.execute();
 
-        JOptionPane.showMessageDialog(null, "Se eliminaron todos los registros relacionados con el cliente correctamente");
+        JOptionPane.showMessageDialog(null,
+            "Se eliminaron todos los registros relacionados con el cliente correctamente");
         tablaClientes();
         limpiarCamposCliente();
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al eliminar los registros relacionados con el cliente. Por favor, verifique que los campos estén correctos. " + e);
+        JOptionPane.showMessageDialog(null,
+            "Error al eliminar los registros relacionados con el cliente. Por favor, verifique que los campos estén correctos. "
+                + e);
       }
     } else {
       JOptionPane.showMessageDialog(null, "Por favor, ingrese el DPI del cliente que desea eliminar.");
     }
   }
-
 
   public void getSelecDataClientes() {
     Tclientes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -554,7 +614,7 @@ public class  EditarController implements Initializable {
         this.CestadoCivil.setCellValueFactory(new PropertyValueFactory<>("estadoCivil"));
         this.Cnumber.setCellValueFactory(new PropertyValueFactory<>("numero"));
         this.Cdate.setCellValueFactory(new PropertyValueFactory<>("fechaNacimiento"));
-        itemsClientes.add(new clientes(dpi,fechaNacimiento,numeroTelefono,apellidos,estadoCivil,nombre));
+        itemsClientes.add(new clientes(dpi, fechaNacimiento, numeroTelefono, apellidos, estadoCivil, nombre));
         this.Tclientes.setItems(itemsClientes);
       }
       st.close();
@@ -587,7 +647,6 @@ public class  EditarController implements Initializable {
     }
   }
 
-
   private void buscarCliente(String consulta, String parametro) {
     try {
       Conexion conexion = new Conexion();
@@ -604,7 +663,7 @@ public class  EditarController implements Initializable {
         String numeroTelefono = rs.getString("numero_de_telefono").trim();
         String fechaNacimiento = rs.getString("fecha_de_nacimiento").trim();
 
-        itemsClientes.add(new clientes(dpi,fechaNacimiento,numeroTelefono,apellidos,estadoCivil,nombre));
+        itemsClientes.add(new clientes(dpi, fechaNacimiento, numeroTelefono, apellidos, estadoCivil, nombre));
       }
       Tclientes.setItems(itemsClientes);
       statement.close();
@@ -613,43 +672,45 @@ public class  EditarController implements Initializable {
     }
   }
 
-  private String[] estadoCivilArray= {"Casad@","Solter@"};
+  private String[] estadoCivilArray = { "Casad@", "Solter@" };
 
-  public void editarAudiencia(){
+  public void editarAudiencia() {
     String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
-            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi;";
-    try{
+        "INNER JOIN clientes ON audiencias.dpi = clientes.dpi;";
+    try {
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
-      String ubicacion,fecha,hora,detalles;
-      while(rs.next()){
-        ubicacion=rs.getString(3).trim();
-        fecha=rs.getString(4).trim();
-        hora=rs.getString(5).trim();
-        detalles=rs.getString(6).trim();
-        this.Eubicacion.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
-        this.Efecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
-        this.Ehora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
-        this.Edetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
+      String ubicacion, fecha, hora, detalles;
+      while (rs.next()) {
+        ubicacion = rs.getString(3).trim();
+        fecha = rs.getString(4).trim();
+        hora = rs.getString(5).trim();
+        detalles = rs.getString(6).trim();
+        this.Eubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
+        this.Efecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        this.Ehora.setCellValueFactory(new PropertyValueFactory<>("hora"));
+        this.Edetalles.setCellValueFactory(new PropertyValueFactory<>("detalles"));
         Eid.setCellValueFactory(new PropertyValueFactory<>("id"));
         idAu = rs.getString("id_audiencia".trim());
-        itemsAud.add(new Audiencias(idAu,ubicacion,fecha,hora,detalles));
+        itemsAud.add(new Audiencias(idAu, ubicacion, fecha, hora, detalles));
         this.TEAudiencias.setItems(itemsAud);
       }
       st.close();
-      rs.close();}catch(Exception e) {
+      rs.close();
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(null, e);
     }
   }
+
   public void editarAudienciabusPorDpi() {
     // Obtener el valor de DPI del TextField AAdpi
     String dpi = AAdpi.getText().trim();
 
     // Consulta SQL con filtro WHERE por el valor de DPI
     String sql = "SELECT audiencias.*, clientes.nombre AS nombre_cliente FROM audiencias " +
-            "INNER JOIN clientes ON audiencias.dpi = clientes.dpi " +
-            "WHERE audiencias.dpi = '" + dpi + "';";
+        "INNER JOIN clientes ON audiencias.dpi = clientes.dpi " +
+        "WHERE audiencias.dpi = '" + dpi + "';";
 
     try {
       Conexion conexion = new Conexion();
@@ -661,7 +722,7 @@ public class  EditarController implements Initializable {
       // Limpiar la tabla antes de agregar nuevos elementos
       TEAudiencias.getItems().clear();
 
-      while(rs.next()) {
+      while (rs.next()) {
         ubicacion = rs.getString(3).trim();
         fecha = rs.getString(4).trim();
         hora = rs.getString(5).trim();
@@ -684,7 +745,7 @@ public class  EditarController implements Initializable {
 
       st.close();
       rs.close();
-    } catch(Exception e) {
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(null, e);
     }
   }
@@ -727,6 +788,7 @@ public class  EditarController implements Initializable {
       AAdpi.clear();
     }
   }
+
   public void eliminarAudiencia() {
     if (idAu != null && !idAu.isEmpty()) {
       try {
@@ -755,6 +817,7 @@ public class  EditarController implements Initializable {
       JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para eliminar.");
     }
   }
+
   private void limpiarCampos() {
     EdUbi.clear();
     DPfecha.setValue(null);
@@ -777,11 +840,12 @@ public class  EditarController implements Initializable {
       }
       st.close();
       rs.close();
-    } catch(Exception e) {
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(null, e);
     }
     return dpi;
   }
+
   // Método para consultar el nombre del cliente asociado al DPI
   private String consultarNombreCliente(String dpi) {
     String nombreCliente = "";
@@ -795,7 +859,7 @@ public class  EditarController implements Initializable {
       }
       st.close();
       rs.close();
-    } catch(Exception e) {
+    } catch (Exception e) {
       JOptionPane.showMessageDialog(null, e);
     }
     return nombreCliente;
@@ -834,25 +898,37 @@ public class  EditarController implements Initializable {
     }
   }
 
-
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    if(Tcasos != null){
+    if (Tcasos != null) {
+      Tcasos.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
       tablaCasos();
       CBestadoProceso.getItems().addAll(estadoProceso);
       CidCaso.setVisible(false);
       Cdpi.setVisible(false);
+      Tcasos.setFixedCellSize(30);
     }
-    if(Tusers != null){
+  if (Tusers != null) {
+    Tusers.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
       tablaUsuarios();
       CidUser.setVisible(false);
-    }
-    if(Tclientes != null){
+    Tusers.setFixedCellSize(30);
+  }
+  if (Tclientes != null) {
+    Tclientes.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
       tablaClientes();
       CidClienet.setVisible(false);
       CBestadoCivil.getItems().addAll(estadoCivilArray);
-    }
-    if(TEAudiencias!=null){
-      editarAudiencia();}
+    Tclientes.setFixedCellSize(30);
+  }
+  if (TEAudiencias != null) {
+    Eid.setVisible(false);
+    TEAudiencias.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+      editarAudiencia();
+    // Establecer la altura de celda fija y deshabilitar el ajuste automático del tamaño de celda
+    TEAudiencias.setFixedCellSize(30); // Establece la altura de la celda en 30 píxeles (valor arbitrario)
   }
   }
+
+
+}

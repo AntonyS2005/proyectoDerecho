@@ -79,6 +79,7 @@ public class RegistrosController implements Initializable {
     scene.getStylesheets().add(css);
     stage.setScene(scene);
     stage.show();
+    stage.centerOnScreen();
   }
 
   public void registrarUsuarios() throws SQLException {

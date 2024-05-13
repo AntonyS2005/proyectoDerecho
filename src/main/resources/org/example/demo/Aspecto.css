@@ -1,51 +1,113 @@
-.button {
--fx-alignment: center;
--fx-font-weight: bold;
-    -fx-background-color: linear-gradient(to right, #55aeff, #6b84d6);
-    -fx-background-radius: 15;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-padding: 3 5;
-    -fx-effect: dropshadow(three-pass-box, rgba(38, 77, 161, 0.685), 10, 0, 0, 0);
+.root{
+    -fx-background-color:#ffff;
+    -fx-font-weight: bold;
 }
-
-.button:hover {
-    -fx-background-color: linear-gradient(to right, #72d8f1, #35a6c9);
-    -fx-effect: dropshadow(three-pass-box, rgba(14, 74, 114, 0.8), 10, 0, 0, 0);
-}
-
-.label {
+/* Estilo para la primera columna */
+#ancBlue{
+    -fx-background-color:rgb(45, 50, 80);
     -fx-alignment: center;
-    -fx-font-weight: bold;
-    -fx-font-family: "Arial"
-    -fx-text-fill: #ffffff;
-    -fx-background-color: #5580b1da;
-    -fx-padding: 4px 5px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-effect: dropshadow(three-pass-box, rgba(14, 75, 5, 0.644), 5, 0, 0, 0);
 }
-
-
-.label:pressed {
-    -fx-background-color: #52a2d8f5;
-    -fx-effect: dropshadow(three-pass-box, rgba(14, 12, 100, 0.877), 5, 0, 0, 0);
-}
-
-.table-view {
-    -fx-background-color: #4eb6c9;
-    -fx-padding: 10px;
-}
-
-.table-cell {
--fx-alignment: center;
-    -fx-font-weight: bold;
+#ancBlue .label{
+    -fx-text-fill:#fab17a;
     -fx-alignment: center;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+}
+#ancBlue .text-field {
     -fx-text-fill: black;
-    -fx-border-color: #c5e4c9;
-    -fx-border-width: 1px;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+}
+#ancBlue .text-area {
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+}
+#Aname{
+    -fx-background-color: WHITE;
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3.5px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    }
+    #EdAname{
+        -fx-text-fill: rgb(0, 0, 0);  
+        -fx-background-color:#ffffff;
+        }
+#ancWhite{
+    -fx-background-color:#ffffff;
+}
+
+.table-view{
+    -fx-background-color:none;
+    -fx-border: 7px;
+    
+}
+
+/* Estilo para las celdas de la tabla */
+.table-cell {
+    -fx-alignment: center; 
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+
+}
+.table-view .column-header {
+    -fx-background-color: #2d3250;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+    
+}
+
+#columUbi { 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+
+#columDetalles{
+    -fx-background-radius: 0 40px 40px 0;
+}
+ #Eubicacion{ 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+
+#Edetalles {
+    -fx-background-radius: 0 40px 40px 0;
+}
+#Ccliente{ 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+ #Cdetalles{
+    -fx-background-radius: 0 40px 40px 0;
+}
+#Cname { 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+
+#Cdate{
+    -fx-background-radius: 0 40px 40px 0;
+}
+ #Cuser { 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+
+ #Cpas{
+    -fx-background-radius: 0 40px 40px 0;
+}
+ #documentosTableView{ 
+    -fx-background-radius: 40px 0 0 40px;
+    
+}
+
+#tituloColumn{
+    -fx-background-radius: 40px 40px 40px 40px;
 }
 
 .table-column .label {
@@ -54,133 +116,143 @@
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #ffffff;
-    -fx-background-color: #4064af;
     -fx-padding: 5px;
 }
-
 .table-row-cell:odd {
-    -fx-background-color: #79a1b3;
+    -fx-background-color:  #bbbbbb;
 }
+.table-row-cell{
+    -fx-background-color:  #faf8f8;
+    -fx-background-radius: 50px;
+    -fx-border-color: rgba(0, 0, 0, 0.432);
+    -fx-border-width: 0.32px;
+    -fx-border-radius: 40px;
+    -fx-border-style: solid;
+}
+
 .table-row-cell:hover {
-    -fx-background-color: #80bac2;
+    -fx-background-color: #e1dfdf;
+}
+.table-row-cell:selected {
+  -fx-background-color: #2d32509a; /* Cambia el color de fondo */
+ /* Cambia el color del texto */
 }
 
+/* Estilos para el boton normal */
+.button {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-background-color: #fab17a;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-background-radius: 40px 40px 40px 40px;
+}
+
+/* Estilos para el boton cuando se presiona */
+.button:pressed {
+    -fx-background-color: #fab17ab1;
+    -fx-text-fill: white;
+}
+
+/* Estilos para el boton cuando se coloca el cursor sobre el */
+.button:hover {
+    -fx-font-weight: bold;
+    -fx-background-color: #404668;
+    -fx-text-fill: white;
+    -fx-background-radius: 50px;
+    -fx-border-color: #fab17a;
+    -fx-border-width: 7px;
+    -fx-border-radius: 40px;
+    -fx-border-style: solid;
+}
+
+/* Estilos para el botón cuando está deshabilitado */
+.button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: gray;
+}
+/* Estilos para el TextField */
 .text-field {
--fx-alignment: center;
--fx-font-weight: bold;
-    -fx-background-color: #b1dacc; /* Color de fondo */
-    -fx-text-fill: white; /* Color del texto */
-    -fx-padding: 8px; /* Espaciado interno */
-    -fx-font-size: 14px; /* Tamaño de la fuente */
-    -fx-border-color: #cee5e9; /* Color del borde */
-    -fx-border-radius: 5px; /* Radio de borde */
-    -fx-prompt-text-fill: #61628b; /* Color del texto de marcador */
+    -fx-background-color: WHITE;
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3.5px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: black;
 }
 
-.text-field:hover {
-    -fx-background-color: #6bd3b4; /* Cambio de color de fondo al pasar el mouse */
-}
-
+/* Estilos para el TextField cuando se enfoca */
 .text-field:focused {
-    -fx-border-color: #36abaf; /* Color del borde al estar enfocado */
-    -fx-box-shadow: 0px 0px 5px rgba(17, 100, 155, 0.849); /* Sombra al estar enfocado */
+    -fx-border-color: #f7b176;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
 }
-
-.text-field:disabled {
-    -fx-opacity: 0.6; /* Opacidad cuando está deshabilitado */
-}
-
-.date-picker-popup {
-    -fx-background-color: #67c2be;
-    -fx-border-color: #62a798;
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell {
-    -fx-background-color: #65d6cd;
-    -fx-text-fill: rgb(70, 137, 139);
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell:hover {
-    -fx-background-color: #16c7af;
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell:selected {
-    -fx-background-color: #1acea7;
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell:disabled {
-    -fx-opacity: 0.4;
-}
-
-.date-picker-popup > .calendar-date-pane > .week-number-cell {
-    -fx-background-color: #21d8c9;
-    -fx-text-fill: white;
-}
-
-.date-picker-popup > .calendar-date-pane > .week-number-cell:hover {
-    -fx-background-color: #32c7b3;
-}
-
-.date-picker-popup > .calendar-date-pane > .week-number-cell:selected {
-    -fx-background-color: #1ec49a;
-}
-
-.date-picker-popup > .calendar-date-pane > .week-number-cell:disabled {
-    -fx-opacity: 0.4;
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell > .date-display {
-    -fx-text-fill: white;
-}
-
-.date-picker-popup > .calendar-date-pane > .day-cell > .date-display:hover {
-    -fx-text-fill: rgb(13, 150, 132);
-}
-
-/* Estilo base para el PasswordField */
-#passwordField {
-    -fx-background-color: #5adbca; /* Color de fondo */
-    -fx-text-fill: #16796b; /* Color del texto */
-    -fx-font-size: 14px; /* Tamaño de la fuente */
-    -fx-padding: 5px; /* Relleno interno */
-    -fx-border-width: 1px; /* Ancho del borde */
-    -fx-border-color: #089fb3; /* Color del borde */
-}
-
-/* Estilo cuando el PasswordField tiene el foco */
-#passwordField:focused {
-    -fx-border-color: #2cd4b8; /* Cambiar color del borde al tener el foco */
-}
-
-/* Estilo cuando el PasswordField está deshabilitado */
-#passwordField:disabled {
-    -fx-opacity: 0.5; /* Opacidad reducida para indicar que está deshabilitado */
-}
-
-.choice-box .arrow-button {
+/* Estilos para el TextArea */
+.text-area {
     -fx-background-color: transparent;
+    -fx-border-color: #f7b176;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-size: 14px;
 }
 
-.choice-box .arrow-button .arrow {
-    -fx-background-color: #22aee6;
+/* Estilos para el TextArea cuando se enfoca */
+.text-area:focused {
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, #f7b176, 2, 0, 0, 0);
 }
+#titulo{
+    -fx-font-size: 30px;
 
-.choice-box .arrow-button .arrow:hover {
-    -fx-background-color: #088eccd2;
-    -fx-scale-x: 1.2;
-    -fx-scale-y: 1.2;
-    -fx-padding: 0.5em;
 }
-
-.choice-box .arrow-button .arrow:pressed {
-    -fx-background-color: #0e996f;
+.choice-box{
+    -fx-background-color: WHITE;
+    -fx-border-color: #f7b176;
+    -fx-border-width: 2px;
+    -fx-border-radius: 25px;
+    -fx-padding: 0px;
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-size: 14px;
+    -fx-background-radius: 25px;
+    -fx-margin:0;
 }
-
-.choice-box .arrow-button .arrow:disabled {
-    -fx-opacity: 0.5;
+#TFcosto{
+    -fx-font-size:16px;
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-effect: dropshadow(gaussian, #f7b176, 2, 0, 0, 0);
+    -fx-background-radius: 25px;
+    -fx-background-color:  #ffffff;
+    -fx-text-fill: black;
 }
-
-.choice-box .arrow-button .arrow-label {
-    -fx-font-size: 1.2em;
-    -fx-text-fill: white;
+#LsaldoPendiente{
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-effect: dropshadow(gaussian, #f7b176, 2, 0, 0, 0);
+    -fx-background-radius: 25px;
+    -fx-background-color:  #ffffff;
+    -fx-text-fill: black;
+}
+#Lcliente{
+    -fx-border-color: #f7b176;
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-effect: dropshadow(gaussian, #f7b176, 2, 0, 0, 0);
+    -fx-background-radius: 25px;
+    -fx-background-color:  #ffffff;
+    -fx-text-fill: black;
+}
+.date-picker{
+    -fx-border-color: #ffffff;
+    -fx-border-width: 3px;
+    -fx-border-radius: 25px;
+    -fx-effect: dropshadow(gaussian, #f7b176, 2, 0, 0, 0);
+    -fx-background-radius: 25px;
+    -fx-background-color:  #ffffff;
+    -fx-text-fill: black;
 }

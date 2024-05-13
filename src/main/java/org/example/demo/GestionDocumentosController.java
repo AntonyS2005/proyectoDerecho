@@ -51,12 +51,11 @@ public class GestionDocumentosController {
   @FXML
   private Button eliminarButton;
   @FXML
-  private TextField TFnombre;
+  private  TableColumn<Document, String> tituloColumn;
   private final Timeline searchTimeline = new Timeline();
   @FXML
   private void initialize() {
     // Configurar la columna de Título
-    TableColumn<Document, String> tituloColumn = new TableColumn<>("Nombre de la Plantilla");
     tituloColumn.setCellValueFactory(cellData -> cellData.getValue().tituloProperty());
     tituloColumn.setResizable(true); // Hacer la columna redimensionable
 
@@ -87,6 +86,7 @@ public class GestionDocumentosController {
     scene.getStylesheets().add(css);
     stage.setScene(scene);
     stage.show();
+    stage.centerOnScreen();
   }
 
   @FXML

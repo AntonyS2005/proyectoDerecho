@@ -1,26 +1,27 @@
 package org.example.demo;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.stage.*;
-import javafx.scene.control.TextField;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+
 public class MenuController implements Initializable{
   @FXML
   private TextField TFuser;
@@ -36,12 +37,10 @@ public class MenuController implements Initializable{
   private TableColumn<Audiencias, String> columFecha;
   @FXML
   private TableColumn<Audiencias, String> columDetalles;
+  @FXML
+  private TableColumn<Audiencias, String> Cid;
 
   private ObservableList<Audiencias> items= FXCollections.observableArrayList();
-
-  public void mostrarAudPendientes() {
-
-  }
 
 
   public void iniciarSecion(ActionEvent event) {
@@ -144,28 +143,31 @@ public class MenuController implements Initializable{
     stage.setScene(scene);
     stage.setResizable(false); // No permitir redimensionar la ventana
     stage.show();
+    stage.centerOnScreen();
   }
 
 
   public void tablaNoti(){
     items.clear();
-    String sql = "SELECT ubicacion_de_la_audiencia, fecha_de_audiencia, hora_de_la_audiencia, detalles FROM audiencias" +
+    String sql = "SELECT ubicacion_de_la_audiencia, fecha_de_audiencia, hora_de_la_audiencia, detalles, id_audiencia FROM audiencias" +
             " WHERE fecha_de_audiencia >= CURDATE();";
     try{
       Conexion conexion = new Conexion();
       Statement st = conexion.establecerConexion().createStatement();
       ResultSet rs = st.executeQuery(sql);
-      String ubicacion, fecha,hora,detalles;
+      String ubicacion, fecha,hora,detalles,id;
       while(rs.next()){
         ubicacion=rs.getString(1).trim();
         fecha=rs.getString(2).trim();
         hora=rs.getString(3).trim();
         detalles=rs.getString(4).trim();
+        id=rs.getString("id_audiencia").trim();
         this.columUbi.setCellValueFactory(new PropertyValueFactory<> ("ubicacion"));
         this.columFecha.setCellValueFactory(new PropertyValueFactory<> ("fecha"));
         this.columHora.setCellValueFactory(new PropertyValueFactory<> ("hora"));
         this.columDetalles.setCellValueFactory(new PropertyValueFactory<> ("detalles"));
-        items.add(new Audiencias("",ubicacion, fecha, hora, detalles));
+        Cid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        items.add(new Audiencias(id,ubicacion, fecha, hora, detalles));
         this.Taudiencias.setItems(items);
       }
       st.close();
@@ -174,11 +176,38 @@ public class MenuController implements Initializable{
     }
   }
 
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
 
     if(Taudiencias!= null){
       tablaNoti();
+      Taudiencias.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+      Taudiencias.setFixedCellSize(30);
+      Taudiencias.setRowFactory(tv -> {
+        TableRow<Audiencias> row = new TableRow<>();
+        row.setOnMouseClicked(event -> {
+          if (event.getClickCount() == 1 && !row.isEmpty()) {
+            Audiencias rowData = row.getItem();
+            try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("detallesDeCasos.fxml"));
+              Parent root = loader.load();
+              DetallesDeCasos controlador = loader.getController();
+              controlador.setIdAudiencia(rowData.getId());
+
+              Stage stage = new Stage();
+              stage.setScene(new Scene(root));
+              stage.show();
+
+              // Deselecciona la fila después de abrir la ventana
+              row.getTableView().getSelectionModel().clearSelection();
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
+          }
+        });
+        return row;
+      });
 
     }
   }

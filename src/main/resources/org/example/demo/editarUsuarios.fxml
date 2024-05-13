@@ -8,50 +8,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="573.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane prefHeight="574.0" prefWidth="1240.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <Button layoutX="149.0" layoutY="230.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="editarUsuario" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font>
-      </Button>
-      <TextField fx:id="TFuser" layoutX="188.0" layoutY="76.0" prefHeight="46.0" prefWidth="612.0">
-         <font>
-            <Font name="Book Antiqua Italic" size="20.0" />
-         </font>
-      </TextField>
-      <Label layoutX="37.0" layoutY="76.0" text="Usuario" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="24.0" layoutY="158.0" text="Contraseña" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="303.0" layoutY="14.0" text="Editar Usuarios" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="30.0" />
-         </font>
-      </Label>
-      <Button fx:id="eliminarUsuario" layoutX="515.0" layoutY="230.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar" >
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="15.0" />
-         </font>
-      </Button>
-      <TableView fx:id="Tusers" layoutX="11.0" layoutY="283.0" onContextMenuRequested="#getSelecDataUsuarios" onMouseClicked="#getSelecDataUsuarios" onMouseDragged="#getSelecDataUsuarios" onMouseEntered="#getSelecDataUsuarios" onMouseExited="#getSelecDataUsuarios" prefHeight="276.0" prefWidth="800.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="12.199999999999932">
-         <columns>
-            <TableColumn fx:id="Cuser" prefWidth="383.1999931335449" text="Usuario" />
-            <TableColumn fx:id="Cpas" prefWidth="383.20001220703125" text="Contraseña" />
-            <TableColumn fx:id="CidUser" prefWidth="75.0" text="Column X" />
-         </columns>
-      </TableView>
-      <TextField fx:id="TFpasword" layoutX="188.0" layoutY="153.0" prefHeight="46.0" prefWidth="591.0" />
+      <AnchorPane id="ancBlue" prefHeight="574.0" prefWidth="526.0">
+         <children>
+            <TextField fx:id="TFpasword" layoutX="34.0" layoutY="386.0" prefHeight="46.0" prefWidth="459.0" />
+            <Label layoutX="144.0" layoutY="290.0" style="-fx-font-size: 45px;" text="Contraseña">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="28.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFuser" layoutX="33.0" layoutY="233.0" prefHeight="47.0" prefWidth="459.0">
+               <font>
+                  <Font name="Book Antiqua Italic" size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="181.0" layoutY="141.0" style="-fx-font-size: 45px;" text="Usuario">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="526.0" layoutY="8.0" prefHeight="558.0" prefWidth="703.0">
+         <children>
+            <Button layoutX="524.0" layoutY="492.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="35.0" prefWidth="158.0" text="Menú">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <TableView fx:id="Tusers" layoutX="7.2" layoutY="80.0" onContextMenuRequested="#getSelecDataUsuarios" onMouseClicked="#getSelecDataUsuarios" onMouseDragged="#getSelecDataUsuarios" onMouseEntered="#getSelecDataUsuarios" onMouseExited="#getSelecDataUsuarios" prefHeight="392.0" prefWidth="702.0" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-5.0">
+               <columns>
+                  <TableColumn fx:id="Cuser" prefWidth="384.0" text="Usuario" />
+                  <TableColumn fx:id="Cpas" prefWidth="383.20001220703125" text="Contraseña" />
+                  <TableColumn fx:id="CidUser" prefWidth="75.0" text="Column X" />
+               </columns>
+            </TableView>
+            <Button fx:id="editarUsuario" layoutX="14.0" layoutY="492.0" mnemonicParsing="false" onAction="#editarUsuario" prefHeight="35.0" prefWidth="158.0" text="Editar">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="219.0" layoutY="13.0" text="Editar Usuarios">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="47.0" />
+               </font>
+            </Label>
+            <Button fx:id="eliminarUsuario" layoutX="188.0" layoutY="492.0" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="35.0" prefWidth="158.0" text="Eliminar">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

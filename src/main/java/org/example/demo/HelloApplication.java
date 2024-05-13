@@ -12,7 +12,7 @@ package org.example.demo;
 
     @Override
     public void start(Stage stage) throws IOException {
-      FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+      FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
       Scene scene = new Scene(fxmlLoader.load());
       String css = this.getClass().getResource("Aspecto.css").toExternalForm();
       scene.getStylesheets().add(css);
@@ -20,7 +20,8 @@ package org.example.demo;
     stage.setScene(scene);
       stage.setResizable(false);
     stage.show();
-  }
+      stage.centerOnScreen();
+    }
 
   public static void main(String[] args) {
     launch();
