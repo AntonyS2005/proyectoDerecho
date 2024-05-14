@@ -358,7 +358,7 @@ public class EditarController implements Initializable {
         TFcostoNew.setText("");
       } catch (Exception e) {
         JOptionPane.showMessageDialog(null,
-            "error al editar los casos por favor verificar que los campos esten correctos " + e);
+            "error al editar los casos por favor verificar que los campos esten correctos ");
       }
     } else
       return;
@@ -384,7 +384,7 @@ public class EditarController implements Initializable {
       TFcostoNew.setText("");
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null,
-          "Error al eliminar el registro. Por favor, verifique que los campos estén correctos. " + e);
+          "Error al eliminar el registro. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
@@ -447,7 +447,6 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al conectar: " + e);
     }
   }
 
@@ -483,7 +482,7 @@ public class EditarController implements Initializable {
       TFpasword.setText("");
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null,
-          "Error al editar el usuario. Por favor, verifique que los campos estén correctos. " + e);
+          "Error al editar el usuario. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
@@ -500,7 +499,7 @@ public class EditarController implements Initializable {
       TFpasword.setText("");
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null,
-          "Error al eliminar el usuario. Por favor, verifique que los campos estén correctos. " + e);
+          "Error al eliminar el usuario. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
@@ -521,7 +520,7 @@ public class EditarController implements Initializable {
       limpiarCamposCliente();
     } catch (Exception e) {
       JOptionPane.showMessageDialog(null,
-          "Error al editar el cliente. Por favor, verifique que los campos estén correctos. " + e);
+          "Error al editar el cliente. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
@@ -563,7 +562,7 @@ public class EditarController implements Initializable {
       } catch (Exception e) {
         JOptionPane.showMessageDialog(null,
             "Error al eliminar los registros relacionados con el cliente. Por favor, verifique que los campos estén correctos. "
-                + e);
+                );
       }
     } else {
       JOptionPane.showMessageDialog(null, "Por favor, ingrese el DPI del cliente que desea eliminar.");
@@ -699,7 +698,7 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e);
+      JOptionPane.showMessageDialog(null, "error al editar");
     }
   }
 
@@ -746,7 +745,6 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e);
     }
   }
 
@@ -811,7 +809,7 @@ public class EditarController implements Initializable {
         }
         pstmt.close();
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al eliminar la audiencia: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al eliminar la audiencia: " );
       }
     } else {
       JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para eliminar.");
@@ -841,7 +839,6 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e);
     }
     return dpi;
   }

@@ -74,7 +74,6 @@ public class DetallesDeCasos implements Initializable {
         }
       }
     } catch (SQLException e) {
-      e.printStackTrace();
     }
   }
 
