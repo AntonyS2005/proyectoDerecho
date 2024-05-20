@@ -9,7 +9,7 @@ public class Conexion
 
   String user = "root";
   String password = "";
-  String bd= "proyectoDerecho";
+  String bd= "proyectoderecho";
   String ip = "localhost";
   String puerto = "3306";
 

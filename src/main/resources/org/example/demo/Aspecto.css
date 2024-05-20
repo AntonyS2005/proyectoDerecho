@@ -32,7 +32,7 @@
     -fx-font-size: 12px;
     }
     #EdAname{
-        -fx-text-fill: rgb(0, 0, 0);  
+        -fx-text-fill: rgb(0, 0, 0);
         -fx-background-color:#ffffff;
         }
 #ancWhite{
@@ -42,12 +42,12 @@
 .table-view{
     -fx-background-color:none;
     -fx-border: 7px;
-    
+
 }
 
 /* Estilo para las celdas de la tabla */
 .table-cell {
-    -fx-alignment: center; 
+    -fx-alignment: center;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-text-fill: black;
@@ -59,51 +59,51 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-alignment: center;
-    
+
 }
 
-#columUbi { 
+#columUbi {
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
 
 #columDetalles{
     -fx-background-radius: 0 40px 40px 0;
 }
- #Eubicacion{ 
+ #Eubicacion{
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
 
 #Edetalles {
     -fx-background-radius: 0 40px 40px 0;
 }
-#Ccliente{ 
+#Ccliente{
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
  #Cdetalles{
     -fx-background-radius: 0 40px 40px 0;
 }
-#Cname { 
+#Cname {
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
 
 #Cdate{
     -fx-background-radius: 0 40px 40px 0;
 }
- #Cuser { 
+ #Cuser {
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
 
  #Cpas{
     -fx-background-radius: 0 40px 40px 0;
 }
- #documentosTableView{ 
+ #documentosTableView{
     -fx-background-radius: 40px 0 0 40px;
-    
+
 }
 
 #tituloColumn{
@@ -220,7 +220,7 @@
     -fx-margin:0;
 }
 #TFcosto{
-    -fx-font-size:16px;
+    -fx-font-size:16px;  
     -fx-border-color: #f7b176;
     -fx-border-width: 3px;
     -fx-border-radius: 25px;

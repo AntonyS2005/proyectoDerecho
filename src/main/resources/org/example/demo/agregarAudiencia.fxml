@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="616.0" prefWidth="1026.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
+<AnchorPane prefHeight="707.0" prefWidth="1026.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
     <children>
       <AnchorPane layoutX="506.0" prefHeight="610.0" prefWidth="518.0">
          <children>
@@ -36,7 +36,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ancBlue" layoutY="2.0" prefHeight="617.0" prefWidth="506.0" AnchorPane.rightAnchor="520.0">
+      <AnchorPane fx:id="ancBlue" layoutY="2.0" prefHeight="719.0" prefWidth="543.0" AnchorPane.rightAnchor="483.0">
          <children>
               <TextField fx:id="AAUbi" layoutX="17.0" layoutY="188.0" prefHeight="36.0" prefWidth="496.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
               <DatePicker fx:id="DPAudiencia" layoutX="17.0" layoutY="263.0" prefHeight="36.0" prefWidth="496.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
@@ -77,7 +77,7 @@
                       <Font name="Book Antiqua Italic" size="18.0" />
                   </font>
             </Label>
-              <TextArea fx:id="AAdetalles" layoutX="20.0" layoutY="428.0" prefHeight="146.0" prefWidth="496.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+              <TextArea fx:id="AAdetalles" layoutX="20.0" layoutY="428.0" prefHeight="277.0" prefWidth="476.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
          </children>
       </AnchorPane>
     </children>

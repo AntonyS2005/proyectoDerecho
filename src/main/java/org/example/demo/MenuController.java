@@ -117,6 +117,7 @@ public class MenuController implements Initializable{
   public void exportToExcel(){
     ExportToExcel exportToExcel= new ExportToExcel();
     exportToExcel.exportToExcel();
+    JOptionPane.showMessageDialog(null,"se ha guardado corectamente en la carpeta del programa");
   }
   public  void openSubFile(ActionEvent event) throws IOException {
     openFXML("upload","subir plantillas",event,"Aspecto");

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="664.0" prefWidth="1126.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane prefHeight="786.0" prefWidth="1228.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <TableView fx:id="TEAudiencias" layoutX="453.0" layoutY="14.0" onMouseClicked="#getSelectDataAu" prefHeight="545.0" prefWidth="652.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="453.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="14.0">
+      <TableView fx:id="TEAudiencias" layoutX="540.0" layoutY="14.0" onMouseClicked="#getSelectDataAu" prefHeight="662.0" prefWidth="678.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="540.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
         <columns>
             <TableColumn fx:id="Eubicacion" minWidth="0.0" prefWidth="136.0" text="ubicacion" />
             <TableColumn fx:id="Efecha" prefWidth="138.0" text="fecha" />
@@ -21,61 +21,61 @@
             <TableColumn fx:id="Eid" prefWidth="75.0" text="id" />
         </columns>
       </TableView>
-      <AnchorPane fx:id="ancBlue" layoutX="-11.0" prefHeight="661.0" prefWidth="434.0">
+      <AnchorPane fx:id="ancBlue" layoutX="-11.0" prefHeight="786.0" prefWidth="533.0">
          <children>
-            <DatePicker fx:id="DPfecha" layoutX="45.0" layoutY="236.0" prefHeight="26.0" prefWidth="350.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001" />
-            <Label layoutX="45.0" layoutY="204.0" text="Fecha de la audiencia" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001">
+            <DatePicker fx:id="DPfecha" layoutX="45.0" layoutY="236.0" prefHeight="26.0" prefWidth="350.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <Label layoutX="45.0" layoutY="204.0" text="Fecha de la audiencia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="EdUbi" alignment="CENTER" layoutX="45.0" layoutY="304.0" prefHeight="26.0" prefWidth="350.0" promptText="Ubicacion de la audiencia" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001" />
-            <Label layoutX="45.0" layoutY="272.0" text="Ubicacion de la audiencia" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001">
+            <TextField fx:id="EdUbi" alignment="CENTER" layoutX="45.0" layoutY="304.0" prefHeight="26.0" prefWidth="350.0" promptText="Ubicacion de la audiencia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <Label layoutX="45.0" layoutY="272.0" text="Ubicacion de la audiencia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="EdHora" alignment="CENTER" layoutX="45.0" layoutY="372.0" prefHeight="26.0" prefWidth="349.0" promptText="Hora de la audiencia" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001" />
-            <Label layoutX="45.0" layoutY="340.0" text="Hora de la audiencia" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001">
+            <TextField fx:id="EdHora" alignment="CENTER" layoutX="45.0" layoutY="372.0" prefHeight="26.0" prefWidth="349.0" promptText="Hora de la audiencia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <Label layoutX="45.0" layoutY="340.0" text="Hora de la audiencia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="408.0" text="Detalles" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001">
+            <Label layoutX="45.0" layoutY="408.0" text="Detalles" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="EdDetalle" layoutX="45.0" layoutY="439.0" prefHeight="207.0" prefWidth="334.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="56.0" />
+            <TextArea fx:id="EdDetalle" layoutX="45.0" layoutY="439.0" prefHeight="331.0" prefWidth="473.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
             <TextField fx:id="AAdpi" alignment="CENTER" layoutX="50.0" layoutY="47.0" onKeyReleased="#editarAudienciabusPorDpi" prefHeight="26.0" prefWidth="451.0" promptText="Buscar por dpi" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="51.599999999999966" />
             <Label layoutX="50.0" layoutY="6.0" text="buscar audiencia por dpi" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="51.599999999999966">
                <font>
                   <Font name="Book Antiqua Italic" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="131.0" text="Cliente" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.80000000000001">
+            <Label layoutX="50.0" layoutY="131.0" text="Cliente" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="EdAname" layoutX="45.0" layoutY="163.0" prefHeight="28.0" prefWidth="505.0" text="Nombre del cliente" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="55.80000000000001">
+            <Label fx:id="EdAname" layoutX="45.0" layoutY="163.0" prefHeight="28.0" prefWidth="505.0" text="Nombre del cliente" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Book Antiqua Italic" size="14.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="443.0" layoutY="576.0" mnemonicParsing="false" onAction="#editarDatosAudiencia" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Editar">
+      <Button layoutX="540.0" layoutY="710.0" mnemonicParsing="false" onAction="#editarDatosAudiencia" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Editar">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="652.0" layoutY="576.0" mnemonicParsing="false" onAction="#eliminarAudiencia" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Eliminar">
+      <Button layoutX="750.0" layoutY="710.0" mnemonicParsing="false" onAction="#eliminarAudiencia" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Eliminar">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="909.0" layoutY="576.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Menú">
+      <Button layoutX="1009.0" layoutY="703.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="43.0" prefWidth="195.0" style="-fx-font-size: 35px;" text="Menú">
          <font>
             <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>

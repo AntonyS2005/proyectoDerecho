@@ -32,9 +32,9 @@
               <PasswordField fx:id="TFpasword" layoutX="20.0" layoutY="327.0" prefHeight="74.0" prefWidth="414.0" style="-fx-font-size: 30px;" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="367.0" fitWidth="335.0" layoutX="508.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="367.0" fitWidth="335.0" layoutX="509.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/295128.png" />
+            <Image url="@../../../img/icono.png" />
          </image>
       </ImageView>
     </children>

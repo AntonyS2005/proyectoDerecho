@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="936.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="936.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RegistrosController">
    <children>
       <Button layoutX="738.0" layoutY="698.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="75.0" prefWidth="190.0" style="-fx-font-size: 35px;" text="Menú">
          <font>
@@ -22,9 +22,9 @@
             <Font name="Book Antiqua Italic" size="14.0" />
          </font>
       </Button>
-      <AnchorPane id="ancBlue" layoutX="-2.0" prefHeight="781.0" prefWidth="515.0">
+      <AnchorPane id="ancBlue" layoutX="-2.0" prefHeight="798.0" prefWidth="515.0">
          <children>
-            <TextArea fx:id="TAdetalles" layoutX="50.0" layoutY="563.0" prefHeight="206.0" prefWidth="442.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" />
+            <TextArea fx:id="TAdetalles" layoutX="51.2" layoutY="563.0" prefHeight="228.0" prefWidth="413.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0" />
             <Label layoutX="222.0" layoutY="531.0" text="Detalles">
                <font>
                   <Font name="Book Antiqua Italic" size="24.0" />
