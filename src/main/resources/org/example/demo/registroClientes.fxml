@@ -52,7 +52,7 @@
                         <Font name="Book Antiqua Italic" size="14.0" />
                      </font>
                   </Label>
-                  <TextField id="TFnumero" fx:id="TFnumber" layoutX="10.0" layoutY="384.0" prefHeight="26.0" prefWidth="318.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.799999999999955" />
+                  <TextField id="TFnumero" fx:id="TFnumber" layoutX="10.0" layoutY="384.0" onKeyReleased="#numero" prefHeight="26.0" prefWidth="318.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.799999999999955" />
                </children>
             </AnchorPane>
             <Button id="Bregestrar" layoutX="474.0" layoutY="439.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="70.0" prefWidth="178.0" text="Registrar">

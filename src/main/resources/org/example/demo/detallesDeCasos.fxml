@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="791.0" prefWidth="667.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.DetallesDeCasos">
+<AnchorPane prefHeight="776.0" prefWidth="667.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.DetallesDeCasos">
    <children>
       <Label layoutX="303.0" layoutY="268.0" text="Ubicacion">
          <font>
@@ -29,9 +29,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d3250" height="89.0" layoutY="702.0" stroke="BLACK" strokeType="INSIDE" width="667.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d3250" height="78.0" stroke="BLACK" strokeType="INSIDE" width="664.0" />
-      <Button layoutX="434.0" layoutY="713.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="3.0" prefWidth="218.0" text="Cerrar">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d3250" height="70.0" layoutY="702.0" stroke="BLACK" strokeType="INSIDE" width="667.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d3250" height="63.0" stroke="BLACK" strokeType="INSIDE" width="664.0" />
+      <Button layoutX="434.0" layoutY="715.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="3.0" prefWidth="218.0" text="Cerrar">
          <font>
             <Font size="32.0" />
          </font>
@@ -46,7 +46,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="139.0" layoutY="14.0" prefHeight="27.0" prefWidth="385.0" text="Detalles de la Audiencia" textFill="#fab17a">
+      <Label layoutX="164.0" layoutY="6.0" prefHeight="50.0" prefWidth="356.0" text="Detalles de la Audiencia" textFill="#fab17a">
          <font>
             <Font size="33.0" />
          </font>

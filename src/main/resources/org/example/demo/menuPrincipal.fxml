@@ -11,7 +11,7 @@
     <children>
       <AnchorPane fx:id="ancBlue" layoutY="-3.0" prefHeight="646.0" prefWidth="1122.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <Label fx:id="titulo" layoutX="74.0" layoutY="14.0" prefHeight="94.0" prefWidth="166.0" text="Menú">
+              <Label fx:id="titulo" layoutX="75.0" prefHeight="51.0" prefWidth="166.0" style="-fx-font-size: 60px;" text="Menú">
                   <font>
                       <Font size="64.0" />
                   </font>
@@ -32,7 +32,7 @@
       </AnchorPane>
         <AnchorPane fx:id="ancWhite" layoutX="309.0" prefHeight="728.0" prefWidth="814.0">
             <children>
-                <TableView fx:id="Taudiencias" layoutX="2.0" layoutY="46.0" prefHeight="679.0" prefWidth="810.0">
+                <TableView fx:id="Taudiencias" layoutY="103.0" prefHeight="586.0" prefWidth="810.0">
                     <columns>
                         <TableColumn fx:id="columUbi" prefWidth="137.0" text="ubicacion de audiencia" />
                         <TableColumn fx:id="columFecha" prefWidth="113.0" text="fecha" />
@@ -41,9 +41,9 @@
                   <TableColumn fx:id="Cid" prefWidth="75.0" text="id" visible="false" />
                     </columns>
                 </TableView>
-                <Label layoutX="268.0" layoutY="14.0" text="Notificaciones de audiencias">
+                <Label layoutX="180.0" layoutY="24.0" text="Notificaciones de audiencias">
                     <font>
-                        <Font size="22.0" />
+                        <Font name="System Bold Italic" size="40.0" />
                     </font>
                 </Label>
             </children>

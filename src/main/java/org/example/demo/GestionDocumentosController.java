@@ -52,7 +52,6 @@ public class GestionDocumentosController {
   private Button eliminarButton;
   @FXML
   private  TableColumn<Document, String> tituloColumn;
-  private final Timeline searchTimeline = new Timeline();
   @FXML
   private void initialize() {
     // Configurar la columna de Título

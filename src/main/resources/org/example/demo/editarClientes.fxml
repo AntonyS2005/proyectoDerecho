@@ -10,73 +10,63 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="1467.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="1467.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EditarController">
    <children>
-      <AnchorPane fx:id="ancBlue" prefHeight="554.0" prefWidth="550.0">
+      <AnchorPane fx:id="ancBlue" prefHeight="535.0" prefWidth="550.0">
          <children>
-            <TextField id="TFnombres" fx:id="TFlastName" layoutX="28.0" layoutY="251.0" prefHeight="47.0" prefWidth="503.0">
+            <TextField id="TFnombres" fx:id="TFlastName" layoutX="26.0" layoutY="232.0" prefHeight="47.0" prefWidth="503.0">
                <font>
                   <Font name="Book Antiqua Italic" size="13.0" />
                </font>
             </TextField>
-            <Label layoutX="236.0" layoutY="219.0" text="Apellidos">
+            <Label layoutX="230.0" layoutY="200.0" text="Apellidos">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField id="TFapellido" fx:id="TFname" layoutX="22.0" layoutY="164.0" prefHeight="47.0" prefWidth="503.0">
+            <TextField id="TFapellido" fx:id="TFname" layoutX="23.0" layoutY="143.0" prefHeight="47.0" prefWidth="503.0">
                <font>
                   <Font name="Book Antiqua Italic" size="13.0" />
                </font>
             </TextField>
-            <Label layoutX="227.0" layoutY="125.0" text="Nombres">
+            <Label layoutX="227.0" layoutY="100.0" text="Nombres">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="176.0" layoutY="14.0" prefHeight="39.0" prefWidth="198.0" text="Buscar por DPI">
-               <font>
-                  <Font name="Book Antiqua Bold Italic" size="28.0" />
-               </font>
-            </Label>
-            <DatePicker id="TFfecha" fx:id="DPfecNac" layoutX="95.0" layoutY="472.0" prefHeight="42.0" prefWidth="380.0" />
-            <Label layoutX="181.0" layoutY="430.0" text="Fecha de Nacimiento">
+            <DatePicker id="TFfecha" fx:id="DPfecNac" layoutX="95.0" layoutY="428.0" prefHeight="42.0" prefWidth="380.0" />
+            <Label layoutX="177.0" layoutY="388.0" text="Fecha de Nacimiento">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="375.0" layoutY="331.0" text="Número">
+            <Label layoutX="367.0" layoutY="285.0" text="Número">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField id="TFnumero" fx:id="TFnumber" layoutX="290.0" layoutY="363.0" prefHeight="53.0" prefWidth="254.0" />
-            <Label layoutX="91.0" layoutY="331.0" text="Estado Civil">
+            <TextField id="TFnumero" fx:id="TFnumber" layoutX="291.0" layoutY="317.0" onKeyReleased="#numero" prefHeight="47.0" prefWidth="238.0" />
+            <Label layoutX="92.0" layoutY="285.0" text="Estado Civil">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="14.0" />
                </font>
             </Label>
-            <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="24.0" layoutY="363.0" prefHeight="32.0" prefWidth="254.0" />
-            <TextField fx:id="TFdpi" layoutX="23.0" layoutY="60.0" onKeyReleased="#buscarPorDPI" prefHeight="47.0" prefWidth="503.0" promptText="Buscar por DPI">
-               <font>
-                  <Font name="Book Antiqua Italic" size="24.0" />
-               </font>
-            </TextField>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="550.0" prefHeight="630.0" prefWidth="911.0">
-         <children>
-            <Button id="Bregestrar" layoutX="14.0" layoutY="482.0" mnemonicParsing="false" onAction="#editarCliente" prefHeight="58.0" prefWidth="140.0" text="Editar">
-               <font>
-                  <Font name="Book Antiqua Bold Italic" size="23.0" />
-               </font>
-            </Button>
-            <Label layoutX="356.0" layoutY="14.0" prefHeight="39.0" prefWidth="198.0" text="Editar clientes">
+            <ChoiceBox id="TestadoCivil" fx:id="CBestadoCivil" layoutX="25.0" layoutY="317.0" prefHeight="32.0" prefWidth="254.0" />
+            <Label layoutX="139.0" layoutY="14.0" prefHeight="66.0" prefWidth="304.0" style="-fx-font-size: 45px;" text="Editar clientes">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="30.0" />
                </font>
             </Label>
-            <TableView fx:id="Tclientes" layoutX="9.0" layoutY="60.0" onContextMenuRequested="#getSelecDataClientes" onMouseClicked="#getSelecDataClientes" onMouseDragged="#getSelecDataClientes" onMouseEntered="#getSelecDataClientes" onMouseExited="#getSelecDataClientes" prefHeight="400.0" prefWidth="893.0" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0">
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="550.0" prefHeight="554.0" prefWidth="911.0">
+         <children>
+            <Button id="Bregestrar" layoutX="14.0" layoutY="466.0" mnemonicParsing="false" onAction="#editarCliente" prefHeight="58.0" prefWidth="140.0" text="Editar">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="23.0" />
+               </font>
+            </Button>
+            <TableView fx:id="Tclientes" layoutX="9.0" layoutY="90.0" onContextMenuRequested="#getSelecDataClientes" onMouseClicked="#getSelecDataClientes" onMouseDragged="#getSelecDataClientes" onMouseEntered="#getSelecDataClientes" onMouseExited="#getSelecDataClientes" prefHeight="358.0" prefWidth="892.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0">
                <columns>
                   <TableColumn fx:id="Cname" prefWidth="195.19997787475586" text="Nombres" />
                   <TableColumn fx:id="ClastName" minWidth="0.0" prefWidth="187.2000274658203" text="Apellido" />
@@ -86,16 +76,26 @@
                   <TableColumn fx:id="CidClienet" prefWidth="36.0" text="Column X" />
                </columns>
             </TableView>
-            <Button layoutX="757.0" layoutY="482.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="58.0" prefWidth="140.0" text="Menú">
+            <Button layoutX="743.0" layoutY="466.0" mnemonicParsing="false" onAction="#openMainMenu" prefHeight="58.0" prefWidth="140.0" text="Menú">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="23.0" />
                </font>
             </Button>
-            <Button id="Bregestrar" layoutX="174.0" layoutY="482.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="58.0" prefWidth="140.0" text="Eliminar">
+            <Button id="Bregestrar" layoutX="163.0" layoutY="466.0" mnemonicParsing="false" onAction="#eliminarCliente" prefHeight="58.0" prefWidth="140.0" text="Eliminar">
                <font>
                   <Font name="Book Antiqua Bold Italic" size="23.0" />
                </font>
             </Button>
+            <TextField fx:id="TFdpi" layoutX="294.0" layoutY="14.0" onKeyReleased="#buscarPorDPI" prefHeight="47.0" prefWidth="503.0" promptText="Buscar por DPI">
+               <font>
+                  <Font name="Book Antiqua Italic" size="24.0" />
+               </font>
+            </TextField>
+            <Label layoutX="84.0" layoutY="21.0" prefHeight="39.0" prefWidth="198.0" text="Buscar por DPI">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="28.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

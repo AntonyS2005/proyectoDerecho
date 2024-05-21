@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="516.0" prefWidth="619.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.GestionDocumentosController">
     <children>
-        <TableView fx:id="documentosTableView" layoutX="15.0" layoutY="107.0" prefHeight="330.0" prefWidth="592.0">
+        <TableView fx:id="documentosTableView" layoutX="13.0" layoutY="93.0" prefHeight="330.0" prefWidth="592.0">
          <columns>
             <TableColumn fx:id="tituloColumn" prefWidth="591.199987411499" text="nombre de la plantilla" />
          </columns></TableView>
@@ -20,11 +20,6 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Label layoutX="190.0" layoutY="14.0" text="Plantillas">
-         <font>
-            <Font name="System Bold Italic" size="53.0" />
-         </font>
-      </Label>
       <Button fx:id="descargarButton" layoutX="256.0" layoutY="450.0" onAction="#descargarArchivo" prefHeight="46.0" prefWidth="106.0" text="Usar">
          <font>
             <Font size="22.0" />
@@ -40,5 +35,14 @@
             <Font size="22.0" />
          </font>
       </Button>
+      <AnchorPane id="ancBlue" prefHeight="70.0" prefWidth="619.0">
+         <children>
+            <Label layoutX="203.0" style="-fx-font-size: 50px;" text="Plantillas">
+               <font>
+                  <Font name="System Bold Italic" size="53.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

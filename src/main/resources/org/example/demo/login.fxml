@@ -9,30 +9,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="896.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="797.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
     <children>
-        <Button layoutX="500.0" layoutY="394.0" mnemonicParsing="false" onAction="#iniciarSecion" prefHeight="58.0" prefWidth="352.0" style="-fx-font-size: 45px;" text="Iniciar sesión">
+        <Button layoutX="531.0" layoutY="294.0" mnemonicParsing="false" onAction="#iniciarSecion" prefHeight="58.0" prefWidth="198.0" style="-fx-font-size: 25;" text="Iniciar sesión">
             <font>
                 <Font name="Book Antiqua Bold Italic" size="25.0" />
             </font>
         </Button>
-      <AnchorPane id="ancBlue" layoutX="-10.0" layoutY="-8.0" prefHeight="538.0" prefWidth="466.0">
+      <AnchorPane id="ancBlue" prefHeight="374.0" prefWidth="427.0">
          <children>
-              <TextField fx:id="TFuser" layoutX="26.0" layoutY="149.0" prefHeight="58.0" prefWidth="414.0" style="-fx-font-size: 30px;" />
-              <Label layoutX="138.0" layoutY="61.0" prefHeight="32.0" prefWidth="190.0" style="-fx-font-size: 50px;" text="Usuario">
+              <TextField fx:id="TFuser" layoutX="16.0" layoutY="115.0" prefHeight="51.0" prefWidth="394.0" style="-fx-font-size: 20px;" />
+              <Label layoutX="118.0" layoutY="41.0" prefHeight="32.0" prefWidth="190.0" style="-fx-font-size: 50px;" text="Usuario">
                   <font>
                       <Font name="Book Antiqua Bold Italic" size="68.0" />
                   </font>
               </Label>
-              <Label layoutX="101.0" layoutY="232.0" style="-fx-font-size: 50px;" text="Contraseña">
+              <Label layoutX="81.0" layoutY="183.0" style="-fx-font-size: 50px;" text="Contraseña">
                   <font>
                       <Font name="Book Antiqua Bold Italic" size="20.0" />
                   </font>
               </Label>
-              <PasswordField fx:id="TFpasword" layoutX="20.0" layoutY="327.0" prefHeight="74.0" prefWidth="414.0" style="-fx-font-size: 30px;" />
+              <PasswordField fx:id="TFpasword" layoutX="16.0" layoutY="257.0" prefHeight="31.0" prefWidth="394.0" style="-fx-font-size: 20px;" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="367.0" fitWidth="335.0" layoutX="509.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="274.0" fitWidth="249.0" layoutX="506.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/icono.png" />
          </image>

@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.skin.TableViewSkinBase;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
@@ -139,6 +141,54 @@ public class EditarController implements Initializable {
   int idCliente;
   String idAu;
 
+  private boolean showConfirmationDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Alerta.fxml"));
+      Parent root = loader.load();
+      AlertaController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setInLabels();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+
+      return controller.getAceptar();
+    } catch (IOException e) {
+      return false;
+    }
+  }
+  private void showSuccesDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirmacion.fxml"));
+      Parent root = loader.load();
+      ConfirmacionController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
+  private void showErrorDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("error.fxml"));
+      Parent root = loader.load();
+      ErrorControlQ controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -219,7 +269,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el nuevo costo es negativo
         if (nuevoCosto < 0) {
-          JOptionPane.showMessageDialog(null, "El costo nuevo no puede ser negativo.");
+          showErrorDialog("El costo nuevo no puede ser negativo.");
           TFcostoNew.setText("");
           return false;
         }
@@ -229,7 +279,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el saldo pendiente es negativo
         if (nuevoSaldoPendiente < 0) {
-          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          showErrorDialog("El saldo pendiente no puede ser negativo.");
           TFcostoNew.setText("");
           TFadelanto.setText("");
           return false;
@@ -242,7 +292,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el adelanto es mayor o igual al saldo pendiente
         if (adelanto < 0 || adelanto > nuevoSaldoPendiente) {
-          JOptionPane.showMessageDialog(null, "El adelanto no puede ser negativo o mayor que el saldo pendiente.");
+          showErrorDialog("El adelanto no puede ser negativo o mayor que el saldo pendiente.");
           TFadelanto.setText("");
           return false;
         }
@@ -252,7 +302,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el nuevo saldo pendiente con adelanto es negativo
         if (nuevoSaldoPendienteConAdelanto < 0) {
-          JOptionPane.showMessageDialog(null, "El saldo pendiente con adelanto no puede ser negativo.");
+          showErrorDialog("El saldo pendiente con adelanto no puede ser negativo.");
           TFadelanto.setText("");
           return false;
         }
@@ -270,7 +320,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el nuevo costo es negativo
         if (nuevoCosto < 0) {
-          JOptionPane.showMessageDialog(null, "El costo nuevo no puede ser negativo.");
+          showErrorDialog("El costo nuevo no puede ser negativo.");
           TFcostoNew.setText("");
           return false;
         }
@@ -280,7 +330,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el saldo pendiente es negativo
         if (nuevoSaldoPendiente < 0) {
-          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          showErrorDialog("El saldo pendiente no puede ser negativo.");
           TFcostoNew.setText("");
           return false;
         }
@@ -297,14 +347,14 @@ public class EditarController implements Initializable {
 
         // Verificar si el adelanto es negativo
         if (adelanto < 0) {
-          JOptionPane.showMessageDialog(null, "El adelanto no puede ser negativo.");
+          showErrorDialog("El adelanto no puede ser negativo.");
           TFadelanto.setText("");
           return false;
         }
 
         // Verificar si el adelanto es mayor o igual al saldo pendiente
         if (adelanto > saldoPendiente) {
-          JOptionPane.showMessageDialog(null, "El adelanto no puede ser mayor que el saldo pendiente.");
+          showErrorDialog("El adelanto no puede ser mayor que el saldo pendiente.");
           TFadelanto.setText("");
           return false;
         }
@@ -314,7 +364,7 @@ public class EditarController implements Initializable {
 
         // Verificar si el nuevo saldo pendiente es negativo
         if (nuevoSaldoPendiente < 0) {
-          JOptionPane.showMessageDialog(null, "El saldo pendiente no puede ser negativo.");
+          showErrorDialog("El saldo pendiente no puede ser negativo.");
           TFadelanto.setText("");
           return false;
         }
@@ -328,15 +378,16 @@ public class EditarController implements Initializable {
     } catch (NumberFormatException e) {
       // Si se ingresan caracteres no numéricos, mostrar mensaje de error y resetear
       // los campos
-      JOptionPane.showMessageDialog(null, "Por favor, ingresa solo valores numéricos.");
+      showErrorDialog("Por favor, ingresa solo valores numéricos.");
       TFcostoNew.setText("");
       TFadelanto.setText("");
       return false;
     }
   }
 
-  public void editarCaso() {
-    if (calcularSaldoPendiente()) {
+  public void editarCaso() throws IOException {
+
+    if (calcularSaldoPendiente() && showConfirmationDialog("se editara el registro seleccionado")) {
       try {
         Conexion conexion = new Conexion();
         String consulta = "UPDATE `registro_de_casos` SET `tipo`=?, `costo`=?, `detalles`=?, `saldo_pendiente`=?, `estado_del_proceso`=? WHERE `id_caso`=?";
@@ -348,7 +399,7 @@ public class EditarController implements Initializable {
         update.setString(5, CBestadoProceso.getValue().toString());
         update.setString(6, idCaso);
         update.execute();
-        JOptionPane.showMessageDialog(null, "Se editaron los datos correctamente");
+        showSuccesDialog("Se edito correctamente el registro");
         busPorDPIcasos();
         TFcosto.setText("");
         TAdetalles.setText("");
@@ -357,21 +408,23 @@ public class EditarController implements Initializable {
         TFdpi.setText("");
         TFcostoNew.setText("");
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null,
-            "error al editar los casos por favor verificar que los campos esten correctos ");
+        showErrorDialog("error al editar los casos por favor verificar que los campos esten correctos ");
       }
     } else
       return;
   }
 
   public void eliminarCaso() {
+    if(!showConfirmationDialog("desea eleminar este registro")){
+      return;
+    }
     try {
       Conexion conexion = new Conexion();
       String consulta = "DELETE FROM `registro_de_casos` WHERE `id_caso`=?";
       CallableStatement delete = conexion.establecerConexion().prepareCall(consulta);
       delete.setString(1, idCaso); // idCaso es la variable que contiene el ID del caso a eliminar
       delete.execute();
-      JOptionPane.showMessageDialog(null, "Se eliminó el registro correctamente");
+      showSuccesDialog("Se eliminó el registro correctamente");
       // Limpiar los campos si es necesario
       busPorDPIcasos();
       TFtipo.setText("");
@@ -383,8 +436,7 @@ public class EditarController implements Initializable {
       TFadelanto.setText("");
       TFcostoNew.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null,
-          "Error al eliminar el registro. Por favor, verifique que los campos estén correctos. ");
+      showErrorDialog("Error al eliminar el registro. ");
     }
   }
 
@@ -417,7 +469,6 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al conectar");
     }
   }
 
@@ -468,6 +519,9 @@ public class EditarController implements Initializable {
   }
 
   public void editarUsuario() {
+    if(!showConfirmationDialog("desea editar el usuario")){
+      return;
+    }
     try {
       Conexion conexion = new Conexion();
       String consulta = "UPDATE usuarios SET usuario=?, contrasena=? WHERE id_user=?";
@@ -476,34 +530,53 @@ public class EditarController implements Initializable {
       update.setString(2, TFpasword.getText());
       update.setInt(3, Integer.parseInt(CidUser.getCellData(Tusers.getSelectionModel().getSelectedItem())));
       update.execute();
-      JOptionPane.showMessageDialog(null, "Se editó el usuario correctamente");
+      showSuccesDialog("Se editó el usuario correctamente");
       tablaUsuarios();
       TFuser.setText("");
       TFpasword.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null,
-          "Error al editar el usuario. Por favor, verifique que los campos estén correctos. ");
+      showErrorDialog("Error al editar el usuario. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
   public void eliminarUsuario() {
+    if(!showConfirmationDialog("desea eliminar el usuario selecionado")){
+      return;
+    }
     try {
       Conexion conexion = new Conexion();
       String consulta = "DELETE FROM usuarios WHERE id_user=?";
       CallableStatement delete = conexion.establecerConexion().prepareCall(consulta);
       delete.setInt(1, Integer.parseInt(CidUser.getCellData(Tusers.getSelectionModel().getSelectedItem())));
       delete.execute();
-      JOptionPane.showMessageDialog(null, "Se eliminó el usuario correctamente");
+      showSuccesDialog("Se eliminó el usuario correctamente");
       tablaUsuarios();
       TFuser.setText("");
       TFpasword.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null,
-          "Error al eliminar el usuario. Por favor, verifique que los campos estén correctos. ");
+      showErrorDialog("Error al eliminar el usuario.");
     }
   }
 
+  public void numero(){
+    try{
+      int num =Integer.parseInt(TFnumber.getText());
+      if(num>99999999){
+        showErrorDialog("el numero no puede acceder los 8 digitos");
+        TFnumber.setText("");
+      }
+    }catch (NumberFormatException e){
+      if(TFnumber.getText() ==""){
+        return;
+      }
+      showErrorDialog("solo se pueden ingresar numeros");
+      TFnumber.setText("");
+    }
+  }
   public void editarCliente() {
+    if(!showConfirmationDialog("desea editar el cliente seleccionado")){
+      return;
+    }
     try {
       Conexion conexion = new Conexion();
       String consulta = "UPDATE clientes SET nombre=?, apellidos=?, estado_civil=?, numero_de_telefono=?, fecha_de_nacimiento=? WHERE dpi=?";
@@ -515,21 +588,17 @@ public class EditarController implements Initializable {
       update.setString(5, DPfecNac.getValue().toString());
       update.setString(6, TFdpi.getText());
       update.execute();
-      JOptionPane.showMessageDialog(null, "Se editó el cliente correctamente");
+      showSuccesDialog("Se editó el cliente correctamente");
       tablaClientes();
       limpiarCamposCliente();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null,
-          "Error al editar el cliente. Por favor, verifique que los campos estén correctos. ");
+      showErrorDialog("Error al editar el cliente. Por favor, verifique que los campos estén correctos. ");
     }
   }
 
   public void eliminarCliente() {
-    int comp = JOptionPane.showConfirmDialog(null,
-        "Esto eliminara todos los registros relacionados al client desea continuar", "Advertencia",
-        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-    System.out.println(comp);
-    if (comp == 1) {
+
+    if (!showConfirmationDialog("desea eliminar este registro esto eliminara los \n registros relacionados al cliente              ")) {
       return;
     }
     String dpi = TFdpi.getText().trim();
@@ -554,18 +623,13 @@ public class EditarController implements Initializable {
         CallableStatement deleteStmtCliente = conexion.establecerConexion().prepareCall(deleteCliente);
         deleteStmtCliente.setString(1, dpi);
         deleteStmtCliente.execute();
-
-        JOptionPane.showMessageDialog(null,
-            "Se eliminaron todos los registros relacionados con el cliente correctamente");
+        showSuccesDialog("Se eliminaron todos los registros correctamente");
         tablaClientes();
         limpiarCamposCliente();
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null,
-            "Error al eliminar los registros relacionados con el cliente. Por favor, verifique que los campos estén correctos. "
-                );
+        showErrorDialog("Error al eliminar los registros relacionados con el cliente.");
       }
     } else {
-      JOptionPane.showMessageDialog(null, "Por favor, ingrese el DPI del cliente que desea eliminar.");
     }
   }
 
@@ -618,9 +682,7 @@ public class EditarController implements Initializable {
       }
       st.close();
       rs.close();
-    } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al conectar: ");
-    }
+    } catch (Exception e) {  }
   }
 
   public void tablaClientes() {
@@ -698,7 +760,7 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al editar");
+      showErrorDialog("error al editar");
     }
   }
 
@@ -788,6 +850,9 @@ public class EditarController implements Initializable {
   }
 
   public void eliminarAudiencia() {
+    if(!showConfirmationDialog("desea eleminar la audiencia seleccionada")){
+      return;
+    }
     if (idAu != null && !idAu.isEmpty()) {
       try {
         Conexion conexion = new Conexion();
@@ -797,7 +862,7 @@ public class EditarController implements Initializable {
         int filasEliminadas = pstmt.executeUpdate();
         if (filasEliminadas > 0) {
           // Eliminación exitosa
-          JOptionPane.showMessageDialog(null, "La audiencia ha sido eliminada exitosamente.");
+          showSuccesDialog("La audiencia ha sido eliminada exitosamente.");
           // Actualizar la tabla después de la eliminación
           TEAudiencias.getItems().clear();
           editarAudiencia();
@@ -805,14 +870,14 @@ public class EditarController implements Initializable {
           limpiarCampos();
         } else {
           // No se encontró ninguna fila para eliminar
-          JOptionPane.showMessageDialog(null, "No se encontró ninguna audiencia para eliminar.");
+          showErrorDialog("No se encontró ninguna audiencia para eliminar.");
         }
         pstmt.close();
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al eliminar la audiencia: " );
+        showErrorDialog("Error al eliminar la audiencia");
       }
     } else {
-      JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para eliminar.");
+      showErrorDialog("No hay ninguna audiencia seleccionada para eliminar.");
     }
   }
 
@@ -857,12 +922,14 @@ public class EditarController implements Initializable {
       st.close();
       rs.close();
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, e);
     }
     return nombreCliente;
   }
 
   public void editarDatosAudiencia() {
+    if(!showConfirmationDialog("se editara el registro seleccionado")){
+      return;
+    }
     if (idAu != null && !idAu.isEmpty()) {
       try {
         Conexion conexion = new Conexion();
@@ -876,22 +943,21 @@ public class EditarController implements Initializable {
         int filasActualizadas = pstmt.executeUpdate();
         if (filasActualizadas > 0) {
           // Actualización exitosa
-          JOptionPane.showMessageDialog(null, "Los datos de la audiencia han sido actualizados exitosamente.");
+          showSuccesDialog("Los datos de la audiencia han sido actualizados exitosamente.");
           // Limpiar los campos después de la edición
           limpiarCampos();
           // Actualizar la tabla después de la edición
           TEAudiencias.getItems().clear();
           editarAudiencia();
         } else {
-          // No se encontró ninguna fila para actualizar
-          JOptionPane.showMessageDialog(null, "No se encontró ninguna audiencia para actualizar.");
+          showErrorDialog("No se encontró ninguna audiencia para actualizar.");
         }
         pstmt.close();
       } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Error al actualizar los datos de la audiencia: " + e.getMessage());
+        showErrorDialog("Error al actualizar los datos de la audiencia");
       }
     } else {
-      JOptionPane.showMessageDialog(null, "No hay ninguna audiencia seleccionada para editar.");
+      showErrorDialog("No hay ninguJna audiencia seleccionada para editar.");
     }
   }
 

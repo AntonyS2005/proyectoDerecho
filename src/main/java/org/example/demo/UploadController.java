@@ -3,11 +3,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -24,6 +26,22 @@ public class UploadController {
   private Label archivoLabel;
 
   private File archivoSeleccionado;
+
+  private void showSuccesDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirmacion.fxml"));
+      Parent root = loader.load();
+      ConfirmacionController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
 
   @FXML
   private void seleccionarArchivo() {
@@ -56,6 +74,7 @@ public class UploadController {
           statement.setBinaryStream(2, inputStream, archivoSeleccionado.length());
           statement.executeUpdate();
           archivoLabel.setText("Archivo subido correctamente.");
+          showSuccesDialog("se subio el archivo correctamente");
         }
       } catch (SQLException e) {
         e.printStackTrace();

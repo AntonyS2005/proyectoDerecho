@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="204.0" prefWidth="508.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.Alerta">
+<AnchorPane prefHeight="204.0" prefWidth="508.0" stylesheets="@Aspecto.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.AlertaController">
    <children>
       <AnchorPane id="ancBlue" prefHeight="53.0" prefWidth="508.0">
          <children>
@@ -24,8 +23,8 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label layoutX="16.0" layoutY="69.0" prefHeight="59.0" prefWidth="476.0" style="-fx-alignment: center; -fx-font-size: 13px;" text="Label" textAlignment="RIGHT" />
-      <Button layoutX="265.0" layoutY="136.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" text="Cancelar" />
-      <Button layoutX="146.0" layoutY="136.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="108.0" text="Aceptar" />
+      <Label fx:id="mensaje" layoutX="16.0" layoutY="69.0" prefHeight="59.0" prefWidth="476.0" style="-fx-alignment: center; -fx-font-size: 20px;" text="Label" textAlignment="RIGHT" />
+      <Button layoutX="265.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnCancelar" prefHeight="32.0" prefWidth="108.0" text="Cancelar" />
+      <Button layoutX="146.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnAceptar" prefHeight="43.0" prefWidth="108.0" text="Aceptar" />
    </children>
 </AnchorPane>

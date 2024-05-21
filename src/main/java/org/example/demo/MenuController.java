@@ -42,7 +42,54 @@ public class MenuController implements Initializable{
 
   private ObservableList<Audiencias> items= FXCollections.observableArrayList();
 
+  private boolean showConfirmationDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Alerta.fxml"));
+      Parent root = loader.load();
+      AlertaController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setInLabels();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
 
+      return controller.getAceptar();
+    } catch (IOException e) {
+      return false;
+    }
+  }
+  private void showSuccesDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirmacion.fxml"));
+      Parent root = loader.load();
+      ConfirmacionController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
+  private void showErrorDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("error.fxml"));
+      Parent root = loader.load();
+      ErrorControlQ controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
   public void iniciarSecion(ActionEvent event) {
     String user = TFuser.getText();
     String password = TFpasword.getText();
@@ -61,16 +108,14 @@ public class MenuController implements Initializable{
           st.close();
           openFXML("menuPrincipal","menu",event,"Aspecto");
         } else {
-          JOptionPane.showMessageDialog(null, "la contraseña es incorrecta");
+            showErrorDialog("la contraseña es incorrecta");
         }
       } else {
-        JOptionPane.showMessageDialog(null, "El usuario es incorrecto");
-        TFuser.setText("");
-        TFpasword.setText("");
+        showErrorDialog("El usuario es incorrecto");
       }
 
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al conectar ");
+      
     }
 
   }
@@ -117,7 +162,7 @@ public class MenuController implements Initializable{
   public void exportToExcel(){
     ExportToExcel exportToExcel= new ExportToExcel();
     exportToExcel.exportToExcel();
-    JOptionPane.showMessageDialog(null,"se ha guardado corectamente en la carpeta del programa");
+    showSuccesDialog("se ha guardado corectamente en la carpeta del programa");
   }
   public  void openSubFile(ActionEvent event) throws IOException {
     openFXML("upload","subir plantillas",event,"Aspecto");
@@ -172,9 +217,7 @@ public class MenuController implements Initializable{
         this.Taudiencias.setItems(items);
       }
       st.close();
-      rs.close();}catch(Exception e) {
-      JOptionPane.showMessageDialog(null, e);
-    }
+      rs.close();}catch(Exception e) {}
   }
 
 

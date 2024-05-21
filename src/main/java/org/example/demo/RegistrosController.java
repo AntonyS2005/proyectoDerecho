@@ -5,8 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -69,7 +71,54 @@ public class RegistrosController implements Initializable {
 
   private String[] estadoCivilArray = {"Casad@", "Solter@"};
   private String[] estadoProceso = {"pendiente", "finalizado"};
+  private boolean showConfirmationDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Alerta.fxml"));
+      Parent root = loader.load();
+      AlertaController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setInLabels();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
 
+      return controller.getAceptar();
+    } catch (IOException e) {
+      return false;
+    }
+  }
+  private void showSuccesDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirmacion.fxml"));
+      Parent root = loader.load();
+      ConfirmacionController controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
+  private void showErrorDialog(String mensaje) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("error.fxml"));
+      Parent root = loader.load();
+      ErrorControlQ controller = loader.getController();
+      controller.setMensaje(mensaje);
+      controller.setLabelMensaje();
+      Stage stage = new Stage();
+      stage.initModality(Modality.APPLICATION_MODAL);
+      stage.setOnCloseRequest(e -> e.consume());
+      stage.setScene(new Scene(root));
+      stage.showAndWait(); // Espera hasta que se cierre la ventana
+    } catch (IOException e) {
+    }
+  }
   public void openMainMenu(ActionEvent event) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menuPrincipal.fxml"));
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -90,11 +139,11 @@ public class RegistrosController implements Initializable {
       insert.setString(1, TFuser.getText());
       insert.setString(2, TFpassword.getText());
       insert.execute();
-      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+      showSuccesDialog("Se guardaron los datos correctamente");
       TFpassword.setText("");
       TFuser.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al registrar usuario");
+      showErrorDialog("error al registrar usuario");
     }
   }
 
@@ -111,7 +160,7 @@ public class RegistrosController implements Initializable {
       insert.setString(5, TFnumber.getText());
       insert.setString(6, DPcalendar.getValue().toString());
       insert.execute();
-      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+      showSuccesDialog("Se guardaron los datos correctamente");
       TFdpi.setText("");
       TFname.setText("");
       TFlastName.setText("");
@@ -119,7 +168,7 @@ public class RegistrosController implements Initializable {
       TFnumber.setText("");
       DPcalendar.setValue(null);
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al registrar usuario por favor verificar que los campos esten correctos");
+      showErrorDialog("error al registrar usuario");
     }
   }
 
@@ -162,7 +211,7 @@ public class RegistrosController implements Initializable {
         if (saldoPendiente >= 0) {
           LsaldoPendiente.setText(String.valueOf(saldoPendiente));
         } else {
-          JOptionPane.showMessageDialog(null, "el adelato es mayor al costo");
+          showErrorDialog("el adelato es mayor al costo");
           TFadelanto.setText("");
         }
       }
@@ -183,7 +232,7 @@ public class RegistrosController implements Initializable {
       insert.setString(5, CBestadoProceso.getValue().toString());
       insert.setString(6, TFdpi.getText());
       insert.execute();
-      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+      showSuccesDialog("Se guardaron los datos correctamente");
       TFtipo.setText("");
       TFcosto.setText("");
       TAdetalles.setText("");
@@ -192,7 +241,7 @@ public class RegistrosController implements Initializable {
       TFdpi.setText("");
       TFadelanto.setText("");
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "error al registrar usuario por favor verificar que los campos esten correctos " + e);
+      showErrorDialog("error al registrar usuario");
     }
   }
 
@@ -214,7 +263,7 @@ public class RegistrosController implements Initializable {
       // Ejecuta la consulta para guardar los datos en la base de datos
       insert.executeUpdate();
 
-      JOptionPane.showMessageDialog(null, "Se guardaron los datos correctamente");
+      showSuccesDialog("Se guardaron los datos correctamente");
 
       // Limpia los campos después de guardar los datos
       AAdpi.setText("");
@@ -223,7 +272,7 @@ public class RegistrosController implements Initializable {
       AAdetalles.setText("");
       DPAudiencia.setValue(null);
     } catch (Exception e) {
-      JOptionPane.showMessageDialog(null, "Error al agregar audiencia. Por favor verificar que los campos estén correctos. " + e);
+      showErrorDialog("Error al agregar audiencia.");
     } finally {
       // Cierra la conexión a la base de datos en cualquier caso
       if (conexion != null) {
@@ -253,6 +302,23 @@ public class RegistrosController implements Initializable {
     } catch (Exception e) {
     }
 
+  }
+
+  public void numero(){
+    try{
+    int num =Integer.parseInt(TFnumber.getText());
+    if(num>99999999){
+      showErrorDialog("el numero no puede acceder los 8 digitos");
+      TFnumber.setText("");
+      }
+    }catch (NumberFormatException e){
+      if(TFnumber.getText() ==""){
+        return;
+      }
+      showErrorDialog("solo se pueden ingresar numeros");
+      TFnumber.setText("");
+
+    }
   }
 
   @Override
