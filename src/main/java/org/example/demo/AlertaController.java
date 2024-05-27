@@ -7,11 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -25,14 +22,14 @@ public class AlertaController  {
     infomacion=mensaje;
   }
   public void btnAceptar(ActionEvent event){
-    aceptar=true;
+    aceptar= (Boolean) true;
     // Obtiene el Stage desde el evento actual
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     // Cierra el Stage
     stage.close();
   }
   public void btnCancelar(ActionEvent event){
-    aceptar=false;
+    aceptar= (Boolean) false;
     // Obtiene el Stage desde el evento actual
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     // Cierra el Stage
