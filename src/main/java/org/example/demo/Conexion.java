@@ -17,7 +17,7 @@ public class Conexion
   String user = "root";
   String password = "";
   String bd= "proyectoderecho";
-  String ip = "152.151.18.15";
+  String ip = "localhost";
   String puerto = "3306";
 
   String cadena =  "jdbc:mysql://"+ip+":"+puerto+"/"+bd;
