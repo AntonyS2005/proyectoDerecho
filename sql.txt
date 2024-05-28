@@ -1,0 +1,62 @@
+-- Creación de la base de datos `proyectoderecho`
+CREATE DATABASE IF NOT EXISTS `proyectoderecho` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `proyectoderecho`;
+
+-- Tabla `clientes`
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `dpi` int(11) NOT NULL,
+  `nombre` TEXT DEFAULT NULL,
+  `apellidos` TEXT DEFAULT NULL,
+  `estado_civil` TEXT DEFAULT NULL,
+  `numero_de_telefono` int(11) DEFAULT NULL,
+  `fecha_de_nacimiento` TEXT DEFAULT NULL,
+  PRIMARY KEY (`dpi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabla `audiencias`
+CREATE TABLE IF NOT EXISTS `audiencias` (
+  `id_audiencia` int(11) NOT NULL AUTO_INCREMENT,
+  `dpi` int(11) NOT NULL,
+  `ubicacion_de_la_audiencia` TEXT DEFAULT NULL,
+  `fecha_de_audiencia` date DEFAULT NULL,
+  `hora_de_la_audiencia` TEXT DEFAULT NULL,
+  `detalles` TEXT DEFAULT NULL,
+  PRIMARY KEY (`id_audiencia`),
+  KEY `dpi` (`dpi`),
+  CONSTRAINT `audiencias_ibfk_1` FOREIGN KEY (`dpi`) REFERENCES `clientes` (`dpi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabla `documentos`
+CREATE TABLE IF NOT EXISTS `documentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` TEXT DEFAULT NULL,
+  `archivo` longblob DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabla `registro_de_casos`
+CREATE TABLE IF NOT EXISTS `registro_de_casos` (
+  `id_caso` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(70) NOT NULL,
+  `costo` float NOT NULL,
+  `detalles` TEXT DEFAULT NULL,
+  `saldo_pendiente` float NOT NULL,
+  `estado_del_proceso` TEXT NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  PRIMARY KEY (`id_caso`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `registro_de_casos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`dpi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Tabla `usuarios`
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` TEXT DEFAULT NULL,
+  `contrasena` TEXT DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Datos para la tabla `usuarios`
+INSERT INTO `usuarios` (`id_user`, `usuario`, `contrasena`) VALUES
+(1, 'admin', '1234'),
+(4, 'user', '1234');
